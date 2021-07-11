@@ -1,0 +1,447 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@font-face {
+  font-family: Monadi;
+  src: url("/assets/fonts/Monadi.ttf");
+}
+@font-face {
+  font-family: ElMessiri;
+  src: url("/assets/fonts/ElMessiri-Regular-2.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  font-family: "ElMessiri";
+}
+
+body {
+  background-color: #F9F9F9;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.top-navbar .container .nav-items {
+  display: flex;
+  align-items: center;
+}
+.top-navbar .container .nav-items .main-item {
+  background-color: #06D3F4;
+}
+.top-navbar .container .nav-items .main-item .nav-link {
+  padding: 12px 30px;
+  color: #FFF !important;
+  display: block;
+  font-size: 20px;
+}
+.top-navbar .container .nav-items .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top-navbar .container .nav-items .nav-item .nav-link {
+  display: block;
+  padding: 12px 25px;
+  color: #383837;
+  font-size: 18px;
+}
+
+.main-navbar {
+  background-color: #4C31BC;
+}
+.main-navbar .container {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.main-navbar .container .nav-items {
+  margin: 0 20px;
+  display: flex;
+  flex-grow: 1;
+}
+.main-navbar .container .nav-items .nav-item {
+  padding: 5px 5px;
+}
+.main-navbar .container .nav-items .nav-item .nav-link {
+  color: #FFF;
+  display: block;
+  padding: 10px;
+}
+.main-navbar .container .nav-brand {
+  display: flex;
+  align-items: center;
+  color: #FFF;
+  font-size: 25px;
+  font-weight: 600;
+}
+.main-navbar .container .nav-brand .logo {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.main-navbar .container .nav-brand .logo img {
+  width: 40px;
+  height: 40px;
+}
+.main-navbar .container .nav-search {
+  background-color: #FFF;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.main-navbar .container .nav-search .search-form {
+  display: flex;
+  align-items: center;
+}
+.main-navbar .container .nav-search .search-form label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+}
+.main-navbar .container .nav-search .search-form label img {
+  width: 20px;
+}
+.main-navbar .container .nav-search .search-form input {
+  border: none;
+  font-size: 14px;
+  padding: 5px;
+  height: 30px;
+}
+.main-navbar .container .nav-search .search-form input:focus {
+  outline: none;
+}
+
+.section-page .page-header {
+  margin: 40px 0;
+}
+.section-page .page-header .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+.section-page .page-header .container .main-post {
+  display: flex;
+  flex-direction: column;
+}
+.section-page .page-header .container .main-post .post-img img {
+  width: 100%;
+}
+.section-page .page-header .container .main-post .post-title {
+  font-size: 25px;
+  font-weight: 600;
+}
+.section-page .page-header .container .main-post .post-title a {
+  color: #383837;
+}
+.section-page .page-header .container .main-post .post-excerpt {
+  font-size: 14px;
+}
+.section-page .page-header .container .sub-posts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+}
+.section-page .page-header .container .sub-posts .post {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  direction: ltr;
+  align-items: center;
+  grid-gap: 5px;
+}
+.section-page .page-header .container .sub-posts .post .post-img {
+  height: 100%;
+}
+.section-page .page-header .container .sub-posts .post .post-img img {
+  width: 100%;
+}
+.section-page .page-header .container .sub-posts .post .post-info .post-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.section-page .page-header .container .sub-posts .post .post-info .post-title a {
+  color: #383837;
+}
+.section-page .page-header .container .sub-posts .post .post-info .post-excerpt {
+  font-size: 12px;
+}
+
+.more-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 50px 0;
+}
+.more-bar .bar {
+  width: 100%;
+  height: 4px;
+  background-color: #4C31BC;
+}
+.more-bar .bar-text {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  padding: 0px 40px;
+  border: 4px solid #4C31BC;
+  border-radius: 100px;
+  color: #4C31BC;
+  font-size: 20px;
+}
+.more-bar .bar-text span {
+  margin-top: 10px;
+}
+
+.footer {
+  background-color: #4C31BC;
+  padding: 50px 0;
+  margin: 20px 0 0;
+}
+.footer .footer-cols {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  direction: ltr;
+}
+.footer .footer-cols .footer-col-title {
+  font-size: 25px;
+  color: #FFF;
+  margin-bottom: 10px;
+}
+.footer .footer-cols .footer-rows .footer-row {
+  color: #fff;
+  margin: 5px 0;
+}
+.footer .footer-cols .footer-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.footer .footer-cols .footer-brand .footer-col-social {
+  height: 50px;
+}
+.footer .footer-cols .footer-brand .footer-rights {
+  color: #FFF;
+}
+
+.login-form {
+  margin: 60px 80px;
+  background-color: #FFF;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  direction: ltr;
+  font-family: "ElMessiri";
+  box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
+  min-height: 500px;
+}
+.login-form .input-side {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px;
+}
+.login-form .input-side .form-title {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  font-size: 25px;
+  color: #4C31BC;
+  border-bottom: 2px solid #4C31BC;
+}
+.login-form .input-side .col {
+  display: flex;
+  grid-gap: 10px;
+  padding: 10px 60px;
+}
+.login-form .input-side .col .input-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.login-form .input-side .col .input-container input {
+  outline: none;
+  border: 1px solid #CCC;
+  padding: 4px 6px;
+}
+.login-form .input-side .col .input-container input:focus {
+  outline: none;
+}
+.login-form .input-side .col .control {
+  margin: 10px 0;
+}
+.login-form .input-side .col .control button {
+  padding: 8px 0;
+  background-color: #4C31BC;
+  border: 1px solid #4C31BC;
+  color: #FFF;
+}
+.login-form .input-side .col .control button:hover {
+  cursor: pointer;
+}
+.login-form .form-side {
+  background-image: url("/uploads/office.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.login-form .form-side wrapper {
+  background-color: rgba(10, 10, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.register-form {
+  margin: 60px 80px;
+  background-color: #FFF;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  direction: ltr;
+  font-family: "ElMessiri";
+  box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
+}
+.register-form .input-side {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px;
+}
+.register-form .input-side .form-title {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  font-size: 25px;
+  color: #4C31BC;
+  border-bottom: 2px solid #4C31BC;
+}
+.register-form .input-side .col {
+  display: flex;
+  flex-grow: 1;
+  grid-gap: 10px;
+  padding: 10px 60px;
+}
+.register-form .input-side .col .input-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.register-form .input-side .col .input-container input {
+  outline: none;
+  border: 1px solid #CCC;
+  padding: 4px 6px;
+}
+.register-form .input-side .col .input-container input:focus {
+  outline: none;
+}
+.register-form .input-side .col .control {
+  margin: 10px 0;
+}
+.register-form .input-side .col .control button {
+  padding: 8px 0;
+  background-color: #4C31BC;
+  border: 1px solid #4C31BC;
+  color: #FFF;
+}
+.register-form .input-side .col .control button:hover {
+  cursor: pointer;
+}
+.register-form .form-side {
+  background-image: url("/uploads/office.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.register-form .form-side .wrapper {
+  background-color: rgba(10, 10, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.forgot-form {
+  margin: 60px 80px;
+  background-color: #FFF;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  direction: ltr;
+  font-family: "ElMessiri";
+  box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
+  min-height: 500px;
+}
+.forgot-form .input-side {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px;
+}
+.forgot-form .input-side .form-title {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  font-size: 25px;
+  color: #4C31BC;
+  border-bottom: 2px solid #4C31BC;
+}
+.forgot-form .input-side .col {
+  display: flex;
+  grid-gap: 10px;
+  padding: 10px 60px;
+}
+.forgot-form .input-side .col .input-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.forgot-form .input-side .col .input-container input {
+  outline: none;
+  border: 1px solid #CCC;
+  padding: 4px 6px;
+}
+.forgot-form .input-side .col .input-container input:focus {
+  outline: none;
+}
+.forgot-form .input-side .col .control {
+  margin: 10px 0;
+}
+.forgot-form .input-side .col .control button {
+  padding: 8px 0;
+  background-color: #4C31BC;
+  border: 1px solid #4C31BC;
+  color: #FFF;
+}
+.forgot-form .input-side .col .control button:hover {
+  cursor: pointer;
+}
+.forgot-form .form-side {
+  background-image: url("/uploads/office.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.forgot-form .form-side .wrapper {
+  background-color: rgba(10, 10, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

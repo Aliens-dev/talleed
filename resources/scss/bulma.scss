@@ -1,0 +1,32 @@
+@import '~bulma/bulma.sass';
+
+$myBlue: #4C31BC;
+.notification {
+    & > .delete {
+        left:0.5rem;
+        right:auto;
+        top:auto;
+    }
+}
+
+.modal {
+    .modal-content {
+        box-shadow: 2px 2px 5px #CCC, -2px 0 .4em #DDD;
+        background-color:#FFF;
+        flex-direction:column;
+        .modal-image {
+            display:block;
+            margin:10px auto 20px;
+            text-align:center;
+            img {
+                filter: invert(13%) sepia(100%) saturate(4602%) hue-rotate(254deg) brightness(79%) contrast(84%);
+            }
+        }
+        .modal-message {
+            text-align:center;
+            color:$myBlue;
+            font-size:18px;
+            margin:10px 0 20px;
+        }
+    }
+}
