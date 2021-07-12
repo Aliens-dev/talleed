@@ -3,30 +3,30 @@
         <div class="nav-items">
             @auth
                 <div class="nav-item main-item">
-                    <div class="dropdown is-active">
+                    <div class="dropdown">
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>حسابي</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                <span>{{ auth()->user()->fname }}</span>
+                                <span class="icon is-medium">
+                                    <img src="/uploads/man.svg" alt="user" />
                                 </span>
                             </button>
                         </div>
                         <div class="dropdown-menu" id="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                                <a href="#" class="dropdown-item">
+                                <a href="{{ route('user.profile', ['user' => auth()->id()]) }}" class="dropdown-item">
                                     حسابي
                                 </a>
                                 <a class="dropdown-item">
                                     اضافة تدوينة
                                 </a>
                                 <hr class="dropdown-divider">
-                                <form method="POST" class="dropdown-item" action="{{ route('logout') }}" >
-                                    @csrf
-                                    <button class="nav-link">
-                                        خروج
-                                    </button>
-                                </form>
+                                <a href="" class="dropdown-item">
+                                    <form method="POST"  action="{{ route('logout') }}" >
+                                        @csrf
+                                        <button class="button">خروج</button>
+                                    </form>
+                                </a>
                             </div>
                         </div>
                     </div>

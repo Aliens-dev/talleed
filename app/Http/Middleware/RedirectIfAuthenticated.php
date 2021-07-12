@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect()->route("user.profile", ['userId' => auth()->id()]);
+                return redirect()->route("user.profile", ['user' => auth()->id()]);
             }
         }
 

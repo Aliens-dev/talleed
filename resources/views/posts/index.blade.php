@@ -5,9 +5,7 @@
         <div class="container">
             @if(count($posts))
                 @foreach($posts as $post)
-                    <div>
-                        {{ $post->title }}
-                    </div>
+                    <x-post-card :post="$post" />
                 @endforeach
             @else
                 <div class="alert alert-info">

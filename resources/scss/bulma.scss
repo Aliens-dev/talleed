@@ -1,6 +1,7 @@
 @import '~bulma/bulma.sass';
 
 $myBlue: #4C31BC;
+$myGrey: #383837;
 .notification {
     & > .delete {
         left:0.5rem;
@@ -29,4 +30,42 @@ $myBlue: #4C31BC;
             margin:10px 0 20px;
         }
     }
+}
+
+.my-card {
+    @extend .card;
+    box-shadow: none;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
+    .card-header {
+        box-shadow: none;
+        border-radius: 0;
+        .card-snippet {
+            margin:0 10px;
+            border-radius: 50%;
+            color:#FFF;
+            width:25px;
+            height:25px;
+            text-align: center;
+            vertical-align: middle;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+        }
+    }
+}
+.no-box-shadow {
+    box-shadow: none;
+}
+.is-20x20 {
+    width:20px;
+    height: 20px;
+}
+
+.is-20 {
+    font-size:20px;
+}
+
+.line-height-24 {
+    line-height: 24px;
 }

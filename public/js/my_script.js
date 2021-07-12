@@ -29,3 +29,25 @@ bulmaModal.forEach(modal => {
         }, 3000)
     }
 })
+
+/*
+ *    Bulma Dropdown 
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+    const bulmaDropdown = document.querySelectorAll('.dropdown')
+
+    bulmaDropdown.forEach(dropdown => {
+        dropdown.addEventListener('click', (ev) => {
+            ev.stopPropagation()
+            dropdown.classList.toggle('is-active')
+        })
+    })
+
+    document.addEventListener('click', function(ev) {
+        bulmaDropdown.forEach(function ($el) {
+            $el.classList.remove('is-active');
+        });
+    })
+
+})

@@ -37,12 +37,48 @@ a:hover {
 }
 .top-navbar .container .nav-items .main-item {
   background-color: #06D3F4;
+  min-width: 100px;
 }
 .top-navbar .container .nav-items .main-item .nav-link {
   padding: 12px 30px;
   color: #FFF !important;
   display: block;
   font-size: 20px;
+}
+.top-navbar .container .nav-items .main-item .dropdown {
+  background-color: #06D3F4;
+  width: 100%;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button {
+  background-color: #06D3F4;
+  border: none;
+  outline: none;
+  padding-right: 0;
+  padding-left: 0;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button:focus {
+  box-shadow: none;
+  outline: none !important;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-menu form .button {
+  font-size: inherit;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background: none;
+  color: #383837 !important;
+  outline: none;
+  border: none;
+  height: auto;
+  font-family: "ElMessiri";
 }
 .top-navbar .container .nav-items .nav-item {
   display: flex;
@@ -127,11 +163,13 @@ a:hover {
 .section-page .page-header .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
 }
 .section-page .page-header .container .main-post {
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 .section-page .page-header .container .main-post .post-img img {
   width: 100%;
@@ -153,6 +191,8 @@ a:hover {
   grid-gap: 20px;
 }
 .section-page .page-header .container .sub-posts .post {
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  padding: 20px;
   display: grid;
   grid-template-columns: 3fr 4fr;
   direction: ltr;
@@ -444,4 +484,23 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.user-profile {
+  margin: 50px 0;
+}
+.user-profile .container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-gap: 20px;
+  align-items: flex-start;
+}
+.user-profile .container .user-sidebar {
+  padding: 5px;
+  background-color: #FFF;
+  border-top-right-radius: 10px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+.user-profile .container .user-sidebar .user-options .image {
+  filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
 }

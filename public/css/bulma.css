@@ -3811,7 +3811,7 @@ a.tag:hover {
   content: "≻";
 }
 
-.card {
+.card, .my-card {
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
@@ -3904,7 +3904,7 @@ a.tag:hover {
   border-right: 1px solid #ededed;
 }
 
-.card .media:not(:last-child) {
+.card .media:not(:last-child), .my-card .media:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
@@ -10356,4 +10356,43 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: #4C31BC;
   font-size: 18px;
   margin: 10px 0 20px;
+}
+
+.my-card {
+  box-shadow: none;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+.my-card .card-header {
+  box-shadow: none;
+  border-radius: 0;
+}
+.my-card .card-header .card-snippet {
+  margin: 0 10px;
+  border-radius: 50%;
+  color: #FFF;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+}
+
+.no-box-shadow {
+  box-shadow: none;
+}
+
+.is-20x20 {
+  width: 20px;
+  height: 20px;
+}
+
+.is-20 {
+  font-size: 20px;
+}
+
+.line-height-24 {
+  line-height: 24px;
 }

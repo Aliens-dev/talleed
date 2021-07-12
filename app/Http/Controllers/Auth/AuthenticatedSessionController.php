@@ -65,7 +65,7 @@ class AuthenticatedSessionController extends Controller
         RateLimiter::clear($this->throttleKey($request));
 
         $request->session()->regenerate();
-        return redirect()->route("user.profile", ['userId' => auth()->id()]);
+        return redirect()->route("user.profile", ['user' => auth()->id()]);
     }
 
     /**

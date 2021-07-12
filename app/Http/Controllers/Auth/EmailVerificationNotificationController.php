@@ -24,7 +24,7 @@ class EmailVerificationNotificationController extends Controller
         $request->validate($rules);
         $user = User::where('email',$request->email)->first();
         if ($user->hasVerifiedEmail()) {
-            return redirect()->route("user.profile", ['userId' => auth()->id()]);
+            return redirect()->route("user.profile", ['user' => auth()->id()]);
         }
 
         $user->sendEmailVerificationNotification();
