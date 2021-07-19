@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Post;
+use Illuminate\Support\Str;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -41,9 +43,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return "{$this->fname} {$this->lname}";
     }
 
-    public function posts() 
+    public function posts()
     {
         return $this->hasMany(Post::class,"author_id");
+    }
+
+    public function rollKeys()
+    {
+        $this->api_token = Str::random(80);
+        $this->save();
     }
 
 }

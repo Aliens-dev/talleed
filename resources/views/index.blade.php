@@ -9,7 +9,7 @@
                         <img src="{{ asset('uploads/main-post.PNG') }}" alt="" />
                     </div>
                     <div class="post-title">
-                        <a href="{{ route('post.show', $latest[0]->slug) }}" >
+                        <a href="{{ route('posts.show', $latest[0]->slug) }}" >
                             {{ $latest[0]->title }}
                         </a>
                     </div>
@@ -26,7 +26,7 @@
                             </div>
                             <div class="post-info">
                                 <div class="post-title">
-                                    <a href="{{ route('post.show', $post->slug) }}" >
+                                    <a href="{{ route('posts.show', $post->slug) }}" >
                                         {{ $post->title }}
                                     </a>
                                 </div>
@@ -42,6 +42,11 @@
         <x-my-divider :line="true">
             المواضيع الاكثر قراءة
         </x-my-divider>
+        <div class="section">
+            <div>
+
+            </div>
+        </div>
     </div>
 @endsection
 

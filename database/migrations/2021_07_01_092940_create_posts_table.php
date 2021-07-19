@@ -18,9 +18,12 @@ class CreatePostsTable extends Migration
             $table->string("title");
             $table->string("slug");
             $table->text("body");
-            $table->unsignedBigInteger("author_id");
+            $table->string("thumbnail")->default('');
             $table->string("status")->default("pending");
+            $table->unsignedBigInteger("author_id");
             $table->timestamps();
+
+            $table->foreign("author_id")->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

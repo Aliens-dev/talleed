@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
     @section("content")
-
         @if(session()->has('profile_activated'))
             <div class="modal is-active timer">
                 <div class="modal-background"></div>
@@ -21,7 +19,12 @@
                 <x-user-sidebar
                     :user="$user"
                 >
-                    <button class="button is-link is-rounded">تعديل الحساب</button>
+                    <div class="mb-2">
+                        <a href="{{route('posts.create')}}" class="button min-w-140 is-primary is-rounded">اضافة مقالة</a>
+                    </div>
+                    <div class="mt-2">
+                        <a href="{{route('users.edit', $user->id)}}" class="button min-w-140 is-link is-rounded">تعديل الحساب</a>
+                    </div>
                 </x-user-sidebar>
                 <div class="user-content">
                     <div class="my-card p-5 about-author">
@@ -32,16 +35,23 @@
                             </p>
                         </div>
                     </div>
-                    @if(count($user->posts))
-                        @foreach($user->posts as $post )
-                            <x-post-card 
+                    <div class="mt-4 mb-2 p-2">
+                        <h1 class="title is-4">
+                            المقالات
+                        </h1>
+                    </div>
+                    @if(count($posts))
+                        @foreach($posts as $post )
+                            <x-post-card
                                 img="/uploads/main-post.PNG"
                                 :post="$post"
                             />
                         @endforeach
                         @include('components.pagination')
                     @else
-                        <div>لا توجد مقالات</div>
+                        <div class="card pr-5 pt-2 pb-2 mt-3">
+                            لا توجد مقالات
+                        </div>
                     @endif
                 </div>
             </div>

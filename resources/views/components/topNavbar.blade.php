@@ -14,11 +14,14 @@
                         </div>
                         <div class="dropdown-menu" id="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                                <a href="{{ route('user.profile', ['user' => auth()->id()]) }}" class="dropdown-item">
+                                <a href="{{ route('users.profile', ['user' => auth()->id()]) }}" class="dropdown-item">
                                     حسابي
                                 </a>
-                                <a class="dropdown-item">
+                                <a href="{{ route('posts.create') }}" class="dropdown-item">
                                     اضافة تدوينة
+                                </a>
+                                <a href="{{ route('users.edit', auth()->id()) }}" class="dropdown-item">
+                                    تعديل الحساب
                                 </a>
                                 <hr class="dropdown-divider">
                                 <a href="" class="dropdown-item">

@@ -65,7 +65,9 @@ class AuthenticatedSessionController extends Controller
         RateLimiter::clear($this->throttleKey($request));
 
         $request->session()->regenerate();
-        return redirect()->route("user.profile", ['user' => auth()->id()]);
+        // create Api Token
+        $user->rollKeys();
+        return redirect()->route("users.profile", ['user' => auth()->id()]);
     }
 
     /**

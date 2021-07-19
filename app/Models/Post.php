@@ -36,8 +36,20 @@ class Post extends Model
         return $this->morphMany(Comment::class,"imageable","imageable_type","imageable_id");
     }
 
-    public function scopeLatest($num) {
-        return $this->take($num)->orderByDesc('created_at');
+    public function scopePublished($query) {
+        return $query->where('status', 'published');
+    }
+
+    public function scopePending($query) {
+        return $query->where('status', 'pending');
+    }
+
+    public function scopeDraft($query) {
+        return $query->where('status', 'draft');
+    }
+
+    public function scopeLatest($query,$num) {
+        return $query->take($num)->orderByDesc('created_at');
     }
 
 }

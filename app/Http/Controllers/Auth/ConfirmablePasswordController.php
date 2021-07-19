@@ -41,6 +41,6 @@ class ConfirmablePasswordController extends Controller
 
         $request->session()->put('auth.password_confirmed_at', time());
 
-        return redirect()->route("user.profile", ['user' => auth()->id()]);
+        return redirect()->route("users.profile", ['user' => auth()->id()]);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * Bulma Button Event
  */
-const bulmaDeleteBtn = document.querySelectorAll('.notification > .delete') || []
+const bulmaDeleteBtn = document.querySelectorAll('.delete') || []
 
 bulmaDeleteBtn.forEach(btn =>  {
     const parentNode = btn.parentNode
@@ -31,7 +31,7 @@ bulmaModal.forEach(modal => {
 })
 
 /*
- *    Bulma Dropdown 
+ *    Bulma Dropdown
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -49,5 +49,5 @@ document.addEventListener('DOMContentLoaded', function () {
             $el.classList.remove('is-active');
         });
     })
-
 })
+

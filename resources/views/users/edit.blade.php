@@ -16,35 +16,127 @@
                 <button class="modal-close is-large" aria-label="close"></button>
             </div>
         @endif
-        <div class="user-profile">
+        <form action="{{ route('users.update', $user) }}" method="POST" class="user-profile">
+            @csrf
+            @method('PATCH')
             <div class="container">
                 <x-user-sidebar
                     :user="$user"
                 >
-                    <button class="button is-link is-rounded">تعديل الحساب</button>
+                    <button class="button is-success is-rounded">حفظ التعديلات</button>
                 </x-user-sidebar>
-                <div class="user-content">
-                    <div class="my-card p-5 about-author">
-                        <div class="card-header is-flex is-flex-direction-column">
-                            <h3 class="title is-5 mb-3">نبذة عن المدون</h3>
-                            <p class="is-size-6">
-                                لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...
-                            </p>
+                <div class="user-content my-card">
+                    <div>
+                        <div class="col">
+                            <div class="input-container">
+                                <label for="fname">الاسم</label>
+                                <input
+                                    type="text" name="fname" id="fname" value="{{ old('fname',$user->fname) }}"
+                                />
+                                @error('fname')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="input-container">
+                                <label for="lname">اللقب</label>
+                                <input
+                                    type="text" name="lname" id="lname" value="{{ old('lname',$user->lname) }}"
+                                />
+                                @error('lname')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-container">
+                                <label for="field">المجال</label>
+                                <input
+                                    type="text" name="field" id="field" value="{{ old('field') }}"
+                                />
+                                @error('field')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="input-container">
+                                <label for="status">الحالة</label>
+                                <input
+                                    type="text" name="status" id="status" value="{{ old('status') }}"
+                                />
+                                @error('status')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-container">
+                                <label for="email">الايميل</label>
+                                <input
+                                    type="text" name="email" id="email" value="{{ old('email',$user->email) }}"
+                                />
+                                @error('email')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-container">
+                                <label for="social_media">حساب التواصل الاجتماعي</label>
+                                <input
+                                    type="text" name="social_media" id="social_media" value=""
+                                />
+                                @error('social_media')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-container">
+                                <label for="password">كلمة المرور</label>
+                                <input
+                                    type="password" name="password" id="password"
+                                />
+                                @error('password')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="about-author">
+                            <div class="card-header is-flex is-flex-direction-column">
+                                <h3 class="subtitle is-6 mb-3">نبذة عن المدون</h3>
+                                <textarea class="textarea is-size-6 is-primary">لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...</textarea>
+                            </div>
                         </div>
                     </div>
-                    @if(count($user->posts))
-                        @foreach($user->posts as $post )
-                            <x-post-card 
-                                img="/uploads/main-post.PNG"
-                                :post="$post"
-                            />
-                        @endforeach
-                        @include('components.pagination')
-                    @else
-                        <div>لا توجد مقالات</div>
-                    @endif
                 </div>
             </div>
-        </div>
-
+        </form>
+        @if(session()->has('success'))
+            <div class="message is-success float-bottom-right">
+                <div class="message-header">
+                    <p>{{ session()->get('success') }}</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+            </div>
+        @endif
     @endsection

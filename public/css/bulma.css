@@ -10396,3 +10396,15 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .line-height-24 {
   line-height: 24px;
 }
+
+.min-w-140 {
+  min-width: 140px;
+}
+
+.float-bottom-right {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  min-width: 250px;
+  border-radius: 5px !important;
+}

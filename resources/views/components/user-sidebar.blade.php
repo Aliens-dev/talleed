@@ -14,69 +14,72 @@
             </div>
         </div>
     </div>
-    <div class="user-options mt-5">
-        <div class="my-card no-box-shadow">
-            <a href="" class="card-header pt-3 pb-3 is-flex is-justify-content-space-between">
-                <div class="card-title is-flex is-align-items-center">
+    @can('view', request()->route('user'))
+        <div class="user-options mt-5">
+            <div class="my-card no-box-shadow">
+                <a href="{{ route('users.profile', $user->id) }}" class="card-header pt-3 pb-3 is-flex is-justify-content-space-between">
+                    <div class="card-title is-flex is-align-items-center">
                     <span>
                         <img class="image is-20x20" src="/assets/img/file.svg" alt="blog posts">
                     </span>
-                    <div class="mr-2">
-                        عدد التدوينات
+                        <div class="mr-2">
+                            عدد التدوينات
+                        </div>
                     </div>
-                </div>
-                <div class="card-snippet is-rounded has-background-primary">
-                    15
-                </div>
-            </a>
-        </div>
-        <div class="my-card no-box-shadow">
-            <a href="#" class="card-header pt-3 pb-3 is-flex is-justify-content-space-between">
-                <div class="card-title is-flex is-align-items-center">
+                    <div class="card-snippet is-rounded has-background-primary">
+                        {{ $user->posts()->published()->count() }}
+                    </div>
+                </a>
+            </div>
+            <div class="my-card no-box-shadow">
+                <a href="{{ route('users.pending', $user->id) }}" class="card-header pt-3 pb-3 is-flex is-justify-content-space-between">
+                    <div class="card-title is-flex is-align-items-center">
                     <span>
                         <img class="image is-20x20" src="/assets/img/clock.svg" alt="blog posts">
                     </span>
-                    <div class="mr-2">
-                        التدوينات المعلقة
+                        <div class="mr-2">
+                            التدوينات المعلقة
+                        </div>
                     </div>
-                </div>
-                <div class="card-snippet is-rounded has-background-success">
-                    15
-                </div>
-            </a>
-        </div>
-        <div class="my-card no-box-shadow">
-            <a href="" class="card-header pt-3 pb-3  is-flex is-justify-content-space-between">
-                <div class="card-title is-flex is-align-items-center">
+                    <div class="card-snippet is-rounded has-background-success">
+                        {{ $user->posts()->pending()->count() }}
+                    </div>
+                </a>
+            </div>
+            <div class="my-card no-box-shadow">
+                <a href="" class="card-header pt-3 pb-3  is-flex is-justify-content-space-between">
+                    <div class="card-title is-flex is-align-items-center">
                     <span>
                         <img class="image is-20x20" src="/assets/img/notification.svg" alt="blog posts">
                     </span>
-                    <div class="mr-2">
-                       الاشعارات
+                        <div class="mr-2">
+                            الاشعارات
+                        </div>
                     </div>
-                </div>
-                <div class="card-snippet is-rounded has-background-info">
-                    15
-                </div>
-            </a>
-        </div>
-        <div class="my-card no-box-shadow">
-            <a href="" class="card-header pt-3 pb-3 is-flex is-justify-content-space-between">
-                <div class="card-title is-flex is-align-items-center">
+                    <div class="card-snippet is-rounded has-background-info">
+                        0
+                    </div>
+                </a>
+            </div>
+            <div class="my-card no-box-shadow">
+                <a href="{{ route('users.draft', $user->id) }}" class="card-header pt-3 pb-3 is-flex is-justify-content-space-between">
+                    <div class="card-title is-flex is-align-items-center">
                     <span>
                         <img class="image is-20x20" src="/assets/img/notes.svg" alt="blog posts">
                     </span>
-                    <div class="mr-2">
-                        المسودات
+                        <div class="mr-2">
+                            المسودات
+                        </div>
                     </div>
-                </div>
-                <div class="card-snippet is-rounded has-background-danger">
-                    15
-                </div>
-            </a>
+                    <div class="card-snippet is-rounded has-background-danger">
+                        {{ $user->posts()->draft()->count() }}
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="user-edit is-flex is-justify-content-center mt-6 mb-4">
-        {{ $slot }}
-    </div>
+        <div class="user-edit is-flex is-flex-direction-column is-align-items-center mt-6 mb-4">
+            {{ $slot }}
+        </div>
+    @endcan
+
 </div>

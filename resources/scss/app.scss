@@ -9,6 +9,10 @@
     font-family: ElMessiri;
     src: url('/assets/fonts/ElMessiri-Regular-2.ttf');
 }
+@font-face {
+    font-family: URWGeometricArabic;
+    src: url('/assets/fonts/URWGeometricArabic.ttf');
+}
 
 $grey: #383837;
 $blue: #4C31BC;
@@ -17,7 +21,7 @@ $blue: #4C31BC;
     padding:0;
     box-sizing: border-box;
     direction: rtl;
-    font-family: "ElMessiri";
+    font-family: "URWGeometricArabic";
 }
 body {
     background-color: #F9F9F9;
@@ -81,7 +85,7 @@ a {
                                 outline:none;
                                 border:none;
                                 height:auto;
-                                font-family: "ElMessiri";
+                                font-family: "URWGeometricArabic";
                             }
                         }
                     }
@@ -300,7 +304,7 @@ a {
     display: grid;
     grid-template-columns: 2fr 1fr;
     direction: ltr;
-    font-family: "ElMessiri";
+    font-family: "URWGeometricArabic";
     box-shadow: 2px 2px 5px #CCC, -2px 0 .4em #DDD;
     min-height: 500px;
     .input-side {
@@ -315,36 +319,6 @@ a {
             font-size:25px;
             color:#4C31BC;
             border-bottom: 2px solid #4C31BC;
-        }
-        .col {
-            display:flex;
-            grid-gap:10px;
-            padding:10px 60px;
-            .input-container {
-                display:flex;
-                flex-direction: column;
-                flex-grow: 1;
-                input {
-                    outline:none;
-                    border:1px solid #CCC;
-                    padding:4px 6px;
-                    &:focus {
-                        outline:none;
-                    }
-                }
-            }
-            .control {
-                margin:10px 0;
-                button{
-                    padding: 8px 0;
-                    background-color: #4C31BC;
-                    border:1px solid #4C31BC;
-                    color:#FFF;
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-            }
         }
     }
 
@@ -364,6 +338,36 @@ a {
         }
     }
 }
+.col {
+    display:flex;
+    grid-gap:10px;
+    padding:10px 60px;
+    .input-container {
+        display:flex;
+        flex-direction: column;
+        flex-grow: 1;
+        input {
+            outline:none;
+            border:1px solid #CCC;
+            padding:4px 6px;
+            &:focus {
+                outline:none;
+            }
+        }
+    }
+    .control {
+        margin:10px 0;
+        button{
+            padding: 8px 0;
+            background-color: #4C31BC;
+            border:1px solid #4C31BC;
+            color:#FFF;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
 
 .register-form {
     margin:60px 80px;
@@ -371,7 +375,7 @@ a {
     display: grid;
     grid-template-columns: 2fr 1fr;
     direction: ltr;
-    font-family: "ElMessiri";
+    font-family: "URWGeometricArabic";
     box-shadow: 2px 2px 5px #CCC, -2px 0 .4em #DDD;
     .input-side {
         display:flex;
@@ -385,37 +389,6 @@ a {
             font-size:25px;
             color:#4C31BC;
             border-bottom: 2px solid #4C31BC;
-        }
-        .col {
-            display:flex;
-            flex-grow: 1;
-            grid-gap:10px;
-            padding:10px 60px;
-            .input-container {
-                display:flex;
-                flex-direction: column;
-                flex-grow: 1;
-                input {
-                    outline:none;
-                    border:1px solid #CCC;
-                    padding:4px 6px;
-                    &:focus {
-                        outline:none;
-                    }
-                }
-            }
-            .control {
-                margin:10px 0;
-                button{
-                    padding: 8px 0;
-                    background-color: #4C31BC;
-                    border:1px solid #4C31BC;
-                    color:#FFF;
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-            }
         }
     }
     .form-side {
@@ -441,7 +414,7 @@ a {
     display: grid;
     grid-template-columns: 2fr 1fr;
     direction: ltr;
-    font-family: "ElMessiri";
+    font-family: "URWGeometricArabic";
     box-shadow: 2px 2px 5px #CCC, -2px 0 .4em #DDD;
     min-height: 500px;
     .input-side {
@@ -523,10 +496,183 @@ a {
                 }
             }
         }
-        
     }
 }
 
-.divider {
-    
+.post-create {
+    margin:50px 0;
+    .container {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        grid-gap: 20px;
+        align-items: flex-start;
+        .post-sidebar {
+            background-color:#FFF;
+            border-top-right-radius: 10px;
+            box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
+            .user-options {
+                .image {
+                    filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
+                }
+            }
+        }
+    }
+}
+
+.my-card {
+    position:relative;
+    .settings {
+        position:absolute;
+        top:10px;
+        left:5px;
+        .dropdown {
+            .button {
+                padding:0;
+                height:auto;
+                border:none;
+                .menu-icon {
+                    width:30px;
+                    height:15px;
+                }
+            }
+        }
+    }
+}
+.dropdown {
+    background-color:#06D3F4;
+    width:100%;
+    .dropdown-trigger {
+        padding-left: 0;
+        padding-right: 0;
+        width:100%;
+        .button {
+            border:none;
+            outline:none;
+            padding-right:0;
+            padding-left:0;
+            min-width: 100%;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 0;
+            &:focus {
+                box-shadow: none;
+                outline:none !important;
+            }
+        }
+    }
+    .dropdown-menu {
+        form {
+            .button {
+                font-size: inherit;
+                padding:0;
+                display:flex;
+                justify-content: center;
+                background:none;
+                color:$grey !important;
+                outline:none;
+                border:none;
+                height:auto;
+                font-family: "URWGeometricArabic";
+            }
+        }
+    }
+}
+form {
+    .about-author {
+        margin:20px 60px;
+    }
+    .tags-container {
+        display:flex;
+        grid-gap: 5px;
+        border:1px solid #EEE;
+        padding:2px;
+        input {
+            border:none !important;
+            outline:none;
+            width:100%;
+        }
+    }
+}
+
+/*
+   Single Post:
+ */
+.my-post {
+    position: relative;
+    .container {
+        display:grid;
+        grid-template-columns: 1fr 300px;
+        .post-thumbnail {
+            img {
+                width:100%;
+            }
+        }
+        .post-author {
+            display:flex;
+            align-items: flex-start;
+            justify-content:space-between;
+            .social-share {
+                display:flex;
+                padding:15px 0;
+                a {
+                    width:40px;
+                    height:25px;
+                    img {
+                        width:100%;
+                        height:100%;
+                        filter: invert(16%) sepia(70%) saturate(4906%) hue-rotate(251deg) brightness(79%) contrast(87%);
+                    }
+                }
+            }
+        }
+    }
+}
+.author-card {
+    display:flex;
+    grid-gap:5px;
+    .author-img {
+        width:80px;
+        height:80px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        overflow: hidden;
+        img {
+            width:100%;
+            height:100%;
+        }
+    }
+    .divider-h {
+        width:6px;
+        background-color: $blue;
+    }
+    .author-info {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+.tag-btn {
+    border:1px solid #DDD;
+    background-color: #EEE;
+    border-radius: 3px;
+    padding:5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space:nowrap;
+    &:hover {
+        cursor: pointer;
+    }
+    input {
+        background-color: #EEE;
+    }
+    span {
+        display:block;
+        margin-right:10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
 }

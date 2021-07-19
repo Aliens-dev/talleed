@@ -30,7 +30,7 @@ class VerifyEmailController extends Controller
         $user = User::findOrFail($id);
 
         if ($user->hasVerifiedEmail()) {
-            return redirect()->route("user.profile", ['user' => auth()->id(), 'verified',1]);
+            return redirect()->route("users.profile", ['user' => auth()->id(), 'verified',1]);
         }
 
         if (! hash_equals((string) $id, (string) $user->getKey()) or ! hash_equals((string) $hash, sha1($user->getEmailForVerification())))
@@ -40,10 +40,9 @@ class VerifyEmailController extends Controller
 
         if (! $user->hasVerifiedEmail()) {
             $user->markEmailAsVerified();
-
             event(new Verified($user));
         }
-        Auth::login($user);
-        return redirect()->route("user.profile", ['user' => auth()->id()])->with('profile_activated','تم تفعيل الحساب بنجاح');
+
+        return redirect()->route("login")->with('profile_activated','تم تفعيل الحساب بنجاح');
     }
 }

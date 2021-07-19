@@ -20,8 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('user_image')->nullable();
-            $table->unsignedBigInteger('role_id')->default(1);
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('api_token', 80)->unique()->nullable()->default(null);
+            $table->string('social_media_account')->default("");
+            $table->string('user_status')->default("pending");
+            $table->unsignedBigInteger('role_id')->default(1);
+            $table->unsignedBigInteger('status_id')->default("");
+            $table->unsignedBigInteger('field_id')->default("");
             $table->rememberToken();
             $table->timestamps();
         });

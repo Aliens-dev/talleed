@@ -7,12 +7,16 @@
   font-family: ElMessiri;
   src: url("/assets/fonts/ElMessiri-Regular-2.ttf");
 }
+@font-face {
+  font-family: URWGeometricArabic;
+  src: url("/assets/fonts/URWGeometricArabic.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   direction: rtl;
-  font-family: "ElMessiri";
+  font-family: "URWGeometricArabic";
 }
 
 body {
@@ -78,7 +82,7 @@ a:hover {
   outline: none;
   border: none;
   height: auto;
-  font-family: "ElMessiri";
+  font-family: "URWGeometricArabic";
 }
 .top-navbar .container .nav-items .nav-item {
   display: flex;
@@ -282,7 +286,7 @@ a:hover {
   display: grid;
   grid-template-columns: 2fr 1fr;
   direction: ltr;
-  font-family: "ElMessiri";
+  font-family: "URWGeometricArabic";
   box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
   min-height: 500px;
 }
@@ -300,36 +304,6 @@ a:hover {
   color: #4C31BC;
   border-bottom: 2px solid #4C31BC;
 }
-.login-form .input-side .col {
-  display: flex;
-  grid-gap: 10px;
-  padding: 10px 60px;
-}
-.login-form .input-side .col .input-container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-.login-form .input-side .col .input-container input {
-  outline: none;
-  border: 1px solid #CCC;
-  padding: 4px 6px;
-}
-.login-form .input-side .col .input-container input:focus {
-  outline: none;
-}
-.login-form .input-side .col .control {
-  margin: 10px 0;
-}
-.login-form .input-side .col .control button {
-  padding: 8px 0;
-  background-color: #4C31BC;
-  border: 1px solid #4C31BC;
-  color: #FFF;
-}
-.login-form .input-side .col .control button:hover {
-  cursor: pointer;
-}
 .login-form .form-side {
   background-image: url("/uploads/office.jpg");
   background-position: center;
@@ -346,13 +320,44 @@ a:hover {
   bottom: 0;
 }
 
+.col {
+  display: flex;
+  grid-gap: 10px;
+  padding: 10px 60px;
+}
+.col .input-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.col .input-container input {
+  outline: none;
+  border: 1px solid #CCC;
+  padding: 4px 6px;
+}
+.col .input-container input:focus {
+  outline: none;
+}
+.col .control {
+  margin: 10px 0;
+}
+.col .control button {
+  padding: 8px 0;
+  background-color: #4C31BC;
+  border: 1px solid #4C31BC;
+  color: #FFF;
+}
+.col .control button:hover {
+  cursor: pointer;
+}
+
 .register-form {
   margin: 60px 80px;
   background-color: #FFF;
   display: grid;
   grid-template-columns: 2fr 1fr;
   direction: ltr;
-  font-family: "ElMessiri";
+  font-family: "URWGeometricArabic";
   box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
 }
 .register-form .input-side {
@@ -368,37 +373,6 @@ a:hover {
   font-size: 25px;
   color: #4C31BC;
   border-bottom: 2px solid #4C31BC;
-}
-.register-form .input-side .col {
-  display: flex;
-  flex-grow: 1;
-  grid-gap: 10px;
-  padding: 10px 60px;
-}
-.register-form .input-side .col .input-container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-.register-form .input-side .col .input-container input {
-  outline: none;
-  border: 1px solid #CCC;
-  padding: 4px 6px;
-}
-.register-form .input-side .col .input-container input:focus {
-  outline: none;
-}
-.register-form .input-side .col .control {
-  margin: 10px 0;
-}
-.register-form .input-side .col .control button {
-  padding: 8px 0;
-  background-color: #4C31BC;
-  border: 1px solid #4C31BC;
-  color: #FFF;
-}
-.register-form .input-side .col .control button:hover {
-  cursor: pointer;
 }
 .register-form .form-side {
   background-image: url("/uploads/office.jpg");
@@ -422,7 +396,7 @@ a:hover {
   display: grid;
   grid-template-columns: 2fr 1fr;
   direction: ltr;
-  font-family: "ElMessiri";
+  font-family: "URWGeometricArabic";
   box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
   min-height: 500px;
 }
@@ -503,4 +477,172 @@ a:hover {
 }
 .user-profile .container .user-sidebar .user-options .image {
   filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
+}
+
+.post-create {
+  margin: 50px 0;
+}
+.post-create .container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-gap: 20px;
+  align-items: flex-start;
+}
+.post-create .container .post-sidebar {
+  background-color: #FFF;
+  border-top-right-radius: 10px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+.post-create .container .post-sidebar .user-options .image {
+  filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
+}
+
+.my-card {
+  position: relative;
+}
+.my-card .settings {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+.my-card .settings .dropdown .button {
+  padding: 0;
+  height: auto;
+  border: none;
+}
+.my-card .settings .dropdown .button .menu-icon {
+  width: 30px;
+  height: 15px;
+}
+
+.dropdown {
+  background-color: #06D3F4;
+  width: 100%;
+}
+.dropdown .dropdown-trigger {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+.dropdown .dropdown-trigger .button {
+  border: none;
+  outline: none;
+  padding-right: 0;
+  padding-left: 0;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0;
+}
+.dropdown .dropdown-trigger .button:focus {
+  box-shadow: none;
+  outline: none !important;
+}
+.dropdown .dropdown-menu form .button {
+  font-size: inherit;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background: none;
+  color: #383837 !important;
+  outline: none;
+  border: none;
+  height: auto;
+  font-family: "URWGeometricArabic";
+}
+
+form .about-author {
+  margin: 20px 60px;
+}
+form .tags-container {
+  display: flex;
+  grid-gap: 5px;
+  border: 1px solid #EEE;
+  padding: 2px;
+}
+form .tags-container input {
+  border: none !important;
+  outline: none;
+  width: 100%;
+}
+
+/*
+   Single Post:
+ */
+.my-post {
+  position: relative;
+}
+.my-post .container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+}
+.my-post .container .post-thumbnail img {
+  width: 100%;
+}
+.my-post .container .post-author {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.my-post .container .post-author .social-share {
+  display: flex;
+  padding: 15px 0;
+}
+.my-post .container .post-author .social-share a {
+  width: 40px;
+  height: 25px;
+}
+.my-post .container .post-author .social-share a img {
+  width: 100%;
+  height: 100%;
+  filter: invert(16%) sepia(70%) saturate(4906%) hue-rotate(251deg) brightness(79%) contrast(87%);
+}
+
+.author-card {
+  display: flex;
+  grid-gap: 5px;
+}
+.author-card .author-img {
+  width: 80px;
+  height: 80px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.author-card .author-img img {
+  width: 100%;
+  height: 100%;
+}
+.author-card .divider-h {
+  width: 6px;
+  background-color: #4C31BC;
+}
+.author-card .author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.tag-btn {
+  border: 1px solid #DDD;
+  background-color: #EEE;
+  border-radius: 3px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+.tag-btn:hover {
+  cursor: pointer;
+}
+.tag-btn input {
+  background-color: #EEE;
+}
+.tag-btn span {
+  display: block;
+  margin-right: 10px;
+}
+.tag-btn span:hover {
+  cursor: pointer;
 }
