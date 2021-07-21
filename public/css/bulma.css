@@ -10408,3 +10408,18 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   min-width: 250px;
   border-radius: 5px !important;
 }
+
+table {
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+}
+table th {
+  border: 1px solid #EEE !important;
+}
+table th:hover {
+  cursor: pointer;
+}
+table td {
+  border: 1px solid #EEE !important;
+}

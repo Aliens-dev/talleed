@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AdminCategoriesController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminPostsController;
+use App\Http\Controllers\Admin\AdminTagsController;
+use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Category\CategoryPostsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Posts\PostsController;
@@ -44,7 +49,13 @@ Route::group(['prefix' => 'users'], function() {
  *  Admin Auth Routes
  */
 
-Route::group(['prefix' => 'panel_admin'], function() {
-   Route::get('login', [AdminAuthController::class,'index']);
-   Route::post('login', [AdminAuthController::class,'login']);
+Route::get('panel_admin/login', [AdminAuthController::class,'index'])->name('admin.login');
+Route::post('panel_admin/login', [AdminAuthController::class,'login'])->name('admin.login.post');
+
+Route::group(['prefix' => 'panel_admin', 'middleware' => ['auth','admin.auth']], function() {
+    Route::get('/', [AdminDashboardController::class,"index"])->name('admin.dashboard');
+    Route::get('/users', [AdminUsersController::class,"index"])->name('admin.users.index');
+    Route::get('/posts', [AdminPostsController::class,"index"])->name('admin.posts.index');
+    Route::get('/categories', [AdminCategoriesController::class,"index"])->name('admin.categories.index');
+    Route::get('/tags', [AdminTagsController::class,"index"])->name('admin.tags.index');
 });

@@ -80,3 +80,19 @@ $myGrey: #383837;
     min-width: 250px;
     border-radius:5px !important;
 }
+
+table {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+    th {
+        border:1px solid #EEE !important;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    td {
+        border:1px solid #EEE !important;
+    }
+}
+
