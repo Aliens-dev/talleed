@@ -71,7 +71,7 @@
                 </tr>
                 @if($editId == $tag->id)
                     <tr>
-                        <livewire:tags-edit-form :tag="$tag" wire:key="{{ $tag->id }}" />
+                        <livewire:admin.tag.tags-edit-form :tag="$tag" wire:key="{{ $tag->id }}" />
                     </tr>
                 @endif
             @endforeach

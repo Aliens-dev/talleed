@@ -21,9 +21,11 @@ class CreatePostsTable extends Migration
             $table->string("thumbnail")->default('');
             $table->string("status")->default("pending");
             $table->unsignedBigInteger("author_id");
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
 
             $table->foreign("author_id")->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign("category_id")->references('id')->on('categories')->cascadeOnDelete();
         });
     }
 

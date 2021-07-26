@@ -10338,6 +10338,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   top: auto;
 }
 
+.no-bg {
+  background: none !important;
+}
+
 .modal .modal-content {
   box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
   background-color: #FFF;
@@ -10399,6 +10403,14 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .min-w-140 {
   min-width: 140px;
+}
+
+.w-500 {
+  width: 500px !important;
+}
+
+.m-center {
+  margin: 0 auto !important;
 }
 
 .float-bottom-right {

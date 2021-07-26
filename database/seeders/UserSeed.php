@@ -17,6 +17,13 @@ class UserSeed extends Seeder
      */
     public function run()
     {
+        User::create([
+            'fname' => 'admin',
+            'lname' => 'admin',
+            'email' => "admin@admin.com",
+            'password' => Hash::make("password"),
+            'role_id' => Role::where('name','admin')->first()->id,
+        ]);
         for($i=0;$i < 50; $i++) {
             User::create([
                 'fname' => 'nabil' . $i,

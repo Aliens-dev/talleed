@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
@@ -12,6 +13,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -41,9 +43,10 @@ class PostsController extends Controller
     {
         $rules = [
             "title" => "required|unique:posts|min:5|max:100",
-            "body" => "required",
             "status" => "required",
             'field' => 'required|exists:categories,id',
+            'thumbnail' => 'required|image|mimes:jpg,bmp,png',
+            "body" => "required",
             'tags' => 'sometimes|required',
         ];
 
@@ -54,25 +57,31 @@ class PostsController extends Controller
         if($request->status == 'draft') {
             $post->status = 'draft';
         }
+
+        if($request->hasFile('thumbnail')) {
+            $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+        }
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
         $post->author_id = Auth::id();
         $post->body = $request->body;
+        $post->thumbnail = $image_url;
+        $post->category_id = $request->field;
         $post->save();
-        // link the category
-        $post->categories()->attach($request->field);
 
         // add tags
-        $tags = [];
-        foreach ($request->tags as $tag) {
-            $tag = Tag::firstOrCreate([
-                'name' => $tag
-            ]);
-            if($tag) {
-                $tags [] = $tag->id;
+        if(is_array($request->tags)) {
+            $tags = [];
+            foreach ($request->tags as $tag) {
+                $tag = Tag::firstOrCreate([
+                    'name' => $tag
+                ]);
+                if($tag) {
+                    $tags [] = $tag->id;
+                }
             }
+            $post->tags()->syncWithoutDetaching($tags);
         }
-        $post->tags()->syncWithoutDetaching($tags);
         return redirect()->route('posts.show',$post->slug)->with(['success' => 'Post added successfully']);
     }
 
@@ -89,6 +98,7 @@ class PostsController extends Controller
             "body" => "required",
             "status" => "required",
             'field' => 'required|exists:categories,id',
+            'thumbnail' => 'required|image|mimes:jpg,png',
             'tags' => 'sometimes|required',
         ];
 
@@ -101,27 +111,31 @@ class PostsController extends Controller
                 $post->status = 'pending';
             }
         }
-
+        if($request->hasFile('thumbnail')) {
+            Storage::delete($post->thumbnail);
+            $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+        }
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
         $post->author_id = Auth::id();
         $post->body = $request->body;
+        $post->category_id = $request->field;
+        $post->thumbnail = $image_url;
         $post->save();
 
-        // link the category
-        $post->categories()->attach($request->field);
-
-        // add tags
-        $tags = [];
-        foreach ($request->tags as $tag) {
-            $tag = Tag::firstOrCreate([
-                'name' => $tag
-            ]);
-            if($tag) {
-                $tags [] = $tag->id;
+        if(is_array($request->tags)) {
+            // add tags
+            $tags = [];
+            foreach ($request->tags as $tag) {
+                $tag = Tag::firstOrCreate([
+                    'name' => $tag
+                ]);
+                if($tag) {
+                    $tags [] = $tag->id;
+                }
             }
+            $post->tags()->sync($tags);
         }
-        $post->tags()->sync($tags);
 
         return redirect()->route('posts.show',$post->slug)->with(['success' => 'Post updated successfully']);
     }

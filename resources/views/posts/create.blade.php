@@ -15,7 +15,7 @@
             <button class="modal-close is-large" aria-label="close"></button>
         </div>
     @endif
-    <form action="{{ route('posts.store') }}" method="POST" class="post-create">
+    <form action="{{ route('posts.store') }}" method="POST" class="post-create" enctype="multipart/form-data">
         @csrf
         <div class="container">
             <x-post-sidebar>
@@ -34,7 +34,7 @@
                     <div class="input-container">
                         <label for="title" class="mb-2">العنوان</label>
                         <input
-                            type="text" name="title" id="title" value="{{ old('title') }}"
+                            type="text" name="title" id="title" value="{{ old('title') }}" required
                         />
                         @error('title')
                             <div class="notification is-flex is-danger mt-1 mb-1 p-2">
@@ -48,9 +48,9 @@
                     <div class="input-container">
                         <label for="field" class="mb-2">المجال</label>
                         <div class="select">
-                            <select id="field" name="field">
+                            <select id="field" name="field" required>
                                 <?php
-                                $categories = \App\Models\Category::all();
+                                    $categories = \App\Models\Category::all();
                                 ?>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -58,12 +58,47 @@
                             </select>
                         </div>
                         @error('field')
-                        <div class="notification is-flex is-danger mt-1 mb-1 p-2">
-                            <span class="delete"></span>
-                            {{ $message }}
-                        </div>
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
+                </div>
+                <div class="col">
+                    <div class="input-container">
+                        <label for="thumbnail" class="mb-2">صورة المقال</label>
+                        <div id="file-js-example" class="file has-name">
+                            <label class="file-label" for="thumbnail">
+                                <span class="file-name">
+                                </span>
+                                <input class="file-input" required id="thumbnail" type="file" accept="image/png, image/jpeg" name="thumbnail">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        اختر صورة للمقال
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                        @error('thumbnail')
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <script>
+                        const fileInput = document.querySelector('#file-js-example input[type=file]');
+                        fileInput.onchange = () => {
+                            if (fileInput.files.length > 0) {
+                                const fileName = document.querySelector('#file-js-example .file-name');
+                                fileName.textContent = fileInput.files[0].name;
+                            }
+                        }
+                    </script>
                 </div>
                 <div class="col">
                     <div class="input-container">

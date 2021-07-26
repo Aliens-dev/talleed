@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Category;
 
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
@@ -41,6 +41,6 @@ class CategoriesEditForm extends Component
 
     public function render()
     {
-        return view('admin.livewire.categories-edit-form');
+        return view('admin.livewire.categories.categories-edit-form');
     }
 }

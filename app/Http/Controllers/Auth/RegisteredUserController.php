@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
+use App\Notifications\UserRegistered;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -39,7 +41,7 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        $role = Role::where('name','authpr')->first();
+        $role = Role::where('name','author')->first();
         $user = User::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
@@ -49,7 +51,8 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
+        $admins = User::where('role_id', Role::where('name', 'admin')->first()->id)->get();
+        Notification::send($admins, new UserRegistered($user));
         //Auth::login($user);
 
         return back()->with(['success' => 'تم التسجيل بنجاح افقد ايميلك لتفعيل الحساب']);

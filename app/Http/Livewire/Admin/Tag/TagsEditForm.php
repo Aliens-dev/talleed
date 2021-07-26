@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Tag;
 
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
@@ -40,6 +40,6 @@ class TagsEditForm extends Component
 
     public function render()
     {
-        return view('admin.livewire.tags-edit-form');
+        return view('admin.livewire.tags.tags-edit-form');
     }
 }

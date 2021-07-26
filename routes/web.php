@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAccountController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminDashboardController;
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'users'], function() {
     Route::get('/{user}/pending', [UserProfileController::class,"pending"])->name('users.pending');
     Route::get('/{user}/draft', [UserProfileController::class,"draft"])->name('users.draft');
     Route::patch('/{user}/edit', [UserProfileController::class,"update"])->name('users.update');
+    Route::get('/{user}/notifications', [UserProfileController::class,"notifications"])->name('users.notifications');
 });
 
 /*
@@ -55,7 +57,9 @@ Route::post('panel_admin/login', [AdminAuthController::class,'login'])->name('ad
 Route::group(['prefix' => 'panel_admin', 'middleware' => ['auth','admin.auth']], function() {
     Route::get('/', [AdminDashboardController::class,"index"])->name('admin.dashboard');
     Route::get('/users', [AdminUsersController::class,"index"])->name('admin.users.index');
+    Route::get('/users/{user}', [AdminUsersController::class,"show"])->name('admin.users.show');
     Route::get('/posts', [AdminPostsController::class,"index"])->name('admin.posts.index');
     Route::get('/categories', [AdminCategoriesController::class,"index"])->name('admin.categories.index');
     Route::get('/tags', [AdminTagsController::class,"index"])->name('admin.tags.index');
+    Route::get('/account', [AdminAccountController::class,"index"])->name('admin.account.index');
 });

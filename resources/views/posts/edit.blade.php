@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section("content")
-    <form action="{{ route('posts.update', $post->id) }}" method="POST" class="post-create">
+    <form action="{{ route('posts.update', $post->id) }}" method="POST" class="post-create" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="container">
@@ -31,7 +31,6 @@
                         @enderror
                     </div>
                 </div>
-
                 <div class="col">
                     <div class="input-container">
                         <label for="field" class="mb-2">المجال</label>
@@ -52,6 +51,41 @@
                         </div>
                         @enderror
                     </div>
+                </div>
+                <div class="col">
+                    <div class="input-container">
+                        <label for="thumbnail" class="mb-2">صورة المقال</label>
+                        <div id="file-js-example" class="file has-name">
+                            <label class="file-label" for="thumbnail">
+                                <span class="file-name">
+                                </span>
+                                <input class="file-input" required id="thumbnail" type="file" accept="image/png, image/jpeg" name="thumbnail">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        اختر صورة للمقال
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                        @error('thumbnail')
+                        <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                            <span class="delete"></span>
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <script>
+                        const fileInput = document.querySelector('#file-js-example input[type=file]');
+                        fileInput.onchange = () => {
+                            if (fileInput.files.length > 0) {
+                                const fileName = document.querySelector('#file-js-example .file-name');
+                                fileName.textContent = fileInput.files[0].name;
+                            }
+                        }
+                    </script>
                 </div>
                 <div class="col">
                     <div class="input-container">

@@ -39,7 +39,7 @@
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->user->fullname }}</td>
-                    <td>{{ $post->categories[0]->name }}</td>
+                    <td>{{ $post->category->name }}</td>
                     <td>{{ $post->created_at->locale('ar')->diffForHumans() }}</td>
                     <td>
                         <div class="select">

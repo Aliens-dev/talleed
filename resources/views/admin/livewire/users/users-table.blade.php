@@ -25,10 +25,10 @@
                 <x-table-header class="is-hoverable" :orderBy="$orderField" :direction="$orderDirection" name="id">رقم</x-table-header>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="fname">الاسم</x-table-header>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="lname">اللقب</x-table-header>
-                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="lname">الصورة</x-table-header>
+                <th>الصورة</th>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="email">الايميل</x-table-header>
                 <th>الدور</th>
-                <th>تاريخ التسجيل</th>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at">تاريخ التسجيل</x-table-header>
                 <th>تعديل</th>
             </thead>
             <tbody>
@@ -48,6 +48,12 @@
                     <td>{{ $user->created_at->locale('ar')->diffForHumans() }}</td>
                     <td>
                         <button class="button is-success" wire:click="setEditId('{{ $user->id }}')">تعديل</button>
+                        <a href="{{ route('admin.users.show', $user->id) }}"
+                           class="button is-info"
+                           wire:click="setEditId('{{ $user->id }}')"
+                        >
+                            مزيد
+                        </a>
                     </td>
                 </tr>
             @endforeach

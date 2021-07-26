@@ -74,7 +74,7 @@
                 </tr>
                 @if($editId == $category->id)
                     <tr>
-                        <livewire:categories-edit-form :category="$category" wire:key="{{ $category->id }}" />
+                        <livewire:admin.category.categories-edit-form :category="$category" wire:key="{{ $category->id }}" />
                     </tr>
                 @endif
             @endforeach

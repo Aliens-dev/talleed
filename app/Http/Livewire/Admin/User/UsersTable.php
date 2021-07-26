@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\User;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
@@ -48,7 +48,7 @@ class UsersTable extends Component
 
     public function render()
     {
-        return view('admin.livewire.users-table', [
+        return view('admin.livewire.users.users-table', [
             'users' => User::
                 where('fname', 'LIKE' ,"%{$this->search}%")
                 ->orWhere('lname', 'LIKE' ,"%{$this->search}%")

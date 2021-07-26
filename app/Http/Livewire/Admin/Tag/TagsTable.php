@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Tag;
 
 use App\Models\Tag;
 use Illuminate\Support\Facades\Session;
@@ -83,7 +83,7 @@ class TagsTable extends Component
 
     public function render()
     {
-        return view('admin.livewire.tags-table', [
+        return view('admin.livewire.tags.tags-table', [
             'tags' => Tag::
                 where('name', 'LIKE' ,"%{$this->search}%")
                 ->orderBy($this->orderField, $this->orderDirection)

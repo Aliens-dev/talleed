@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Category;
 
 use App\Models\Category;
 use App\Models\Post;
@@ -87,7 +87,7 @@ class CategoriesTable extends Component
 
     public function render()
     {
-        return view('admin.livewire.categories-table', [
+        return view('admin.livewire.categories.categories-table', [
             'categories' => Category::
                 where('name', 'LIKE' ,"%{$this->search}%")
                 ->orderBy($this->orderField, $this->orderDirection)

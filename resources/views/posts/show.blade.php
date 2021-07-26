@@ -9,7 +9,7 @@
                     {{ $post->title }}
                 </h1>
                 <div class="post-thumbnail">
-                    <img src="/uploads/main-post.PNG" alt="{{ $post->title }}" />
+                    <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
                 </div>
                 <div class="post-author">
                     <div class="author-card">
@@ -41,18 +41,20 @@
                 <div class="post-body mt-5 mb-3">
                     {!! $post->body !!}
                 </div>
-                <div class="post-tags">
-                    <div class="subtitle is-6 is-bold">
-                        الكلمات المفتاحية
+                @if(count($post->tags))
+                    <div class="post-tags">
+                        <div class="subtitle is-6 is-bold">
+                            الكلمات المفتاحية
+                        </div>
+                        <div class="is-flex">
+                            @foreach($post->tags as $tag)
+                                <div class="tag-btn">
+                                    {{ $tag->name }}
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                    <div class="is-flex">
-                        @foreach($post->tags as $tag)
-                            <div class="tag-btn">
-                                {{ $tag->name }}
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

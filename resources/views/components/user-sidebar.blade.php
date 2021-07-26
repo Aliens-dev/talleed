@@ -47,7 +47,7 @@
                 </a>
             </div>
             <div class="my-card no-box-shadow">
-                <a href="" class="card-header pt-3 pb-3  is-flex is-justify-content-space-between">
+                <a href="{{ route('users.notifications', $user->id) }}" class="card-header pt-3 pb-3  is-flex is-justify-content-space-between">
                     <div class="card-title is-flex is-align-items-center">
                     <span>
                         <img class="image is-20x20" src="/assets/img/notification.svg" alt="blog posts">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="card-snippet is-rounded has-background-info">
-                        0
+                        {{ $user->unreadnotifications()->count() }}
                     </div>
                 </a>
             </div>

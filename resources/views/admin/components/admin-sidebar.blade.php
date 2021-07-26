@@ -12,43 +12,43 @@
         <div class="sidebar-items">
             <a href="{{ route('admin.dashboard') }}" class="sidebar-item ripple">
                 <div class="icon">
-                    <i class="fa fa-dashboard"></i>
+                    <img src="/assets/img/dashboard.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">لوحة التحكم</div>
             </a>
             <a  href="{{ route('admin.users.index') }}" class="sidebar-item ripple">
                 <div class="icon">
-                    <i class="fa fa-users"></i>
+                    <img src="/assets/img/group.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">المستخدمين</div>
             </a>
             <a  href="{{ route('admin.posts.index') }}" class="sidebar-item ripple">
                 <div class="icon">
-                    <i class="fa fa-users"></i>
+                    <img src="/assets/img/post.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">المقالات</div>
             </a>
             <a  href="{{ route('admin.categories.index') }}" class="sidebar-item ripple">
                 <div class="icon">
-                    <i class="fa fa-users"></i>
+                    <img src="/assets/img/list.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">المجالات</div>
             </a>
             <a  href="{{ route('admin.tags.index') }}" class="sidebar-item ripple">
                 <div class="icon">
-                    <i class="fa fa-users"></i>
+                    <img src="/assets/img/tag.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">الكلمات المفتاحية</div>
             </a>
-            <a  href="{{ route('admin.users.index') }}" class="sidebar-item ripple">
+            <a  href="{{ route('admin.account.index') }}" class="sidebar-item ripple">
                 <div class="icon">
-                    <i class="fa fa-users"></i>
+                    <img src="/assets/img/user.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">حسابي</div>
             </a>
             <a href="#" class="sidebar-item ripple">
                 <div class="icon">
-                    <i class="fa fa-cog"></i>
+                    <img src="/assets/img/settings.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">الاعدادات</div>
             </a>

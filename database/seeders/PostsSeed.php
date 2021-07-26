@@ -20,6 +20,7 @@ class PostsSeed extends Seeder
             'body' => "lorem ipsum welcome to this example",
             'author_id' => 1,
             'status' => 'published',
+            'category_id' => 1,
         ]);
         Post::create([
             'title' => 'Title example 2',
@@ -27,6 +28,7 @@ class PostsSeed extends Seeder
             'body' => "lorem ipsum welcome to this example",
             'author_id' => 1,
             'status' => 'published',
+            'category_id' => 2,
         ]);
         Post::create([
             'title' => 'Title example 3',
@@ -34,6 +36,7 @@ class PostsSeed extends Seeder
             'body' => "lorem ipsum welcome to this example",
             'author_id' => 1,
             'status' => 'published',
+            'category_id' => 3,
         ]);
         Post::create([
             'title' => 'Title example 4',
@@ -41,6 +44,7 @@ class PostsSeed extends Seeder
             'body' => "lorem ipsum welcome to this example",
             'author_id' => 1,
             'status' => 'published',
+            'category_id' => 4,
         ]);
     }
 }

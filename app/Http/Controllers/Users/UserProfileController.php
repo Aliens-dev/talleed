@@ -44,6 +44,15 @@ class UserProfileController extends Controller
         return view('users.draft', compact(['user','posts']));
     }
 
+    public function notifications(User $user)
+    {
+        $inspect = Gate::inspect('view', $user);
+        if($inspect->denied()) {
+            return redirect()->route('users.profile', $user->id);
+        }
+        return view('users.notifications', compact(['user']));
+    }
+
     public function edit(User $user)
     {
         $inspect = Gate::inspect('update', $user);

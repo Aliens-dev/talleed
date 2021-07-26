@@ -33,10 +33,111 @@ a {
         text-decoration: none;
     }
 }
+.message {
+    .message-body {
+        border-width: 0 4px 0 0;
+    }
+}
 
+.user-card {
+    gap:20px;
+    display:flex;
+    flex-direction: column;
+}
+
+.notification-btn {
+    position:relative;
+    .notification-count {
+        position: absolute;
+        top:8px;
+        right:8px;
+        background-color:#4C31BC;
+        color:#FFF;
+        padding:2px;
+        font-size:12px;
+        border-radius:50%;
+        width:8px;
+        height:8px;
+    }
+}
+
+.admin-dropdown-notification {
+    max-height:320px;
+    overflow:auto;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
+    z-index:10;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 8px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+}
+
+.dropdown {
+    .dropdown-trigger {
+        width:100%;
+        .button {
+            border:none;
+            outline:none;
+            padding-right:0;
+            padding-left:0;
+            min-width: 100%;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 0;
+            &:focus {
+                box-shadow: none;
+                outline:none !important;
+            }
+        }
+    }
+    .dropdown-menu {
+        form {
+            .button {
+                font-size: inherit;
+                padding:0;
+                display:flex;
+                justify-content: center;
+                background:none;
+                color:$grey !important;
+                outline:none;
+                border:none;
+                height:auto;
+                font-family: "URWGeometricArabic";
+            }
+        }
+        .dropdown-content {
+            padding-top:0;
+            padding-bottom: 0;
+            border-radius: 5px;
+            .dropdown-item {
+                &:hover {
+                    background: #FBFBFB !important;
+                }
+            }
+        }
+    }
+}
 .admin-login {
     background-color: #EEE;
     height: 100vh;
+    margin: 0 auto;
+    width: 100%;
     .container {
         display:flex;
         justify-content: center;
@@ -217,71 +318,78 @@ a {
     right:0;
     bottom:0;
 }
-.admin-sidebar .sidebar-header {
-    height:80px;
-    display:grid;
-    grid-template-columns: 60px 1fr;
-    grid-column-gap: 10px;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    padding:0 10px;
+.admin-sidebar {
+    .sidebar-header {
+        height:80px;
+        display:grid;
+        grid-template-columns: 60px 1fr;
+        grid-column-gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        padding:0 10px;
+        .image {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            margin: 0 auto;
+            border-radius: 50%;
+            img {
+                height:100%;
+                width:100%;
+                border-radius: 50%;
+            }
+        }
+        .title {
+            font-size:20px;
+            font-weight: 500;
+            color:#FFF;
+        }
+    }
+    .sidebar-body {
+        display:grid;
+        position: relative;
+        img {
+            filter: invert(100%) sepia(0%) saturate(7427%) hue-rotate(23deg) brightness(118%) contrast(118%);
+        }
+        .sidebar-items {
+            display:grid;
+            grid-auto-rows: 50px;
+            .sidebar-item {
+                display: grid;
+                grid-template-columns: 60px 1fr;
+                grid-column-gap: 10px;
+                justify-content: center;
+                align-items: center;
+                padding:0 10px;
+                color:#FFF;
+                text-decoration: none;
+                &:hover {
+                    background-color: rgba(0,0,0,0.4);
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+                .icon {
+                    width:50px;
+                    height:50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items:center;
+                    margin: 0 auto;
+                    i {
+                        font-size: 18px;
+                    }
+                }
+                .text {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
 }
-.admin-sidebar .sidebar-header .image {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    margin: 0 auto;
-    border-radius: 50%;
-}
-.admin-sidebar .sidebar-header .image img {
-    height:100%;
-    width:100%;
-    border-radius: 50%;
-}
-.admin-sidebar .sidebar-header .title {
-    font-size:20px;
-    font-weight: 500;
-    color:#FFF;
-}
-.admin-sidebar .sidebar-body {
-    display:grid;
-    position: relative;
-}
-.admin-sidebar .sidebar-body .sidebar-items {
-    display:grid;
-    grid-auto-rows: 50px;
-}
-.admin-sidebar .sidebar-body .sidebar-items .sidebar-item {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    grid-column-gap: 10px;
-    justify-content: center;
-    align-items: center;
-    padding:0 10px;
-    color:#FFF;
-    text-decoration: none;
-}
-.admin-sidebar .sidebar-body .sidebar-items .sidebar-item:hover {
-    background-color: rgba(0,0,0,0.4);
-    cursor: pointer;
-    text-decoration: none;
-}
-.admin-sidebar .sidebar-body .sidebar-items .sidebar-item .icon {
-    width:50px;
-    height:50px;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    margin: 0 auto;
-}
-.admin-sidebar .sidebar-body .sidebar-items .sidebar-item .icon i {
-    font-size: 18px;
-}
-.admin-sidebar .sidebar-body .sidebar-items .sidebar-item .text {
-    font-size: 16px;
-    font-weight: 500;
-}
+
 .collapse {
     width:80px;
     transition: width 0.4s ease-in-out;

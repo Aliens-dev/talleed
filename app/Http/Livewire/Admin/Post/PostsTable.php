@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Post;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Notifications\PostStatusChangedNotification;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -35,6 +36,7 @@ class PostsTable extends Component
         $post = Post::find($postId);
         $post->status = $status;
         $post->save();
+        $post->user->notify(new PostStatusChangedNotification($post));
         Session::flash('success', 'تم التعديل بنجاح');
     }
 
@@ -61,7 +63,7 @@ class PostsTable extends Component
 
     public function render()
     {
-        return view('admin.livewire.posts-table', [
+        return view('admin.livewire.posts.posts-table', [
             'posts' => Post::
                 where('title', 'LIKE' ,"%{$this->search}%")
                 ->orWhereHas('user', function($query) {
