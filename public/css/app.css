@@ -31,10 +31,12 @@ a:hover {
 }
 
 .container {
-  width: 1140px;
   margin: 0 auto;
 }
 
+.top-navbar .container .switch-button {
+  display: none;
+}
 .top-navbar .container .nav-items {
   display: flex;
   align-items: center;
@@ -174,6 +176,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  background-color: #FFF;
 }
 .section-page .page-header .container .main-post .post-img img {
   width: 100%;
@@ -181,12 +184,13 @@ a:hover {
 .section-page .page-header .container .main-post .post-title {
   font-size: 25px;
   font-weight: 600;
+  margin-bottom: 15px;
 }
 .section-page .page-header .container .main-post .post-title a {
   color: #383837;
 }
 .section-page .page-header .container .main-post .post-excerpt {
-  font-size: 14px;
+  font-size: 15px;
 }
 .section-page .page-header .container .sub-posts {
   width: 100%;
@@ -202,6 +206,7 @@ a:hover {
   direction: ltr;
   align-items: center;
   grid-gap: 5px;
+  background-color: #FFF;
 }
 .section-page .page-header .container .sub-posts .post .post-img {
   height: 100%;
@@ -212,12 +217,66 @@ a:hover {
 .section-page .page-header .container .sub-posts .post .post-info .post-title {
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 .section-page .page-header .container .sub-posts .post .post-info .post-title a {
   color: #383837;
 }
 .section-page .page-header .container .sub-posts .post .post-info .post-excerpt {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.latest-section .container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-gap: 20px;
+}
+.latest-section .container .latest-posts .post {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-gap: 10px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  direction: ltr;
+  min-height: 250px;
+  height: 250px;
+  background-color: #FFF;
+}
+.latest-section .container .latest-posts .post .post-img {
+  height: 220px;
+}
+.latest-section .container .latest-posts .post .post-img img {
+  width: 100%;
+  height: 100%;
+}
+.latest-section .container .latest-posts .post .post-info .post-title {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.latest-section .container .latest-posts .post .post-info .post-title a {
+  color: #383837;
+}
+.latest-section .container .latest-posts .post .post-info .post-excerpt {
+  font-size: 17px;
+  line-height: 25px;
+  margin: 5px 0 15px;
+}
+.latest-section .container .latest-posts .post .post-info .more-button {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #4C31BC;
+}
+.latest-section .container .banner {
+  background-color: #DDD;
+}
+
+.posts-page .container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-gap: 20px;
 }
 
 .more-bar {
@@ -246,6 +305,7 @@ a:hover {
 }
 .more-bar .bar-text span {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .footer {
@@ -645,4 +705,156 @@ form .tags-container input {
 }
 .tag-btn span:hover {
   cursor: pointer;
+}
+
+/*
+    Media Queries
+*/
+@media screen and (max-width: 576px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-page .page-header {
+    margin: 40px 0;
+  }
+  .section-page .page-header .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+
+  .latest-section .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .latest-section .container .banner {
+    display: none;
+  }
+
+  .footer {
+    background-color: #4C31BC;
+    padding: 50px 0;
+    margin: 20px 0 0;
+  }
+  .footer .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .footer .footer-cols .footer-col-title {
+    font-size: 25px;
+    color: #FFF;
+    margin: 10px auto 20px;
+    text-align: center;
+  }
+  .footer .footer-cols .footer-rows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .main-navbar {
+    display: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  .top-navbar .container .switch-button {
+    display: block;
+  }
+  .top-navbar .container .nav-items {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+  }
+  .top-navbar .container .nav-items .main-item {
+    background-color: #06D3F4;
+    min-width: 100%;
+  }
+  .top-navbar .container .nav-items .main-item .nav-link {
+    padding: 12px 30px;
+    color: #FFF !important;
+    display: block;
+    font-size: 20px;
+  }
+  .top-navbar .container .nav-items .main-item .dropdown {
+    background-color: #06D3F4;
+    width: 100%;
+  }
+  .top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  .top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button {
+    background-color: #06D3F4;
+    border: none;
+    outline: none;
+    padding-right: 0;
+    padding-left: 0;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button:focus {
+    box-shadow: none;
+    outline: none !important;
+  }
+  .top-navbar .container .nav-items .main-item .dropdown .dropdown-menu form .button {
+    font-size: inherit;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background: none;
+    color: #383837 !important;
+    outline: none;
+    border: none;
+    height: auto;
+    font-family: "URWGeometricArabic";
+  }
+  .top-navbar .container .nav-items .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .top-navbar .container .nav-items .nav-item .nav-link {
+    display: block;
+    padding: 12px 25px;
+    color: #383837;
+    font-size: 18px;
+  }
+
+  .latest-section .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .latest-section .container .banner {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1140px;
+    margin: 0 auto;
+  }
 }

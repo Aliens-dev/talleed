@@ -51,3 +51,19 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 })
 
+
+
+/*
+*  Top navbar Toggle ( Small )
+* */
+
+const switchButton = document.querySelector('.switch-button')
+const topNavItems = document.querySelector('.nav-items');
+switchButton.addEventListener('click', function() {
+    console.log(topNavItems.style.display)
+    if(topNavItems.style.display === 'none' || !topNavItems.style.display) {
+        topNavItems.style.display = 'block'
+    }else {
+        topNavItems.style.display = 'none'
+    }
+});

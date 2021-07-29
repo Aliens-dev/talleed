@@ -1,5 +1,5 @@
 @extends("layouts.app")
-
+@section('title', "الرئيسية")
 @section('content')
     <div class="section-page">
         <div class="page-header">
@@ -42,10 +42,35 @@
         <x-my-divider :line="true">
             المواضيع الاكثر قراءة
         </x-my-divider>
-        <div class="section">
-            <div>
-
+        <div class="latest-section">
+            <div class="container">
+                <div class="latest-posts">
+                    @foreach($latest as $post)
+                        <div class="post">
+                            <div class="post-info">
+                                <div class="post-title">
+                                    <a href="{{ route('posts.show', $post->slug) }}" >
+                                        {{ $post->title }}
+                                    </a>
+                                </div>
+                                <div class="post-excerpt">
+                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.
+                                </div>
+                                <a href="{{ route('posts.show', $post->slug) }}" class="more-button">
+                                    اقرأ المزيد
+                                </a>
+                            </div>
+                            <div class="post-img">
+                                <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="banner"></div>
             </div>
+            <x-my-divider :line="true">
+                مشاهدة كل التدوينات
+            </x-my-divider>
         </div>
     </div>
 @endsection

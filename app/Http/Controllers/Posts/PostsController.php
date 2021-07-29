@@ -3,18 +3,16 @@
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
+use App\Models\Visitor;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class PostsController extends Controller
@@ -31,14 +29,26 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
+        $visitor_ip = $_SERVER["REMOTE_ADDR"];
+        Visitor::create([
+            'visitor_ip' => $visitor_ip,
+            'post_id' => $post->id
+        ]);
         return view('posts.show', compact("post"));
     }
 
+    /**
+     * @return View
+     */
     public function create()
     {
         return view('posts.create');
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function store(Request $request)
     {
         $rules = [
@@ -61,6 +71,7 @@ class PostsController extends Controller
         if($request->hasFile('thumbnail')) {
             $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
         }
+
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
         $post->author_id = Auth::id();
@@ -69,7 +80,7 @@ class PostsController extends Controller
         $post->category_id = $request->field;
         $post->save();
 
-        // add tags
+        // add tags By ID
         if(is_array($request->tags)) {
             $tags = [];
             foreach ($request->tags as $tag) {
@@ -85,14 +96,25 @@ class PostsController extends Controller
         return redirect()->route('posts.show',$post->slug)->with(['success' => 'Post added successfully']);
     }
 
+    /**
+     * @param Post $post
+     * @return View
+     */
     public function edit(Post $post)
     {
         return view('posts.edit', compact('post'));
     }
 
+    /**
+     * @param Request $request
+     * @param Post $post
+     * @return RedirectResponse
+     */
     public function update(Request $request, Post $post)
     {
+        // Check authorization
         Gate::check('update', $post);
+
         $rules = [
             "title" => "required|min:5|max:100|unique:posts,title,". $post->id,
             "body" => "required",
@@ -104,6 +126,7 @@ class PostsController extends Controller
 
         $request->validate($rules);
 
+        // check the status, if the original was published keep it, orelse either draft or pending ( not letting the user publish)
         if($post->status !== 'published') {
             if($request->status == 'draft') {
                 $post->status = 'draft';
@@ -115,6 +138,7 @@ class PostsController extends Controller
             Storage::delete($post->thumbnail);
             $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
         }
+
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
         $post->author_id = Auth::id();
@@ -140,6 +164,11 @@ class PostsController extends Controller
         return redirect()->route('posts.show',$post->slug)->with(['success' => 'Post updated successfully']);
     }
 
+    /**
+     * @param Request $request
+     * @param Post $post
+     * @return JsonResponse|RedirectResponse
+     */
     public function destroy(Request $request, Post $post)
     {
         $post->delete();

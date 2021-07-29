@@ -9,7 +9,8 @@ class PagesController extends Controller
 {
 
     public function index() {
-        $latest = Post::latest(4)->get();
-        return view("index", compact("latest"));
+        $latest = Post::latests(4)->get();
+        $topRead = Post::topRead()->get();
+        return view("index", compact(["latest","topRead"]));
     }
 }

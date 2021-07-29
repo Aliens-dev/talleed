@@ -1,5 +1,7 @@
 @extends("layouts.app")
 
+@section('title', $post->title)
+
 @section('content')
     <div class="my-post pt-2 mt-3 mb-5">
         <div class="container">

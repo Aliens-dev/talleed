@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('title', "الاشعارات")
+
 @section("content")
     @if(session()->has('profile_activated'))
         <div class="modal is-active timer">

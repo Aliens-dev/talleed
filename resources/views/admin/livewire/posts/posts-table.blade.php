@@ -17,6 +17,9 @@
                         حذف
                     </button>
                 @endif
+                <div>
+                    
+                </div>
             </div>
         </div>
         <table class="mt-2">
@@ -26,6 +29,7 @@
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="title">العنوان</x-table-header>
                 <th>الكاتب</th>
                 <th>المجال</th>
+                <th>عدد الزوار</th>
                 <th>تاريخ النشر</th>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="status">الحالة</x-table-header>
                 <th>تعديل</th>
@@ -40,6 +44,7 @@
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->user->fullname }}</td>
                     <td>{{ $post->category->name }}</td>
+                    <td>{{ $post->visitors()->count() }}</td>
                     <td>{{ $post->created_at->locale('ar')->diffForHumans() }}</td>
                     <td>
                         <div class="select">
@@ -59,6 +64,7 @@
                     </td>
                     <td>
                         <button class="button is-success" wire:click="setEditId('{{ $post->id }}')">تعديل</button>
+                        <a class="button is-primary" href="{{ route('posts.show', $post->slug) }}" >مشاهدة</a>
                     </td>
                 </tr>
             @endforeach

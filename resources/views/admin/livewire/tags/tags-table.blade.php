@@ -48,35 +48,40 @@
                 </div>
             </div>
         @endif
-        <table class="mt-2">
-            <thead>
-            <th>#</th>
-            <x-table-header class="is-hoverable" :orderBy="$orderField" :direction="$orderDirection" name="id">رقم</x-table-header>
-            <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="name">الاسم</x-table-header>
-            <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at">تاريخ الانشاء</x-table-header>
-            <th>تعديل</th>
-            </thead>
-            <tbody>
-            @foreach($tags as $tag)
-                <tr wire:key="{{ $tag->id }}">
-                    <td>
-                        <input type="checkbox" wire:model="selected" value="{{ $tag->id }}">
-                    </td>
-                    <td>{{ $tag->id }}</td>
-                    <td>{{ $tag->name }}</td>
-                    <td>{{ $tag->created_at->locale('ar')->diffForHumans() }}</td>
-                    <td>
-                        <button class="button is-success" wire:click="setEditId('{{ $tag->id }}')">تعديل</button>
-                    </td>
-                </tr>
-                @if($editId == $tag->id)
-                    <tr>
-                        <livewire:admin.tag.tags-edit-form :tag="$tag" wire:key="{{ $tag->id }}" />
+
+        @if(count($tags))
+            <table class="mt-2">
+                <thead>
+                <th>#</th>
+                <x-table-header class="is-hoverable" :orderBy="$orderField" :direction="$orderDirection" name="id">رقم</x-table-header>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="name">الاسم</x-table-header>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at">تاريخ الانشاء</x-table-header>
+                <th>تعديل</th>
+                </thead>
+                <tbody>
+                @foreach($tags as $tag)
+                    <tr wire:key="{{ $tag->id }}">
+                        <td>
+                            <input type="checkbox" wire:model="selected" value="{{ $tag->id }}">
+                        </td>
+                        <td>{{ $tag->id }}</td>
+                        <td>{{ $tag->name }}</td>
+                        <td>{{ $tag->created_at->locale('ar')->diffForHumans() }}</td>
+                        <td>
+                            <button class="button is-success" wire:click="setEditId('{{ $tag->id }}')">تعديل</button>
+                        </td>
                     </tr>
-                @endif
-            @endforeach
-            </tbody>
-        </table>
+                    @if($editId == $tag->id)
+                        <tr>
+                            <livewire:admin.tag.tags-edit-form :tag="$tag" wire:key="{{ $tag->id }}" />
+                        </tr>
+                    @endif
+                @endforeach
+                </tbody>
+            </table>
+        @else
+            <p class="p-2">لا توجد اية كلمات مفتاحية</p>
+        @endif
     </div>
-    {{ $tags->links('admin.layouts.pagination') }}
+        {{ $tags->links('admin.layouts.pagination') }}
 </div>

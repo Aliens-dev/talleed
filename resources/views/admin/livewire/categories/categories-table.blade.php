@@ -49,37 +49,41 @@
                 </div>
             </div>
         @endif
-        <table class="mt-2">
-            <thead>
-            <th>#</th>
-            <x-table-header class="is-hoverable" :orderBy="$orderField" :direction="$orderDirection" name="id">رقم</x-table-header>
-            <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="name">الاسم</x-table-header>
-            <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="slug">عنوان المجال</x-table-header>
-            <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at">تاريخ الانشاء</x-table-header>
-            <th>تعديل</th>
-            </thead>
-            <tbody>
-            @foreach($categories as $index=>$category)
-                <tr wire:key="{{ $category->id }}">
-                    <td>
-                        <input type="checkbox" wire:model="selected" value="{{ $category->id }}">
-                    </td>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->slug }}</td>
-                    <td>{{ $category->created_at->locale('ar')->diffForHumans() }}</td>
-                    <td>
-                        <button class="button is-success" wire:click="setEditId('{{ $category->id }}')">تعديل</button>
-                    </td>
-                </tr>
-                @if($editId == $category->id)
-                    <tr>
-                        <livewire:admin.category.categories-edit-form :category="$category" wire:key="{{ $category->id }}" />
+        @if(count($categories))
+            <table class="mt-2">
+                <thead>
+                <th>#</th>
+                <x-table-header class="is-hoverable" :orderBy="$orderField" :direction="$orderDirection" name="id">رقم</x-table-header>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="name">الاسم</x-table-header>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="slug">عنوان المجال</x-table-header>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at">تاريخ الانشاء</x-table-header>
+                <th>تعديل</th>
+                </thead>
+                <tbody>
+                @foreach($categories as $index=>$category)
+                    <tr wire:key="{{ $category->id }}">
+                        <td>
+                            <input type="checkbox" wire:model="selected" value="{{ $category->id }}">
+                        </td>
+                        <td>{{ $category->id }}</td>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->slug }}</td>
+                        <td>{{ $category->created_at->locale('ar')->diffForHumans() }}</td>
+                        <td>
+                            <button class="button is-success" wire:click="setEditId('{{ $category->id }}')">تعديل</button>
+                        </td>
                     </tr>
-                @endif
-            @endforeach
-            </tbody>
-        </table>
+                    @if($editId == $category->id)
+                        <tr>
+                            <livewire:admin.category.categories-edit-form :category="$category" wire:key="{{ $category->id }}" />
+                        </tr>
+                    @endif
+                @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>لا توجد اية مجالات</p>
+        @endif
     </div>
     {{ $categories->links('admin.layouts.pagination') }}
 </div>

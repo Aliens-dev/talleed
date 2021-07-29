@@ -1,5 +1,7 @@
 @extends("layouts.app")
-@section('title', "المقالات")
+
+@section('title', $category->name)
+
 @section('content')
     <div class="posts-page" id="test">
         <div class="container">
@@ -18,4 +20,3 @@
         </div>
     </div>
 @endsection
-

@@ -36,6 +36,11 @@ class Post extends Model
         return $this->morphMany(Comment::class,"imageable","imageable_type","imageable_id");
     }
 
+    public function visitors()
+    {
+        return $this->hasMany(Visitor::class, 'post_id');
+    }
+
     public function scopePublished($query) {
         return $query->where('status', 'published');
     }
@@ -48,8 +53,13 @@ class Post extends Model
         return $query->where('status', 'draft');
     }
 
-    public function scopeLatest($query,$num) {
-        return $query->take($num)->orderByDesc('created_at');
+    public function scopeLatests($query, $num=5) {
+        return $query->published()->take($num)->orderByDesc('created_at');
+    }
+
+    public function scopeTopRead($query, $num = 5)
+    {
+        return $query->published()->withCount('visitors')->orderByDesc('visitors_count')->take($num);
     }
 
 }

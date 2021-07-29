@@ -1,5 +1,8 @@
 <nav class="top-navbar">
     <div class="container">
+        <div class="switch-button hidden">
+            <img src="/assets/img/3bars.svg" width="35px" height="35px" alt="" />
+        </div>
         <div class="nav-items">
             @auth
                 <div class="nav-item main-item">

@@ -1,5 +1,5 @@
 @extends('admin.layouts.auth')
 
     @section('content')
-        Dashboard
+        <livewire:admin.dashboard-table />
     @endsection

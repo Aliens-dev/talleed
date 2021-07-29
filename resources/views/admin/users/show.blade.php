@@ -36,10 +36,11 @@
                 </a>
             </p>
         </div>
+        <div class="is-flex">
+            <button class="button is-primary">تعديل</button>
+        </div>
     </div>
-    <div class="is-flex mr-5">
-        <button class="button is-primary">تعديل</button>
-    </div>
+
 </div>
 
 @endsection
