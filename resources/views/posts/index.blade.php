@@ -8,6 +8,8 @@
                     @foreach($posts as $post)
                         <x-post-card :post="$post" />
                     @endforeach
+
+                    {{ $posts->links('layouts.my-pagination') }}
                 @else
                     <div class="alert alert-info">
                         لا توجد اية مقالات

@@ -6,9 +6,8 @@
             <a href="{{route('index')}}">العودة الى الرئيسية</a>
         </x-my-divider>
         <div class="container">
-            <form action="" method="POST" class="login-form">
+            <form action="{{ route('login') }}" method="POST" class="login-form">
                 @csrf
-
                 <div class="input-side">
                     <div class="form-title">
                         تسجيل الدخول

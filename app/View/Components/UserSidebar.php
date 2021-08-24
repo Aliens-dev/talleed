@@ -8,14 +8,18 @@ use Illuminate\View\Component;
 class UserSidebar extends Component
 {
     public $user;
+    public $editMode;
+
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param $user
+     * @param $editMode
      */
-    public function __construct($user)
+    public function __construct($user,$editMode = false)
     {
         $this->user = $user;
+        $this->editMode = $editMode;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Tag;
 
+use App\Http\Livewire\LivewireHelpers;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
@@ -10,11 +11,8 @@ use Livewire\WithPagination;
 class TagsTable extends Component
 {
     use WithPagination;
-    public string $search = '';
-    public $orderField = 'title';
-    public $orderDirection = 'ASC';
-    public $editId = 0;
-    public $selected = [];
+    use LivewireHelpers;
+
     public $addFormVisible = false;
 
     public $newTag = [
@@ -26,37 +24,6 @@ class TagsTable extends Component
         'resetEditId' => 'resetEditId',
     ];
 
-    public function closeMessage() {
-        Session::remove('success');
-    }
-
-    public function editSuccess() {
-        Session::flash("success", 'تم التعديل بنجاح');
-        $this->resetEditId();
-    }
-
-    public function updating($name, $val) {
-        if($name === 'search') {
-            $this->resetPage();
-        }
-    }
-    public function setEditId($id)
-    {
-        $this->editId = $id;
-    }
-    public function resetEditId()
-    {
-        $this->reset('editId');
-    }
-    public function setOrderField($name)
-    {
-        if($name === $this->orderField) {
-            $this->orderDirection = $this->orderDirection === 'ASC' ? 'DESC': 'ASC';
-        }else {
-            $this->orderField = $name;
-            $this->reset('orderDirection');
-        }
-    }
     public function deleteTags() {
         Tag::destroy($this->selected);
         $this->selected = [];
@@ -79,7 +46,6 @@ class TagsTable extends Component
         ]);
         $this->reset('newTag','addFormVisible');
     }
-
 
     public function render()
     {

@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -35,18 +36,38 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+
+        $rules=  [
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
+            'username' => 'required|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
+            'about_me' => 'required|string|max:255|min:20',
+            'user_image' => 'required|image|mimes:jpg,png',
+            'field_id' => 'required|exists:categories,id',
+            'social_media_account' => 'required|string|url',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        ];
+
+        $request->validate($rules);
+
+
         $role = Role::where('name','author')->first();
+
+        if($request->hasFile('user_image')) {
+            $image_url = $request->file('user_image')->store('users/profiles');
+        }
+
         $user = User::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'about_me' => $request->about_me,
+            'user_image' => $image_url,
+            'social_media_account' => $request->social_media_account,
+            'field_id' => $request->field_id,
             'role_id' => $role->id,
         ]);
 

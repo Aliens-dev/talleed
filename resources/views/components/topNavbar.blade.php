@@ -11,7 +11,7 @@
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                                 <span>{{ auth()->user()->fname }}</span>
                                 <span class="icon is-medium">
-                                    <img src="/uploads/man.svg" alt="user" />
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::url(auth()->user()->user_image) }}" alt="user" />
                                 </span>
                             </button>
                         </div>

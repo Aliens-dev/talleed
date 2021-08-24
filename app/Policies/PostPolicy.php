@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Post;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -53,7 +54,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->id == $post->author_id;
+        return $user->id == $post->author_id || $user->role_id == Role::where('name','admin')->first()->id;
     }
 
     /**

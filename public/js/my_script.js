@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const switchButton = document.querySelector('.switch-button')
 const topNavItems = document.querySelector('.nav-items');
-switchButton.addEventListener('click', function() {
+switchButton?.addEventListener('click', function() {
     console.log(topNavItems.style.display)
     if(topNavItems.style.display === 'none' || !topNavItems.style.display) {
         topNavItems.style.display = 'block'
@@ -67,3 +67,52 @@ switchButton.addEventListener('click', function() {
         topNavItems.style.display = 'none'
     }
 });
+
+/*
+*  Tabs
+* */
+const tabsList = document.querySelectorAll('.tabs li')
+const tabs = document.querySelectorAll('.tabs li a')
+const tabsContent = document.querySelector('.tabs-content')
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', function(e) {
+        const elem = e.target;
+        tabsContent.childNodes.forEach(child => {
+            if(child.nodeType !== child.ELEMENT_NODE) {
+                return;
+            }
+            if(child.getAttribute('id') === elem.getAttribute('data-toggle')) {
+                child.classList.add('show');
+                elem.parentNode.classList.add('is-active')
+                tabsList.forEach(l => {
+                    if (l !== elem.parentNode) {
+                        l.classList.remove('is-active')
+                    }
+                })
+            }else {
+                child.classList.remove('show')
+            }
+        })
+    });
+})
+
+
+/*
+*  User Register Image
+* */
+
+const userIcon = document.getElementById('user_icon')
+const userImage = document.getElementById('user_image')
+
+userIcon?.addEventListener('click', function(e) {
+    const image = userImage.click();
+});
+userImage?.addEventListener('change',function() {
+    const image = this.files[0];
+    // Preview image
+    const imageUrl = URL.createObjectURL(image)
+    userIcon.setAttribute('src', imageUrl);
+    userIcon.style.filter = 'none';
+})
+

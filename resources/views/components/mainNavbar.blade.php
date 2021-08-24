@@ -10,7 +10,7 @@
         </a>
         <div class="nav-items">
             <div class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('posts.index') }}" class="nav-link">
                     مقالات
                 </a>
             </div>

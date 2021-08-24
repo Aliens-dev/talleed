@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Admin\Category;
 
+use App\Http\Livewire\LivewireHelpers;
 use App\Models\Category;
-use App\Models\Post;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -11,11 +11,8 @@ use Livewire\WithPagination;
 class CategoriesTable extends Component
 {
     use WithPagination;
-    public string $search = '';
-    public $orderField = 'title';
-    public $orderDirection = 'ASC';
-    public $editId = 0;
-    public $selected = [];
+    use LivewireHelpers;
+
     public $addFormVisible = false;
 
     public $newCategory = [
@@ -28,40 +25,9 @@ class CategoriesTable extends Component
         'resetEditId' => 'resetEditId',
     ];
 
-    public function closeMessage() {
-        Session::remove('success');
-    }
-
-    public function editSuccess() {
-        Session::flash("success", 'تم التعديل بنجاح');
-        $this->resetEditId();
-    }
-
-    public function updating($name, $val) {
-        if($name === 'search') {
-            $this->resetPage();
-        }
-    }
-    public function setEditId($id)
-    {
-        $this->editId = $id;
-    }
-    public function resetEditId()
-    {
-        $this->reset('editId');
-    }
-    public function setOrderField($name)
-    {
-        if($name === $this->orderField) {
-            $this->orderDirection = $this->orderDirection === 'ASC' ? 'DESC': 'ASC';
-        }else {
-            $this->orderField = $name;
-            $this->reset('orderDirection');
-        }
-    }
     public function deleteCategories() {
         Category::destroy($this->selected);
-        $this->selected = [];
+        $this->reset('selected');
         Session::flash('success', 'تم الحذف بنجاح');
     }
 
@@ -76,11 +42,14 @@ class CategoriesTable extends Component
             'newCategory.name' => 'required|string|unique:categories,name',
             'newCategory.slug' => 'required|string|unique:categories,slug',
         ];
+
         $this->validate($rules);
+
         Category::create([
             'name' => $this->newCategory['name'],
             'slug' => $this->newCategory['slug'],
         ]);
+
         $this->reset('newCategory','addFormVisible');
     }
 

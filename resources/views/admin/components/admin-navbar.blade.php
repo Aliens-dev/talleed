@@ -8,7 +8,7 @@
     <div class="navbar-items">
         <div class="navbar-block">
             <div class="navbar-item">
-                <a class="navbar-link ripple" href="{{ route('index') }}">Home</a>
+                <a class="navbar-link ripple" href="{{ route('index') }}">الرئيسية</a>
             </div>
         </div>
         <div class="navbar-block">

@@ -102,6 +102,18 @@
                 </div>
                 <div class="col">
                     <div class="input-container">
+                        <label for="body">مقتطف المقال</label>
+                        <textarea class="textarea" name="excerpt">{{ old('excerpt') }}</textarea>
+                        @error('excerpt')
+                        <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                            <span class="delete"></span>
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-container">
                         <label for="body" class="mb-2">المقال</label>
                         <textarea name="body" id="body" value="{{ old('body') }}"></textarea>
                         @error('body')
@@ -174,7 +186,7 @@
         })
 
         tinymce.init({
-            selector: 'textarea',
+            selector: '#body',
             height:350,
             plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
             menu: {

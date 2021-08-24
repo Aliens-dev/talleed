@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -29,7 +30,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        return (int)$user->id === (int)$model->id;
+        return (int)$user->id === (int)$model->id  || $user->role_id == Role::where('name','admin')->first()->id;
     }
 
     /**

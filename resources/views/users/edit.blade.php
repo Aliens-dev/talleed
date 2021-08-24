@@ -24,6 +24,7 @@
         <div class="container">
             <x-user-sidebar
                 :user="$user"
+                :editMode="true"
             >
                 <button class="button is-success is-rounded">حفظ التعديلات</button>
             </x-user-sidebar>
@@ -58,9 +59,13 @@
                     <div class="col">
                         <div class="input-container">
                             <label for="field">المجال</label>
-                            <input
-                                type="text" name="field" id="field" value="{{ old('field') }}"
-                            />
+                            <div class="select is-flex">
+                                <select id="field" name="field_id" class="is-flex is-100">
+                                    @foreach(\App\Models\Category::all() as $cat)
+                                        <option selected="{{ $cat->id === $user->field_id }}" value="{{ $cat->id }}"> {{ $cat->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             @error('field')
                             <div class="notification is-flex is-danger mt-1 mb-1 p-2">
                                 <span class="delete"></span>
@@ -69,11 +74,11 @@
                             @enderror
                         </div>
                         <div class="input-container">
-                            <label for="status">الحالة</label>
+                            <label for="username">اسم المستخدم</label>
                             <input
-                                type="text" name="status" id="status" value="{{ old('status') }}"
+                                type="text" name="username" id="username" value="{{ $user->username }}"
                             />
-                            @error('status')
+                            @error('username')
                             <div class="notification is-flex is-danger mt-1 mb-1 p-2">
                                 <span class="delete"></span>
                                 {{ $message }}
@@ -97,11 +102,23 @@
                     </div>
                     <div class="col">
                         <div class="input-container">
-                            <label for="social_media">حساب التواصل الاجتماعي</label>
+                            <label for="social_media_account">حساب التواصل الاجتماعي</label>
                             <input
-                                type="text" name="social_media" id="social_media" value=""
+                                type="text" name="social_media_account" id="social_media_account" value="{{ $user->social_media_account }}"
                             />
                             @error('social_media')
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-container">
+                            <label for="about_me">نبذة عني</label>
+                            <textarea class="textarea" name="about_me" placeholder="اخبرنا عنك" id="about_me">{{ $user->about_me }}</textarea>
+                            @error('about_me')
                             <div class="notification is-flex is-danger mt-1 mb-1 p-2">
                                 <span class="delete"></span>
                                 {{ $message }}
@@ -121,12 +138,6 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
-                    </div>
-                    <div class="about-author">
-                        <div class="card-header is-flex is-flex-direction-column">
-                            <h3 class="subtitle is-6 mb-3">نبذة عن المدون</h3>
-                            <textarea class="textarea is-size-6 is-primary">لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...</textarea>
                         </div>
                     </div>
                 </div>

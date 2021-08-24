@@ -23,6 +23,13 @@ class PostsController extends Controller
         $this->middleware(['auth'])->except('show',"index");
     }
 
+
+    public function index()
+    {
+        $posts = Post::paginate(10);
+        return view('posts.index', compact(['posts']));
+    }
+
     /**
      * @param Post $post
      * @return View
@@ -53,10 +60,11 @@ class PostsController extends Controller
     {
         $rules = [
             "title" => "required|unique:posts|min:5|max:100",
+            "body" => "required|min:200",
+            "excerpt" => "required|min:20|max:200",
             "status" => "required",
             'field' => 'required|exists:categories,id',
             'thumbnail' => 'required|image|mimes:jpg,bmp,png',
-            "body" => "required",
             'tags' => 'sometimes|required',
         ];
 
@@ -76,6 +84,7 @@ class PostsController extends Controller
         $post->slug = Str::slug($request->title);
         $post->author_id = Auth::id();
         $post->body = $request->body;
+        $post->excerpt = $request->excerpt;
         $post->thumbnail = $image_url;
         $post->category_id = $request->field;
         $post->save();
@@ -102,6 +111,8 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
+        Gate::authorize('update',$post);
+
         return view('posts.edit', compact('post'));
     }
 
@@ -113,11 +124,12 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         // Check authorization
-        Gate::check('update', $post);
+        Gate::authorize('update', $post);
 
         $rules = [
             "title" => "required|min:5|max:100|unique:posts,title,". $post->id,
-            "body" => "required",
+            "body" => "required|min:200",
+            "excerpt" => "required|min:20|max:200",
             "status" => "required",
             'field' => 'required|exists:categories,id',
             'thumbnail' => 'required|image|mimes:jpg,png',
@@ -143,6 +155,7 @@ class PostsController extends Controller
         $post->slug = Str::slug($request->title);
         $post->author_id = Auth::id();
         $post->body = $request->body;
+        $post->excerpt = $request->excerpt;
         $post->category_id = $request->field;
         $post->thumbnail = $image_url;
         $post->save();

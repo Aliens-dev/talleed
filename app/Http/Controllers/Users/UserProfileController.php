@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class UserProfileController extends Controller
 {
@@ -67,6 +68,11 @@ class UserProfileController extends Controller
         $rules = [
             'fname' => 'required',
             'lname' => 'required',
+            'username' => 'required|unique:users,username,'.$user->username,
+            'about_me' => 'required|string|max:255|min:20',
+            'user_image' => 'required|image|mimes:jpg,png',
+            'field_id' => 'required|exists:categories,id',
+            'social_media_account' => 'required|string|url',
             'email' => 'required|email|unique:users,email,'.$user->id,
             'password' => 'required',
         ];
@@ -75,8 +81,18 @@ class UserProfileController extends Controller
         if(Hash::check($user->password,$user->password)) {
             return back()->withErrors(['password' => 'password doesn\'t match']);
         }
+
+        if($request->hasFile('user_image')) {
+            Storage::delete($user->user_image);
+            $image_url = $request->file('user_image')->store('users/profiles');
+            $user->user_image = $image_url;
+        }
+
         $user->fname = $request->fname;
         $user->lname = $request->lname;
+        $user->username = $request->username;
+        $user->field_id = $request->field_id;
+        $user->social_media_account = $request->social_media_account;
         $user->email = $request->email;
         $user->save();
         return back()->with(['success' => 'profile updated']);

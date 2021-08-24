@@ -3,7 +3,10 @@
         <div class="my-card no-box-shadow is-full is-flex is-align-items-center">
             <div class="user-profile-picture is-two-fifths">
                 <figure class="image is-96x96">
-                    <img class="is-rounded " src="/uploads/man.svg" alt="user profile" />
+                    <img class="is-rounded"
+                         src="{{ \Illuminate\Support\Facades\Storage::url($user->user_image) }}" alt="{{ $user->username }}"
+                    />
+
                 </figure>
             </div>
             <div class="user-profile-info is-three-fifths pr-5">

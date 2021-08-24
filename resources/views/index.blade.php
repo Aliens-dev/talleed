@@ -6,7 +6,11 @@
             <div class="container">
                 <div class="main-post">
                     <div class="post-img">
-                        <img src="{{ asset('uploads/main-post.PNG') }}" alt="" />
+                        @if(\Illuminate\Support\Facades\Storage::exists($latest[0]->thumbnail))
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url($latest[0]->thumbnail) }}" alt="{{ $latest[0]->title }}" />
+                        @else
+                            <img src="/uploads/main-post.PNG" alt="{{ $latest[0]->title }}" />
+                        @endif
                     </div>
                     <div class="post-title">
                         <a href="{{ route('posts.show', $latest[0]->slug) }}" >
@@ -14,7 +18,7 @@
                         </a>
                     </div>
                     <div class="post-excerpt">
-                        هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء
+                        {{ $latest[0]->excerpt }}
                     </div>
                 </div>
                 <?php $latest = $latest->splice(1) ?>
@@ -22,7 +26,11 @@
                     @foreach($latest as $post)
                         <div class="post">
                             <div class="post-img">
-                                <img src="{{ asset('uploads/main-post.PNG') }}" alt="" />
+                                @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                                @else
+                                    <img src="/uploads/main-post.PNG" alt="{{ $post->title }}" />
+                                @endif
                             </div>
                             <div class="post-info">
                                 <div class="post-title">
@@ -31,7 +39,7 @@
                                     </a>
                                 </div>
                                 <div class="post-excerpt">
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.
+                                    {{ $post->excerpt }}
                                 </div>
                             </div>
                         </div>
@@ -45,7 +53,7 @@
         <div class="latest-section">
             <div class="container">
                 <div class="latest-posts">
-                    @foreach($latest as $post)
+                    @foreach($topRead as $post)
                         <div class="post">
                             <div class="post-info">
                                 <div class="post-title">
@@ -54,14 +62,18 @@
                                     </a>
                                 </div>
                                 <div class="post-excerpt">
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.
+                                    {{ $post->excerpt }}
                                 </div>
                                 <a href="{{ route('posts.show', $post->slug) }}" class="more-button">
                                     اقرأ المزيد
                                 </a>
                             </div>
                             <div class="post-img">
-                                <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                                @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                                @else
+                                    <img src="/uploads/main-post.PNG" alt="{{ $post->title }}" />
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -69,7 +81,9 @@
                 <div class="banner"></div>
             </div>
             <x-my-divider :line="true">
-                مشاهدة كل التدوينات
+                <a href="{{ route('posts.index') }}">
+                    مشاهدة كل التدوينات
+                </a>
             </x-my-divider>
         </div>
     </div>

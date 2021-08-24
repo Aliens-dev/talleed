@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Post;
 
+use App\Http\Livewire\LivewireHelpers;
 use App\Models\Post;
 use App\Models\User;
 use App\Notifications\PostStatusChangedNotification;
@@ -12,25 +13,13 @@ use Livewire\WithPagination;
 class PostsTable extends Component
 {
     use WithPagination;
-    public string $search = '';
-    public $orderField = 'title';
-    public $orderDirection = 'ASC';
-    public $editId = 0;
-    public $selected = [];
+    use LivewireHelpers;
+
     public $availableStatus = [
         'published' => 'منشور',
         'pending' => 'معلق',
         'draft' => 'مسودة'
     ];
-
-    public function setOrderField($name) {
-        if($name === $this->orderField) {
-            $this->orderDirection = $this->orderDirection === 'ASC' ? 'DESC': 'ASC';
-        }else {
-            $this->orderField = $name;
-            $this->reset('orderDirection');
-        }
-    }
 
     public function updateStatus($status,$postId) {
         $post = Post::find($postId);
@@ -40,25 +29,10 @@ class PostsTable extends Component
         Session::flash('success', 'تم التعديل بنجاح');
     }
 
-    public function closeMessage() {
-        Session::remove('success');
-    }
-
     public function deletePosts() {
         Post::destroy($this->selected);
         $this->selected = [];
         Session::flash('success', 'تم الحذف بنجاح');
-    }
-
-    public function updating($name, $val) {
-        if($name === 'search') {
-            $this->resetPage();
-        }
-    }
-
-    public function setEditId($id)
-    {
-        $this->editId = $id;
     }
 
     public function render()
@@ -72,7 +46,7 @@ class PostsTable extends Component
                         ->orWhere('email', 'LIKE', "%{$this->search}%");
                 })
                 ->orderBy($this->orderField, $this->orderDirection)
-                ->paginate(5)
+                ->paginate(10)
         ]);
     }
 }

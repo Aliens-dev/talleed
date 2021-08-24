@@ -30,9 +30,7 @@
                     <div class="my-card p-5 about-author">
                         <div class="card-header is-flex is-flex-direction-column">
                             <h3 class="title is-5 mb-3">نبذة عن المدون</h3>
-                            <p class="is-size-6">
-                                لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...
-                            </p>
+                            <p class="is-size-6">{{ $user->about_me }}</p>
                         </div>
                     </div>
                     <div class="mt-4 mb-2 p-2">

@@ -25,6 +25,7 @@
                 <x-table-header class="is-hoverable" :orderBy="$orderField" :direction="$orderDirection" name="id">رقم</x-table-header>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="fname">الاسم</x-table-header>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="lname">اللقب</x-table-header>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="username">اسم المستخدم</x-table-header>
                 <th>الصورة</th>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="email">الايميل</x-table-header>
                 <th>الدور</th>
@@ -40,8 +41,13 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->fname }}</td>
                     <td>{{ $user->lname }}</td>
+                    <td>{{ $user->username }}</td>
                     <td>
-                        <img src="/uploads/author.PNG" width="45" height="45" alt="{{$user->fname}}" />
+                        @if(\Illuminate\Support\Facades\Storage::exists($user->user_image))
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url($user->user_image) }}" width="45" height="45" alt="{{$user->fname}}" />
+                        @else
+                            <img src="/uploads/author.PNG" width="45" height="45" alt="{{$user->fname}}" />
+                        @endif
                     </td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role->name }}</td>

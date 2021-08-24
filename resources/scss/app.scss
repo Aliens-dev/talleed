@@ -37,6 +37,7 @@ a {
 }
 
 .top-navbar {
+    background-color: #FFF;
     .container {
         .switch-button {
             display:none;
@@ -69,6 +70,13 @@ a {
                             min-width: 100%;
                             display: flex;
                             justify-content: space-around;
+                            .icon {
+                                img {
+                                    height: 100%;
+                                    max-width: 100%;
+                                    border-radius: 50%;
+                                }
+                            }
                             &:focus {
                                 box-shadow: none;
                                 outline:none !important;
@@ -300,7 +308,89 @@ a {
         display:grid;
         grid-template-columns: 1fr 300px;
         grid-gap:20px;
+        align-items: flex-start;
     }
+}
+
+.sidebar {
+    margin:10px 0;
+    .tabs {
+        ul {
+            li {
+                flex:1;
+            }
+        }
+    }
+    .items {
+        display:none;
+        .item {
+            display:flex;
+            flex-direction: column;
+            padding:5px 20px;
+            font-size:1.2em;
+            background-color:#FEFEFE;
+            margin:5px 0;
+            a {
+                display:flex;
+                flex-grow: 1;
+            }
+            &:hover {
+                background-color: #FAFAFA;
+                cursor: pointer;
+            }
+        }
+        .post {
+            display:flex;
+            grid-gap: 10px;
+            padding:5px 10px;
+            margin: 5px 0;
+            .post-thumbnail{
+                width:75px;
+                height: 75px;
+                img {
+                    width:100%;
+                    height: 100%;
+                }
+            }
+            .post-info {
+                display:flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex:1;
+                padding:5px 0;
+                .post-title {
+                    font-size:16px;
+                    font-weight: 600;
+                }
+                .post-subinfo {
+                    display:flex;
+                    font-size:14px;
+                    .post-date {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .show {
+        display:block;
+    }
+    .side-item {
+        background-color: #FFF;
+        box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    .post-tags {
+        padding:5px;
+        .btns {
+            flex-wrap: wrap;
+            .tag-btn {
+                margin:0 2px 5px 0;
+            }
+        }
+    }
+
 }
 
 .more-bar {
@@ -396,13 +486,14 @@ a {
         background-repeat: no-repeat;
         background-size: cover;
         position:relative;
-        wrapper {
+        .wrapper {
             background-color: rgba(10, 10, 255,0.7);
             position:absolute;
             top:0;
             left:0;
             right:0;
             bottom:0;
+            z-index: 5;
         }
     }
 }
@@ -473,6 +564,31 @@ a {
             left:0;
             right:0;
             bottom:0;
+        }
+        .image-container {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position:relative;
+            z-index:100;
+            padding:40px 0;
+            .user-image {
+                width:100px;
+                height: 100px;
+                border-radius: 50%;
+                img {
+                    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(241deg) brightness(103%) contrast(103%);
+                    width:100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+            label {
+                margin:20px 0;
+                display:block;
+                color:#FFF;
+            }
         }
     }
 }
@@ -562,6 +678,12 @@ a {
             .user-options {
                 .image {
                     filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
+                }
+            }
+            .user-profile-picture {
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }
@@ -657,6 +779,7 @@ form {
         grid-gap: 5px;
         border:1px solid #EEE;
         padding:2px;
+        flex-wrap: wrap;
         input {
             border:none !important;
             outline:none;
@@ -673,6 +796,7 @@ form {
     .container {
         display:grid;
         grid-template-columns: 1fr 300px;
+        grid-gap: 20px;
         .post-thumbnail {
             img {
                 width:100%;

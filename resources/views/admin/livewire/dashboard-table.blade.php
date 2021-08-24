@@ -30,12 +30,12 @@
         </div>
         <div class="v-card">
             <div class="v-icon">
-                <img src="/assets/img/users.svg" width="50" height="50" alt="Users">
+                <img src="/assets/img/group.svg" width="50" height="50" alt="Users">
             </div>
             <div class="v-card-body">
                 <div>عدد الزوار</div>
                 <div class="bold">
-                    {{ count($visitors) }}
+                    {{ \App\Models\Visitor::count() }}
                 </div>
                 <div class="progress">
                     <div></div>
@@ -62,7 +62,7 @@
                 <x-table-header class="is-hoverable" :orderBy="$orderField" :direction="$orderDirection" name="id">رقم</x-table-header>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="title">الايبي</x-table-header>
                 <th>البلد</th>
-                <th>تاريخ الزيارة</th>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at">تاريخ الزيارة</x-table-header>
             </thead>
             <tbody>
             @foreach($visitors as $visitor)

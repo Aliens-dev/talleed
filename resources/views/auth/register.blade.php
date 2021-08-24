@@ -1,5 +1,7 @@
 @extends("layouts.auth")
 
+@section('title', 'تسجيل مستخدم جديد')
+
 @section('content')
 
     @if(session()->has('success'))
@@ -24,7 +26,7 @@
             <a href="{{route('index')}}">العودة الى الرئيسية</a>
         </x-my-divider>
         <div class="container">
-            <form action="{{ route('register.post') }}" method="POST" class="register-form">
+            <form action="{{ route('register.post') }}" method="POST" class="register-form" enctype="multipart/form-data">
                 @csrf
                 <div class="input-side">
                     <div class="form-title">
@@ -59,9 +61,13 @@
                     <div class="col">
                         <div class="input-container">
                             <label for="field">المجال</label>
-                            <input
-                                type="text" name="field" id="field" value="{{ old('field') }}"
-                            />
+                            <div class="select is-flex">
+                                <select id="field" name="field_id" class="is-flex is-100">
+                                    @foreach(\App\Models\Category::all() as $cat)
+                                        <option value="{{ $cat->id }}"> {{ $cat->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             @error('field')
                                 <div class="notification is-flex is-danger mt-1 mb-1 p-2">
                                     <span class="delete"></span>
@@ -70,11 +76,38 @@
                             @enderror
                         </div>
                         <div class="input-container">
-                            <label for="status">الحالة</label>
+                            <label for="username">اسم المستخدم</label>
                             <input
-                                type="text" name="status" id="status" value="{{ old('status') }}"
+                                type="text" name="username" id="username" value="{{ old('username') }}"
                             />
-                            @error('status')
+                            @error('username')
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-container">
+                            <label for="about_me">نبذة عنك</label>
+                            <textarea class="textarea" name="about_me" placeholder="اخبرنا عنك" id="about_me">{{ old('about_me') }}</textarea>
+                            @error('about_me')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-container">
+                            <label for="social_media_account">حساب التواصل الاجتماعي</label>
+                            <input
+                                type="text" name="social_media_account" id="social_media_account" value="{{ old('social_media_account') }}"
+                                placeholder="فيسبوك,تويتر او انستغرام"
+                            />
+                            @error('social_media_account')
                                 <div class="notification is-flex is-danger mt-1 mb-1 p-2">
                                     <span class="delete"></span>
                                     {{ $message }}
@@ -89,24 +122,10 @@
                                 type="text" name="email" id="email" value="{{ old('email') }}"
                             />
                             @error('email')
-                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
-                                    <span class="delete"></span>
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-container">
-                            <label for="social_media">حساب التواصل الاجتماعي</label>
-                            <input
-                                type="text" name="social_media" id="social_media" value="social_media"
-                            />
-                            @error('social_media')
-                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
-                                    <span class="delete"></span>
-                                    {{ $message }}
-                                </div>
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
                     </div>
@@ -151,6 +170,19 @@
                 </div>
                 <div class="form-side">
                     <div class="wrapper"></div>
+                    <div class="image-container">
+                        <div class="user-image" >
+                            <img id="user_icon" src="/assets/img/user-icon.svg" alt="user_image" />
+                        </div>
+                        <input class="is-hidden" type="file" name="user_image" id="user_image" />
+                        <label for="user_image">صورتك الشخصية</label>
+                        @error('user_image')
+                        <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                            <span class="delete"></span>
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
                 </div>
             </form>
         </div>

@@ -1,38 +1,51 @@
-@extends('admin.layouts.app')
+@extends("admin.layouts.app")
 
-    @section('content')
-
-        <div class="admin-login">
-            <div class="container">
-                <form action="{{ route('admin.login.post') }}" method="POST">
-                    @csrf
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control">
-                            <input class="input is-success" name="email" type="email" placeholder="Your email" value="{{ old('email') }}">
-                        </div>
-                        @error('email')
-                            <p class="help is-danger">{{ $message }}</p>
-                        @enderror
+@section('content')
+    <div class="admin-login">
+        <div class="container">
+            <form action="{{ route('admin.login.post') }}" method="POST" class="login-form">
+                @csrf
+                <div class="input-side">
+                    <div class="form-title">
+                        تسجيل دخول ادمين
                     </div>
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control">
-                            <input class="input is-danger" name="password" type="password" placeholder="Your password">
-                        </div>
-                        @error('password')
-                            <p class="help is-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link">Submit</button>
-                        </div>
-                        <div class="control">
-                            <input type="reset" class="button is-link is-light" value="Reset" />
+                    <div class="col">
+                        <div class="input-container">
+                            <label for="email">الايميل</label>
+                            <input
+                                type="text" name="email" id="email" value="{{ old('email') }}"
+                            />
+                            @error('email')
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div class="col">
+                        <div class="input-container">
+                            <label for="password">كلمة المرور</label>
+                            <input
+                                type="password" name="password" id="password"
+                            />
+                            @error('password')
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-container control">
+                            <button class="button">الدخول</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-    @endsection
+    </div>
+@endsection
+
+

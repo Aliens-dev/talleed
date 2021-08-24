@@ -19,7 +19,7 @@ class NotificationComponent extends Component
     {
         return view('admin.livewire.notification-component', [
             'notifications' => auth()->user()
-                ->notifications()->orderBy('created_at','DESC')->take(20)->get(),
+                ->notifications()->orderBy('created_at','DESC')->take(5)->get(),
             'unread' => auth()->user()->unreadnotifications()->count(),
         ]);
     }

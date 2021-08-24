@@ -45,8 +45,8 @@ a:hover {
 }
 .notification-btn .notification-count {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 10px;
+  right: 18px;
   background-color: #4C31BC;
   color: #FFF;
   padding: 2px;
@@ -119,21 +119,82 @@ a:hover {
 }
 
 .admin-login {
-  background-color: #EEE;
-  height: 100vh;
-  margin: 0 auto;
   width: 100%;
 }
 .admin-login .container {
   display: flex;
   justify-content: center;
 }
-.admin-login .container form {
-  width: 600px;
-  margin: 50px 0;
-  padding: 50px;
-  border-radius: 10px;
+.admin-login .container .login-form {
+  margin: 60px 80px;
   background-color: #FFF;
+  display: grid;
+  grid-template-columns: 1fr;
+  direction: ltr;
+  font-family: "URWGeometricArabic";
+  box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
+  min-height: 500px;
+  min-width: 450px;
+}
+.admin-login .container .login-form .input-side {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px;
+}
+.admin-login .container .login-form .input-side .form-title {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  font-size: 25px;
+  color: #4C31BC;
+  border-bottom: 2px solid #4C31BC;
+}
+.admin-login .container .login-form .form-side {
+  background-image: url("/uploads/office.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.admin-login .container .login-form .form-side wrapper {
+  background-color: rgba(10, 10, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.col {
+  display: flex;
+  grid-gap: 10px;
+  padding: 10px 60px;
+}
+.col .input-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.col .input-container input {
+  outline: none;
+  border: 1px solid #CCC;
+  padding: 4px 6px;
+}
+.col .input-container input:focus {
+  outline: none;
+}
+.col .control {
+  margin: 10px 0;
+}
+.col .control button {
+  padding: 8px 0;
+  background-color: #4C31BC;
+  border: 1px solid #4C31BC;
+  color: #FFF;
+}
+.col .control button:hover {
+  cursor: pointer;
 }
 
 .wrapper {
@@ -205,9 +266,15 @@ a:hover {
 .admin-nav .navbar-items .navbar-block .navbar-item {
   display: flex;
   margin: 0 5px;
-  min-width: 60px;
+  min-width: 80px;
   height: 100%;
   align-items: center;
+  justify-content: center;
+}
+
+.admin-nav .navbar-items .navbar-block .dropdown button span {
+  display: block;
+  margin-left: 15px;
 }
 
 .admin-nav .navbar-items .navbar-block .navbar-item .navbar-link {
@@ -215,7 +282,6 @@ a:hover {
   height: 80%;
   align-items: center;
   text-decoration: none;
-  padding: 0 10px;
   color: #45474C;
   font-family: Roboto;
 }
@@ -430,7 +496,8 @@ a:hover {
   min-width: 350px;
   height: 120px;
   border: 1px solid #EEE;
-  background-color: #4C31BC;
+  background: #3d6fb9;
+  background: linear-gradient(251deg, #3d6fb9 6%, rgba(9, 9, 119, 0.773844572) 71%);
   border-radius: 5px;
   display: grid;
   grid-template-columns: 80px 1fr;
@@ -511,5 +578,32 @@ a:hover {
 @media screen and (max-width: 900px) {
   .admin-sidebar {
     width: 80px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1140px;
+    margin: 0 auto;
   }
 }

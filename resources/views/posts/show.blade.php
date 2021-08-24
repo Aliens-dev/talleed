@@ -5,7 +5,7 @@
 @section('content')
     <div class="my-post pt-2 mt-3 mb-5">
         <div class="container">
-            <div class="my-card p-2 pt-4">
+            <div class="my-card p-2 pt-4 mt-3">
                 <x-settings-icon :post="$post" />
                 <h1 class="title is-4">
                     {{ $post->title }}
@@ -16,7 +16,7 @@
                 <div class="post-author">
                     <div class="author-card">
                         <a href="{{ route('users.profile', $post->user->id) }}" class="author-img">
-                            <img src="/uploads/author.PNG" alt="{{ $post->user->fullname }}" />
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url($post->user->user_image) }}" alt="{{ $post->user->fullname }}" />
                         </a>
                         <div class="divider-h"></div>
                         <div class="author-info">
@@ -43,20 +43,26 @@
                 <div class="post-body mt-5 mb-3">
                     {!! $post->body !!}
                 </div>
-                @if(count($post->tags))
-                    <div class="post-tags">
-                        <div class="subtitle is-6 is-bold">
-                            الكلمات المفتاحية
-                        </div>
-                        <div class="is-flex">
-                            @foreach($post->tags as $tag)
-                                <div class="tag-btn">
-                                    {{ $tag->name }}
+            </div>
+            <div>
+                <x-sidebar>
+                    @if(count($post->tags))
+                        <x-slot name="tags">
+                            <div class="post-tags">
+                                <div class="subtitle is-6 is-bold">
+                                    الكلمات المفتاحية
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
+                                <div class="btns is-flex">
+                                    @foreach($post->tags as $tag)
+                                        <div class="tag-btn">
+                                            {{ $tag->name }}
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </x-slot>
+                    @endif
+                </x-sidebar>
             </div>
         </div>
     </div>
