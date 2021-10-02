@@ -2,11 +2,11 @@
     <div class="settings">
         <div class="dropdown">
             <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown">
                     <img class="menu-icon" src="/assets/img/menu.svg" alt="more" />
                 </button>
             </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-menu" id="dropdown" role="menu">
                 <div class="dropdown-content">
                     <a href="{{ route('posts.edit',$post->id) }}" class="dropdown-item">
                         تعديل

@@ -1,7 +1,7 @@
 <nav class="top-navbar">
     <div class="container">
         <div class="switch-button hidden">
-            <img src="/assets/img/3bars.svg" width="35px" height="35px" alt="" />
+            <img src="/assets/img/3bars.svg" width="35" height="35" alt="" />
         </div>
         <div class="nav-items">
             @auth
@@ -39,12 +39,12 @@
                                     تعديل الحساب
                                 </a>
                                 <hr class="dropdown-divider">
-                                <a href="" class="dropdown-item">
+                                <div class="dropdown-item">
                                     <form method="POST"  action="{{ route('logout') }}" >
                                         @csrf
                                         <button class="button">خروج</button>
                                     </form>
-                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
                         @if(\Illuminate\Support\Facades\Storage::exists($latest[0]->thumbnail))
                             <img src="{{ \Illuminate\Support\Facades\Storage::url($latest[0]->thumbnail) }}" alt="{{ $latest[0]->title }}" />
                         @else
-                            <img src="/uploads/main-post.PNG" alt="{{ $latest[0]->title }}" />
+                            <img src="/assets/img/thumbnail.jpg" alt="{{ $latest[0]->title }}" />
                         @endif
                     </div>
                     <div class="post-title">
@@ -29,7 +29,7 @@
                                 @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
                                     <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
                                 @else
-                                    <img src="/uploads/main-post.PNG" alt="{{ $post->title }}" />
+                                    <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
                                 @endif
                             </div>
                             <div class="post-info">
@@ -72,7 +72,7 @@
                                 @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
                                     <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
                                 @else
-                                    <img src="/uploads/main-post.PNG" alt="{{ $post->title }}" />
+                                    <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
                                 @endif
                             </div>
                         </div>

@@ -14,7 +14,7 @@
                     @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
                         <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
                     @else
-                        <img src="{{ $post->thumbnail }}" alt="{{ $post->title }}" />
+                        <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
                     @endif
                 </div>
                 <div class="post-author">
@@ -25,9 +25,7 @@
                                      alt="{{ $post->user->fullname }}"
                                 />
                             @else
-                                <img src="/uploads/author.PNG" alt="{{ $post->user->username }}"
-                                     alt="{{ $post->user->fullname }}"
-                                />
+                                <img src="/uploads/author.PNG" alt="{{ $post->user->username }}"/>
                             @endif
                         </a>
                         <div class="divider-h"></div>

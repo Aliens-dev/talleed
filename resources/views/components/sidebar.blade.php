@@ -20,7 +20,11 @@
                 @foreach($popularPosts as $post)
                     <div class="post">
                         <div class="post-thumbnail">
-                            <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" />
+                            @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                                <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                            @else
+                                <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
+                            @endif
                         </div>
                         <div class="post-info">
                             <a href="{{ route('posts.show', $post->slug) }}" class="post-title is-link">

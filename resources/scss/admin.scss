@@ -232,7 +232,7 @@ a {
     color:#45474C;
     padding:0 20px;
     margin:0 10px;
-    font-family: Roboto;
+    font-family: URWGeometricArabic;
     font-weight: 500;
     font-size: 18px;
     display: flex;
@@ -294,7 +294,7 @@ a {
     align-items: center;
     text-decoration: none;
     color: #45474C;
-    font-family: Roboto;
+    font-family: URWGeometricArabic;
 }
 .admin-nav .navbar-items .navbar-block .navbar-item .navbar-link:hover {
     cursor: pointer;
@@ -302,9 +302,7 @@ a {
     background-color: rgba(86, 61, 124,0.1);
     border-radius:3px;
 }
-.admin-nav .navbar-items .navbar-block .navbar-item .navbar-link:active {
-    color:#C1C2C8;
-}
+
 .admin-nav .navbar-items .navbar-block .navbar-item .navbar-link::after {
     border:none;
 }

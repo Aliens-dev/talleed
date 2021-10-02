@@ -990,6 +990,14 @@ form .tags-container input {
   .my-post .container, .posts-page .container {
     display: block;
   }
+
+  .user-profile {
+    margin: 50px 0;
+  }
+  .user-profile .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 @media screen and (min-width: 992px) {
   .container {
