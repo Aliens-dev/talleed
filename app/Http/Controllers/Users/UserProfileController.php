@@ -79,7 +79,7 @@ class UserProfileController extends Controller
         $request->validate($rules);
 
         if(Hash::check($user->password,$user->password)) {
-            return back()->withErrors(['password' => 'password doesn\'t match']);
+            return back()->withErrors(['extra_errors' => 'password doesn\'t match']);
         }
 
         if($request->hasFile('user_image')) {

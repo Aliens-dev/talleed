@@ -8,24 +8,15 @@
         <div class="tabs">
             <ul>
                 <li class="is-active">
-                    <a data-toggle="categories-section">المجالات</a>
+                    <a data-toggle="popular-section">الاكثر شعبية</a>
                 </li>
                 <li>
-                    <a data-toggle="popular-section">الاكثر شعبية</a>
+                    <a data-toggle="categories-section">المجالات</a>
                 </li>
             </ul>
         </div>
         <div class="tabs-content">
-            <div class="items show" id="categories-section">
-                @foreach($categories as $category)
-                    <div class="item">
-                        <a class="is-link" href="{{ route('category.posts.index', $category->slug) }}" >
-                            {{ $category->name }}
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-            <div class="items" id="popular-section">
+            <div class="items show" id="popular-section">
                 @foreach($popularPosts as $post)
                     <div class="post">
                         <div class="post-thumbnail">
@@ -44,6 +35,15 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="items" id="categories-section">
+                @foreach($categories as $category)
+                    <div class="item">
+                        <a class="is-link" href="{{ route('category.posts.index', $category->slug) }}" >
+                            {{ $category->name }}
+                        </a>
                     </div>
                 @endforeach
             </div>

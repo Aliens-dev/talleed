@@ -63,7 +63,7 @@
                         </div>
                     </td>
                     <td>
-                        <button class="button is-success" wire:click="setEditId('{{ $post->id }}')">تعديل</button>
+                        <a href="{{ route('posts.edit', $post->id) }}" target="_blank" class="button is-success" >تعديل</a>
                         <a class="button is-primary" href="{{ route('posts.show', $post->slug) }}" >مشاهدة</a>
                     </td>
                 </tr>

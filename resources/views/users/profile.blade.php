@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', "حسابي")
     @section("content")
         @if(session()->has('profile_activated'))
             <div class="modal is-active timer">
@@ -41,11 +42,11 @@
                     @if(count($posts))
                         @foreach($posts as $post )
                             <x-post-card
-                                img="/uploads/main-post.PNG"
+                                :img="\Illuminate\Support\Facades\Storage::url($post->thumbnail)"
                                 :post="$post"
                             />
                         @endforeach
-                        @include('components.pagination')
+                        {{ $posts->links('layouts.my-pagination') }}
                     @else
                         <div class="card pr-5 pt-2 pb-2 mt-3">
                             لا توجد مقالات

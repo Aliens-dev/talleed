@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('field_id')->default("");
             $table->unsignedBigInteger('status_id')->default("");
             $table->unsignedBigInteger('role_id');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

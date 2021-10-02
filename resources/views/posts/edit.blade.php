@@ -59,7 +59,7 @@
                             <label class="file-label" for="thumbnail">
                                 <span class="file-name">
                                 </span>
-                                <input class="file-input" required id="thumbnail" type="file" accept="image/png, image/jpeg" name="thumbnail">
+                                <input class="file-input" id="thumbnail" type="file" accept="image/png, image/jpeg" name="thumbnail">
                                 <span class="file-cta">
                                     <span class="file-icon">
                                         <i class="fas fa-upload"></i>

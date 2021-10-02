@@ -23,6 +23,10 @@ body {
   background-color: #F9F9F9;
 }
 
+.blue {
+  background: #4C31BC;
+}
+
 a {
   text-decoration: none;
 }
@@ -39,6 +43,9 @@ a:hover {
 }
 .top-navbar .container .switch-button {
   display: none;
+}
+.top-navbar .container .switch-button:hover {
+  cursor: pointer;
 }
 .top-navbar .container .nav-items {
   display: flex;
@@ -425,22 +432,22 @@ a:hover {
   color: #FFF;
 }
 
-.login-form {
+.login-form, .contact-form {
   margin: 60px 80px;
   background-color: #FFF;
   display: grid;
   grid-template-columns: 2fr 1fr;
   direction: ltr;
   font-family: "URWGeometricArabic";
-  box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
+  box-shadow: 1px 1px 1px #ccc, -1px 0 0.1em #ddd;
   min-height: 500px;
 }
-.login-form .input-side {
+.login-form .input-side, .contact-form .input-side {
   display: flex;
   flex-direction: column;
   padding: 0 0 20px;
 }
-.login-form .input-side .form-title {
+.login-form .input-side .form-title, .contact-form .input-side .form-title {
   display: flex;
   justify-content: center;
   padding: 10px 0;
@@ -449,15 +456,31 @@ a:hover {
   color: #4C31BC;
   border-bottom: 2px solid #4C31BC;
 }
-.login-form .form-side {
+.login-form .form-side, .contact-form .form-side {
   background-image: url("/uploads/office.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
-.login-form .form-side .wrapper {
+.login-form .form-side .wrapper, .contact-form .form-side .wrapper {
   background-color: rgba(10, 10, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
+.login-form .contact-side, .contact-form .contact-side {
+  background-color: rgba(10, 10, 255, 0.7);
+  position: relative;
+}
+.login-form .contact-side .wrapper, .contact-form .contact-side .wrapper {
+  background-image: url("/assets/img/logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40% 40%;
   position: absolute;
   top: 0;
   left: 0;
@@ -504,7 +527,7 @@ a:hover {
   grid-template-columns: 2fr 1fr;
   direction: ltr;
   font-family: "URWGeometricArabic";
-  box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
+  box-shadow: 1px 1px 1px #ccc, -1px 0 0.1em #ddd;
 }
 .register-form .input-side {
   display: flex;
@@ -568,7 +591,7 @@ a:hover {
   grid-template-columns: 2fr 1fr;
   direction: ltr;
   font-family: "URWGeometricArabic";
-  box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
+  box-shadow: 1px 1px 1px #ccc, -1px 0 0.1em #ddd;
   min-height: 500px;
 }
 .forgot-form .input-side {
@@ -962,6 +985,10 @@ form .tags-container input {
   }
   .latest-section .container .banner {
     display: none;
+  }
+
+  .my-post .container, .posts-page .container {
+    display: block;
   }
 }
 @media screen and (min-width: 992px) {

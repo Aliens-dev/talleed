@@ -11,12 +11,24 @@
                     {{ $post->title }}
                 </h1>
                 <div class="post-thumbnail">
-                    <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                    @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                    @else
+                        <img src="{{ $post->thumbnail }}" alt="{{ $post->title }}" />
+                    @endif
                 </div>
                 <div class="post-author">
                     <div class="author-card">
                         <a href="{{ route('users.profile', $post->user->id) }}" class="author-img">
-                            <img src="{{ \Illuminate\Support\Facades\Storage::url($post->user->user_image) }}" alt="{{ $post->user->fullname }}" />
+                            @if(\Illuminate\Support\Facades\Storage::exists($post->user->image))
+                                <img src="{{ \Illuminate\Support\Facades\Storage::url($post->user->user_image) }}"
+                                     alt="{{ $post->user->fullname }}"
+                                />
+                            @else
+                                <img src="/uploads/author.PNG" alt="{{ $post->user->username }}"
+                                     alt="{{ $post->user->fullname }}"
+                                />
+                            @endif
                         </a>
                         <div class="divider-h"></div>
                         <div class="author-info">

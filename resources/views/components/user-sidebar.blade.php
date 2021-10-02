@@ -3,10 +3,15 @@
         <div class="my-card no-box-shadow is-full is-flex is-align-items-center">
             <div class="user-profile-picture is-two-fifths">
                 <figure class="image is-96x96">
-                    <img class="is-rounded"
-                         src="{{ \Illuminate\Support\Facades\Storage::url($user->user_image) }}" alt="{{ $user->username }}"
-                    />
-
+                    @if(\Illuminate\Support\Facades\Storage::exists($user->user_image))
+                        <img class="is-rounded"
+                             src="{{ \Illuminate\Support\Facades\Storage::url($user->user_image) }}" alt="{{ $user->username }}"
+                        />
+                    @else
+                        <img class="is-rounded"
+                             src="/uploads/author.PNG" alt="{{ $user->username }}"
+                        />
+                    @endif
                 </figure>
             </div>
             <div class="user-profile-info is-three-fifths pr-5">
@@ -20,7 +25,10 @@
     @can('view', request()->route('user'))
         <div class="user-options mt-5">
             <div class="my-card no-box-shadow">
-                <a href="{{ route('users.profile', $user->id) }}" class="card-header pt-3 pb-3 is-flex is-justify-content-space-between">
+                <a
+                    href="{{ route('users.profile', $user->id) }}"
+                    class="card-header pt-3 pb-3 is-flex is-justify-content-space-between"
+                >
                     <div class="card-title is-flex is-align-items-center">
                     <span>
                         <img class="image is-20x20" src="/assets/img/file.svg" alt="blog posts">

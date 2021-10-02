@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->longText('body');
             $table->string('image')->default('');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

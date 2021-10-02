@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->string('status')->default('pending');
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("post_id");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

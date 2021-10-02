@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Tags\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'tags'], function() {
     Route::get('/', [TagController::class,'index']);
 });
+

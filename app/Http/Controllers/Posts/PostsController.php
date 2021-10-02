@@ -11,9 +11,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -32,10 +34,13 @@ class PostsController extends Controller
 
     /**
      * @param Post $post
-     * @return View
+     * @return View| RedirectResponse
      */
     public function show(Post $post)
     {
+        if($post->status != 'published') {
+            return redirect()->route('index');
+        }
         $visitor_ip = $_SERVER["REMOTE_ADDR"];
         Visitor::create([
             'visitor_ip' => $visitor_ip,
@@ -77,7 +82,14 @@ class PostsController extends Controller
         }
 
         if($request->hasFile('thumbnail')) {
-            $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+            $image = $request->file('thumbnail');
+            $imageName = $request->file('thumbnail')->getClientOriginalName();
+            $public_path = public_path('file_uploads');
+            Storage::makeDirectory('/users/'.\auth()->id().'/posts/');
+            $image_url =  '/users/'.\auth()->id().'/posts/thumb-'.Str::random(5).'-'.$imageName;
+            Image::make($image->getRealPath())
+                ->resize(800,600)
+                ->save($public_path.$image_url);
         }
 
         $post->title = $request->title;
@@ -132,13 +144,13 @@ class PostsController extends Controller
             "excerpt" => "required|min:20|max:200",
             "status" => "required",
             'field' => 'required|exists:categories,id',
-            'thumbnail' => 'required|image|mimes:jpg,png',
+            'thumbnail' => 'required|sometimes|image|mimes:jpg,png',
             'tags' => 'sometimes|required',
         ];
 
         $request->validate($rules);
 
-        // check the status, if the original was published keep it, orelse either draft or pending ( not letting the user publish)
+        // check the status, if the original was published keep it, or else either draft or pending ( not letting the user publish)
         if($post->status !== 'published') {
             if($request->status == 'draft') {
                 $post->status = 'draft';
@@ -148,7 +160,15 @@ class PostsController extends Controller
         }
         if($request->hasFile('thumbnail')) {
             Storage::delete($post->thumbnail);
-            $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+            //$image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+            $image = $request->file('thumbnail');
+            $imageName = $request->file('thumbnail')->getClientOriginalName();
+            $public_path = public_path('file_uploads');
+            $image_url =  '/users/'.\auth()->id().'/posts/thumb-'.Str::random(5).'-'.$imageName;
+            Image::make($image->getRealPath())
+                ->resize(800,600)
+                ->save($public_path.$image_url);
+            $post->thumbnail = $image_url;
         }
 
         $post->title = $request->title;
@@ -157,7 +177,6 @@ class PostsController extends Controller
         $post->body = $request->body;
         $post->excerpt = $request->excerpt;
         $post->category_id = $request->field;
-        $post->thumbnail = $image_url;
         $post->save();
 
         if(is_array($request->tags)) {

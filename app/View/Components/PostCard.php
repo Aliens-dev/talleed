@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class PostCard extends Component
@@ -9,15 +10,20 @@ class PostCard extends Component
     public $post;
     public $img_col;
     public $content_col;
+    public $img;
 
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param $post
+     * @param string $img
+     * @param string $img_col
+     * @param string $content_col
      */
-    public function __construct($post,$img_col ='is-two-fifths', $content_col ='is-three-fifths')
+    public function __construct($post, $img = '',$img_col ='is-two-fifths', $content_col ='is-three-fifths')
     {
         $this->post = $post;
+        $this->img = $img;
         $this->img_col = $img_col;
         $this->content_col = $content_col;
     }
@@ -25,7 +31,7 @@ class PostCard extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return View|\Closure|string
      */
     public function render()
     {

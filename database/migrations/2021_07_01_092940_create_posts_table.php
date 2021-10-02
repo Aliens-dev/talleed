@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string("status")->default("pending");
             $table->unsignedBigInteger("author_id");
             $table->unsignedBigInteger('category_id');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign("author_id")->references('id')->on('users')->cascadeOnDelete();

@@ -11,7 +11,19 @@
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                                 <span>{{ auth()->user()->fname }}</span>
                                 <span class="icon is-medium">
-                                    <img src="{{ \Illuminate\Support\Facades\Storage::url(auth()->user()->user_image) }}" alt="user" />
+                                    @if(\Illuminate\Support\Facades\Storage::exists(auth()->user()->user_image))
+                                        <img
+                                            src="{{ \Illuminate\Support\Facades\Storage::url(auth()->user()->user_image) }}"
+                                            alt="user"
+                                            width="25" height="25"
+                                        />
+                                    @else
+                                        <img
+                                            src="/uploads/author.PNG"
+                                            alt="user"
+                                            width="25" height="25"
+                                        />
+                                    @endif
                                 </span>
                             </button>
                         </div>

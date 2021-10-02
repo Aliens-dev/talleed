@@ -38,27 +38,34 @@
                         </p>
                     </div>
                 </div>
-                <div class="mt-4 mb-2 p-2">
+                <div class="is-flex is-justify-content-space-between mt-4 mb-2 p-2">
                     <h1 class="title is-4">
                         الاشعارات
                     </h1>
+                    @if(count($user->unreadNotifications))
+                        <div class="">
+                            <form action="{{ route('notification.markAsRead') }}" method="POST">
+                                @csrf
+                                <button class="button is-outlined is-success" >اخفاء الاشعارات</button>
+                            </form>
+                        </div>
+                    @endif
                 </div>
-                @if(count($user->notifications))
-                    @foreach($user->notifications as $notification )
+                @if(count($user->unreadNotifications))
+                    @foreach($user->unreadNotifications as $notification )
                         <div class="message is-primary mb-1">
                             <div class="message-header pt-0 pb-0 pl-1 pr-1">
-                                <button class="delete"></button>
                                 {{ $notification->data['message'] }}
-                                <div class="message-body has-text-white p-2">
-                                    {{ \Carbon\Carbon::parse($notification->data['time'])->diffForHumans() }}
-                                </div>
+                                <a href="{{ $notification->data['route'] }}" class="message-body has-text-white p-2">
+                                    {{ \Carbon\Carbon::parse($notification->data['time'])->locale('ar')->diffForHumans() }}
+                                </a>
                             </div>
                         </div>
                     @endforeach
-                    @include('components.pagination')
+
                 @else
                     <div class="card pr-5 pt-2 pb-2 mt-3">
-                        لا توجد مقالات
+                        لا توجد اشعارات
                     </div>
                 @endif
             </div>

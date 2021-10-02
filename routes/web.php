@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminPostsController;
 use App\Http\Controllers\Admin\AdminTagsController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Category\CategoryPostsController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Posts\PostsController;
 use App\Http\Controllers\Users\UserProfileController;
@@ -24,6 +25,19 @@ require __DIR__.'/auth.php';
  */
 
 Route::get('/', [PagesController::class,'index'])->name('index');
+Route::get('/contact', [PagesController::class,'contact'])->name('contact');
+Route::post('/contact', [PagesController::class,'contactPost'])->name('contact.post');
+Route::get('/about', [PagesController::class,'about'])->name('about');
+Route::get('/confidentiality', [PagesController::class,'confidentiality'])->name('confidentiality');
+
+ /*
+  * Search
+  * */
+
+
+Route::get('/search', [\App\Http\Controllers\SearchController::class,'index'])->name('search');
+
+Route::post('notifications', [NotificationController::class, 'markAsRead'])->name('notification.markAsRead');
 
 Route::group(['prefix' => 'posts'], function() {
     Route::get('/create', [PostsController::class,'create'])->name('posts.create');
@@ -62,4 +76,8 @@ Route::group(['prefix' => 'panel_admin', 'middleware' => ['auth','admin.auth']],
     Route::get('/categories', [AdminCategoriesController::class,"index"])->name('admin.categories.index');
     Route::get('/tags', [AdminTagsController::class,"index"])->name('admin.tags.index');
     Route::get('/account', [AdminAccountController::class,"index"])->name('admin.account.index');
+    Route::patch('/account', [AdminAccountController::class,"update"])->name('admin.account.update');
 });
+
+
+Route::get('{any?}', [PagesController::class, "notFound"])->name('notFound');

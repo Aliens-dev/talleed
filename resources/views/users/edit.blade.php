@@ -62,7 +62,11 @@
                             <div class="select is-flex">
                                 <select id="field" name="field_id" class="is-flex is-100">
                                     @foreach(\App\Models\Category::all() as $cat)
-                                        <option selected="{{ $cat->id === $user->field_id }}" value="{{ $cat->id }}"> {{ $cat->name }}</option>
+                                        <option selected="{{ $cat->id === $user->field_id }}"
+                                                value="{{ $cat->id }}"
+                                        >
+                                            {{ $cat->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>

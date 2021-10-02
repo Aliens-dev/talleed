@@ -17,6 +17,7 @@ class CreateVisitorsTable extends Migration
             $table->id('id');
             $table->string('visitor_ip')->default('');
             $table->unsignedBigInteger('post_id')->default(-1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

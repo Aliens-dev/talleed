@@ -1,7 +1,7 @@
 
 <div class="my-card mb-2 mt-2 p-0 ml-0 mr-0 columns">
     <div class="column {{ $img_col }}">
-        <img class="image" src="/uploads/main-post.PNG" alt="{{ $post->title }}" />
+        <img class="image" src="{{ $img }}" alt="{{ $post->title }}" />
     </div>
     <div class="column {{ $content_col }}">
         <header class="card-header is-flex is-flex-direction-column is-justify-content-space-between">

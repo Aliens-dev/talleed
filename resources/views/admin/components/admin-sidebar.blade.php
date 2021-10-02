@@ -40,17 +40,17 @@
                 </div>
                 <div class="text">الكلمات المفتاحية</div>
             </a>
+            <a href="#" class="sidebar-item ripple">
+                <div class="icon">
+                    <img src="/assets/img/settings.svg" width="20" height="20" alt="">
+                </div>
+                <div class="text">الرسائل</div>
+            </a>
             <a  href="{{ route('admin.account.index') }}" class="sidebar-item ripple">
                 <div class="icon">
                     <img src="/assets/img/user.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">حسابي</div>
-            </a>
-            <a href="#" class="sidebar-item ripple">
-                <div class="icon">
-                    <img src="/assets/img/settings.svg" width="20" height="20" alt="">
-                </div>
-                <div class="text">الاعدادات</div>
             </a>
         </div>
     </div>
