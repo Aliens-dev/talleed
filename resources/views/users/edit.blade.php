@@ -3,7 +3,6 @@
 @section('title', "تعديل المقال")
 
 @section("content")
-
     @if(session()->has('profile_activated'))
         <div class="modal is-active timer">
             <div class="modal-background"></div>
@@ -18,7 +17,7 @@
             <button class="modal-close is-large" aria-label="close"></button>
         </div>
     @endif
-    <form action="{{ route('users.update', $user) }}" method="POST" class="user-profile">
+    <form action="{{ route('users.update', $user) }}" method="POST" class="user-profile" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="container">
@@ -111,6 +110,20 @@
                                 type="text" name="social_media_account" id="social_media_account" value="{{ $user->social_media_account }}"
                             />
                             @error('social_media')
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-container">
+                            <label for="user_image">الصورة الشخصية</label>
+                            <input
+                                type="file" name="user_image" id="user_image" value="{{ $user->user_image }}"
+                            />
+                            @error('user_image')
                             <div class="notification is-flex is-danger mt-1 mb-1 p-2">
                                 <span class="delete"></span>
                                 {{ $message }}

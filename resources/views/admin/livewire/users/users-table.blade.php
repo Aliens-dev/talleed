@@ -44,7 +44,10 @@
                     <td>{{ $user->username }}</td>
                     <td>
                         @if(\Illuminate\Support\Facades\Storage::exists($user->user_image))
-                            <img src="{{ \Illuminate\Support\Facades\Storage::url($user->user_image) }}" width="45" height="45" alt="{{$user->fname}}" />
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url($user->user_image) }}"
+                                 style="width:45px;height:45px"
+                                 alt="{{$user->fname}}"
+                            />
                         @else
                             <img src="/uploads/author.PNG" width="45" height="45" alt="{{$user->fname}}" />
                         @endif

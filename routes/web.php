@@ -75,6 +75,7 @@ Route::group(['prefix' => 'panel_admin', 'middleware' => ['auth','admin.auth']],
     Route::get('/posts', [AdminPostsController::class,"index"])->name('admin.posts.index');
     Route::get('/categories', [AdminCategoriesController::class,"index"])->name('admin.categories.index');
     Route::get('/tags', [AdminTagsController::class,"index"])->name('admin.tags.index');
+    Route::get('/messages', [AdminTagsController::class,"index"])->name('admin.messages.index');
     Route::get('/account', [AdminAccountController::class,"index"])->name('admin.account.index');
     Route::patch('/account', [AdminAccountController::class,"update"])->name('admin.account.update');
 });

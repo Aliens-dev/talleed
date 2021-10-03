@@ -68,7 +68,7 @@ class UserProfileController extends Controller
         $rules = [
             'fname' => 'required',
             'lname' => 'required',
-            'username' => 'required|unique:users,username,'.$user->username,
+            'username' => 'required|unique:users,username,'.$user->id,
             'about_me' => 'required|string|max:255|min:20',
             'user_image' => 'required|image|mimes:jpg,png',
             'field_id' => 'required|exists:categories,id',
