@@ -31,7 +31,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        //
+        return $post->status === 'published' || $post->author_id = $user->id || $user->role()->name == 'admin';
     }
 
     /**
