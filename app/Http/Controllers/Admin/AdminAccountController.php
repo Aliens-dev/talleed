@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 class AdminAccountController extends Controller
 {
 
-
     public function index()
     {
         $user = Auth::user();
