@@ -82,6 +82,8 @@ class PostsController extends Controller
         }
 
         if($request->hasFile('thumbnail')) {
+            $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+            /*
             $image = $request->file('thumbnail');
             $imageName = $request->file('thumbnail')->getClientOriginalName();
             $public_path = public_path('file_uploads');
@@ -90,6 +92,7 @@ class PostsController extends Controller
             Image::make($image->getRealPath())
                 ->resize(800,600)
                 ->save($public_path.$image_url);
+            */
         }
 
         $post->title = $request->title;
@@ -160,7 +163,8 @@ class PostsController extends Controller
         }
         if($request->hasFile('thumbnail')) {
             Storage::delete($post->thumbnail);
-            //$image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+            $image_url = $request->file('thumbnail')->store('users/'.\auth()->id().'/posts');
+            /*
             $image = $request->file('thumbnail');
             $imageName = $request->file('thumbnail')->getClientOriginalName();
             $public_path = public_path('file_uploads');
@@ -168,6 +172,7 @@ class PostsController extends Controller
             Image::make($image->getRealPath())
                 ->resize(800,600)
                 ->save($public_path.$image_url);
+            */
             $post->thumbnail = $image_url;
         }
 
