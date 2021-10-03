@@ -6,10 +6,17 @@
             <div class="posts">
                 @if(count($posts))
                     @foreach($posts as $post)
-                        <x-post-card
-                            :post="$post"
-                            :img="\Illuminate\Support\Facades\Storage::url($post->thumbnail)"
-                        />
+                        @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                            <x-post-card
+                                :post="$post"
+                                :img="\Illuminate\Support\Facades\Storage::url($post->thumbnail)"
+                            />
+                        @else
+                            <x-post-card
+                                :post="$post"
+                                img="/assets/img/thumbnail.jpg"
+                            />
+                        @endif
                     @endforeach
 
                     {{ $posts->links('layouts.my-pagination') }}
