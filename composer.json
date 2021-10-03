@@ -14,7 +14,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
-        "ext-pdo_sqlite": "*"
+        "ext-pdo_sqlite": "*",
+        "doctrine/dbal": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
