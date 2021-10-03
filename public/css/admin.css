@@ -133,7 +133,6 @@ a:hover {
   direction: ltr;
   font-family: "URWGeometricArabic";
   box-shadow: 2px 2px 5px #CCC, -2px 0 0.4em #DDD;
-  min-height: 500px;
   min-width: 450px;
 }
 .admin-login .container .login-form .input-side {
@@ -406,7 +405,7 @@ a:hover {
   border-radius: 50%;
 }
 .admin-sidebar .sidebar-header .title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #FFF;
 }
@@ -455,6 +454,20 @@ a:hover {
 .collapse {
   width: 80px;
   transition: width 0.4s ease-in-out;
+}
+
+.collapse .sidebar-header {
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding: 0 10px;
+}
+.collapse .sidebar-header .title {
+  font-size: 18px;
 }
 
 .collapse .sidebar-body .sidebar-items .sidebar-item {

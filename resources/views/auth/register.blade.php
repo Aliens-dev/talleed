@@ -177,10 +177,10 @@
                         <input class="is-hidden" type="file" name="user_image" id="user_image" />
                         <label for="user_image">صورتك الشخصية</label>
                         @error('user_image')
-                        <div class="notification is-flex is-danger mt-1 mb-1 p-2">
-                            <span class="delete"></span>
-                            {{ $message }}
-                        </div>
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
                 </div>

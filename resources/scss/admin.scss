@@ -147,7 +147,6 @@ a {
             direction: ltr;
             font-family: "URWGeometricArabic";
             box-shadow: 2px 2px 5px #CCC, -2px 0 .4em #DDD;
-            min-height: 500px;
             min-width: 450px;
             .input-side {
                 display:flex;
@@ -409,7 +408,7 @@ a {
             }
         }
         .title {
-            font-size:20px;
+            font-size:18px;
             font-weight: 500;
             color:#FFF;
         }
@@ -461,6 +460,19 @@ a {
 .collapse {
     width:80px;
     transition: width 0.4s ease-in-out;
+}
+.collapse .sidebar-header {
+    height:80px;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding:0 10px;
+    .title {
+        font-size:18px;
+    }
 }
 .collapse .sidebar-body .sidebar-items .sidebar-item {
     display: grid;
@@ -540,14 +552,12 @@ a {
     font-weight: 600;
 }
 
-
 @keyframes hideText {
     to {opacity: 0;display:none;}
 }
 @keyframes updateGrid {
     to {grid-template-columns: 60px;}
 }
-
 
 @media screen and (max-width: 900px){
     .admin-sidebar {
