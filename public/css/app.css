@@ -777,7 +777,8 @@ form .tags-container input {
   grid-gap: 20px;
 }
 .my-post .container .post-thumbnail img {
-  width: 100%;
+  width: 800px;
+  height: 600px;
 }
 .my-post .container .post-author {
   display: flex;

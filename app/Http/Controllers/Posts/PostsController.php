@@ -38,7 +38,8 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        if($post->status != 'published') {
+        $authorize = Gate::inspect("view", $post);
+        if($authorize->denied()) {
             return redirect()->route('index');
         }
         $visitor_ip = $_SERVER["REMOTE_ADDR"];
