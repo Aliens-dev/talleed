@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Role;
 use App\Models\Tag;
 use App\Models\Visitor;
 use Illuminate\Contracts\View\View;
@@ -28,7 +29,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::published()->paginate(10);
         return view('posts.index', compact(['posts']));
     }
 
@@ -38,10 +39,12 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $authorize = Gate::inspect("view", $post);
+        /*
+        $authorize = Gate::inspect("show", $post);
         if($authorize->denied()) {
             return redirect()->route('index');
         }
+        */
         $visitor_ip = $_SERVER["REMOTE_ADDR"];
         Visitor::create([
             'visitor_ip' => $visitor_ip,

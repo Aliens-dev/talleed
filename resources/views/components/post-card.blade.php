@@ -4,12 +4,12 @@
         <img class="image" src="{{ $img }}" alt="{{ $post->title }}" />
     </div>
     <div class="column {{ $content_col }}">
-        <header class="card-header is-flex is-flex-direction-column is-justify-content-space-between">
-            <h3 class="title is-20 line-height-24 mt-1 mb-2">
+        <header class="card-header">
+            <a href="{{ route('posts.show', $post->slug) }}" class="title is-20 line-height-24 mt-1 mb-2">
                 {{ $post->title }}
-            </h3>
+            </a>
             <p class="is-size-6 mt-1 mb-3">{{ $post->excerpt }}</p>
-            <a href="{{ route('posts.show', $post->slug) }}">
+            <a class="card-link" href="{{ route('posts.show', $post->slug) }}">
                 اقرأ المزيد
             </a>
         </header>
