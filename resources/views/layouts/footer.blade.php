@@ -3,13 +3,27 @@
         <div class="footer-cols">
             <div class="footer-brand">
                 <div class="footer-col-social">
-
+                    <a href="">
+                        <img src="/assets/img/twitter.svg" style="width:35px;height: 35px" alt="twitter taleed" />
+                    </a>
+                    <a href="">
+                        <img src="/assets/img/youtube.svg" style="width:35px;height: 35px"  alt="youtube taleed" />
+                    </a>
+                    <a href="">
+                        <img src="/assets/img/instagram.svg" style="width:30px;height: 35px"  alt="instagram taleed" />
+                    </a>
+                    <a href="">
+                        <img src="/assets/img/facebook.svg" style="width:30px;height: 35px"  alt="facebook taleed" />
+                    </a>
+                    <a href="">
+                        <img src="/assets/img/telegram.svg" style="width:35px;height: 35px"  alt="telegram taleed" />
+                    </a>
                 </div>
                 <div class="footer-logo">
                     <img src="{{ asset('./assets/img/logo.svg') }}" alt="taleed" />
                 </div>
                 <div class="footer-rights">
-                    جميع الحقوق محفوظة @ 2021 موقع تليد الثقافي
+                    جميع الحقوق محفوظة @ 2021 موقع تليد
                 </div>
             </div>
             <div class="footer-col">
@@ -17,18 +31,18 @@
                     صفحاتنا
                 </div>
                 <div class="footer-rows">
-                    <div class="footer-row">
+                    <a href="#" class="footer-row">
                         مثقفون DZ
-                    </div>
-                    <div class="footer-row">
+                    </a>
+                    <a href="#" class="footer-row">
                         ميديكو
-                    </div>
-                    <div class="footer-row">
+                    </a>
+                    <a href="#" class="footer-row">
                         انصحني بكتاب
-                    </div>
-                    <div class="footer-row">
+                    </a>
+                    <a href="" class="footer-row">
                         المعلقين الجزائريين
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="footer-col">
@@ -36,15 +50,15 @@
                     من نحن
                 </div>
                 <div class="footer-rows">
-                    <div class="footer-row">
+                    <a href="" class="footer-row">
                         من نحن
-                    </div>
-                    <div class="footer-row">
-                        الاحكام و الشروط
-                    </div>
-                    <div class="footer-row">
+                    </a>
+                    <a href="" class="footer-row">
                         سياسة الخصوصية
-                    </div>
+                    </a>
+                    <a href="" class="footer-row">
+                        فريق الادارة
+                    </a>
                 </div>
             </div>
             <div class="footer-col">
@@ -52,15 +66,15 @@
                     تواصل معنا
                 </div>
                 <div class="footer-rows">
-                    <div class="footer-row">
+                    <a class="footer-row">
                         تواصل معنا
-                    </div>
-                    <div class="footer-row">
+                    </a>
+                    <a class="footer-row">
                         اعلن معنا
-                    </div>
-                    <div class="footer-row">
+                    </a>
+                    <a class="footer-row">
                         وظائف شاغرة
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

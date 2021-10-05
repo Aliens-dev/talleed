@@ -53,7 +53,10 @@
             @guest
                 <div class="nav-item main-item">
                     <a href="{{ route('register') }}" class="nav-link">
-                        كن مدونا
+                        <img src="/assets/img/editpen.svg" width="25" height="25" alt="edit" />
+                        <p class="mr-2">
+                            كن مدونا
+                        </p>
                     </a>
                 </div>
             @endguest
@@ -67,10 +70,27 @@
                     </a>
                 </div>
             @endforeach
-            <div class="nav-item">
-                <a href="#" class="nav-link">
-                    المزيد
-                </a>
+            <div class="nav-item nav-more dropdown">
+                <div class="nav-link dropdown-trigger">
+                    <p>
+                        المزيد
+                    </p>
+                    <img src="/assets/img/more.svg" width="25" height="25" alt="edit" />
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a href="" class="dropdown-item">
+                            حسابي
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="" class="dropdown-item">
+                            اضافة تدوينة
+                        </a>
+                        <a href="" class="dropdown-item">
+                            تعديل الحساب
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
