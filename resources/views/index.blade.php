@@ -52,7 +52,7 @@
         </x-my-divider>
         <div class="latest-section">
             <div class="container">
-                <div class="latest-posts">
+                <div class="posts">
                     @foreach($topRead as $post)
                         <div class="post">
                             <div class="post-info">
@@ -68,12 +68,15 @@
                                     اقرأ المزيد
                                 </a>
                             </div>
-                            <div class="post-img">
+                            <div class="post-img is-flex is-flex-direction-column">
                                 @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
                                     <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
                                 @else
                                     <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
                                 @endif
+                                <div class="post-date">
+                                    {{ date_format($post->created_at,'d/m/Y') }}
+                                </div>
                             </div>
                         </div>
                     @endforeach

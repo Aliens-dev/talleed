@@ -3,7 +3,7 @@
 @section('content')
     <div class="posts-page" id="test">
         <div class="container">
-            <div class="posts">
+            <div class="posts mt-3">
                 @if(count($posts))
                     @foreach($posts as $post)
                         @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
