@@ -3,9 +3,59 @@
 @section('title', $category->name)
 
 @section('content')
+    <div class="section-page">
+        <div class="page-header">
+            <div class="container">
+                <div class="main-post">
+                    <div class="post-img">
+                        @if(\Illuminate\Support\Facades\Storage::exists($latest[0]->thumbnail))
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url($latest[0]->thumbnail) }}" alt="{{ $latest[0]->title }}" />
+                        @else
+                            <img src="/assets/img/thumbnail.jpg" alt="{{ $latest[0]->title }}" />
+                        @endif
+                    </div>
+                    <div class="post-title">
+                        <a href="{{ route('posts.show', $latest[0]->slug) }}" >
+                            {{ $latest[0]->title }}
+                        </a>
+                    </div>
+                    <div class="post-excerpt">
+                        {{ $latest[0]->excerpt }}
+                    </div>
+                </div>
+                <?php $latest = $latest->splice(1) ?>
+                <div class="sub-posts">
+                    @foreach($latest as $p)
+                        <div class="post">
+                            <div class="post-img">
+                                @if(\Illuminate\Support\Facades\Storage::exists($p->thumbnail))
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::url($p->thumbnail) }}" alt="{{ $p->title }}" />
+                                @else
+                                    <img src="/assets/img/thumbnail.jpg" alt="{{ $p->title }}" />
+                                @endif
+                            </div>
+                            <div class="post-info">
+                                <div class="post-title">
+                                    <a href="{{ route('posts.show', $p->slug) }}" >
+                                        {{ $p->title }}
+                                    </a>
+                                </div>
+                                <div class="post-excerpt">
+                                    {{ $p->excerpt }}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <x-my-divider :line="true">
+        {{ $category->name }}
+    </x-my-divider>
     <div class="posts-page" id="test">
         <div class="container">
-            <div class="posts">
+            <div class="posts mt-1">
                 @if(count($posts))
                     @foreach($posts as $post)
                         @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))

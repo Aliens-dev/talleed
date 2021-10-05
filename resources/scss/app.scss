@@ -15,6 +15,7 @@
 }
 
 $grey: #383837;
+$grey-text : #9A9A9A;
 $blue: #4C31BC;
 $light-blue: #06D3F4;
 * {
@@ -266,6 +267,7 @@ a {
                 }
                 .post-excerpt {
                     font-size:17px !important;
+                    color: $grey-text;
                 }
             }
             .sub-posts {
@@ -312,6 +314,7 @@ a {
                         }
                         .post-excerpt {
                             font-size:17px !important;
+                            color: $grey-text;
                         }
                     }
                 }
@@ -325,57 +328,62 @@ a {
         display:grid;
         grid-template-columns: 1fr 300px;
         grid-gap:20px;
-        .latest-posts {
-            .post {
-                display:grid;
-                grid-template-columns: 4fr 3fr;
-                grid-gap: 10px;
-                box-shadow: 0 10px 25px 0 rgb(1 45 126 / 4%);
-                padding:10px 20px;
-                margin-bottom: 10px;
-                direction: ltr;
-                min-height: 250px;
-                height:250px;
-                background-color: #FCFCFC;
-                .post-img {
-                    height: 220px;
-                    img {
-                        width:100%;
-                        height:100%;
-                    }
-                }
-                .post-info {
-                    display: grid;
-                    grid-template-rows: 50px 1fr 50px;
-                    padding: 0px 0 10px;
-                    .post-title {
-                        font-size: 25px;
-                        font-weight: 600;
-                        a {
-                            color:$grey;
-                            transition: all 0.3s ease-in-out;
-                            &:hover {
-                                color:rgba(56, 56, 55,0.8);
-                                transition: all 0.3s ease-in-out;
-                            }
-                        }
-                    }
-                    .post-excerpt {
-                        font-size:17px;
-                        line-height: 25px;
-                        margin:5px 0;
-                    }
-                    .more-button {
-                        font-size:18px;
-                        margin:10px 0;
-                        color:#4C31BC;
-                    }
-                }
-            }
-        }
         .banner {
             background-color: #DDD;
             box-shadow: 0 10px 25px 0 rgb(1 45 126 / 4%);
+        }
+    }
+}
+
+.posts {
+    .post {
+        display:grid;
+        grid-template-columns: 4fr 3fr;
+        grid-gap: 10px;
+        box-shadow: 0 10px 25px 0 rgb(1 45 126 / 4%);
+        padding:10px 20px;
+        margin-bottom: 10px;
+        direction: ltr;
+        min-height: 250px;
+        height:250px;
+        background-color: #FCFCFC;
+        .post-img {
+            height: 215px;
+            img {
+                width:100%;
+                height:100%;
+            }
+            .post-date {
+                color: $grey-text;
+            }
+        }
+        .post-info {
+            display: grid;
+            grid-template-rows: 50px 1fr 50px;
+            padding: 0px 0 10px;
+            .post-title {
+                font-size: 25px;
+                font-weight: 600;
+                a {
+                    color:$grey;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        color:rgba(56, 56, 55,0.8);
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+            .post-excerpt {
+                font-size:17px;
+                line-height: 25px;
+                margin:5px 0;
+                color: $grey-text;
+            }
+            .more-button {
+                font-size:18px;
+                margin:10px 0;
+                color:#4C31BC;
+            }
         }
     }
 }
@@ -925,6 +933,10 @@ a {
             }
         }
     }
+    .card-img {
+        display: grid;
+        grid-template-rows: 1fr 25px;
+    }
     .card-header {
         display: grid;
         grid-template-rows: 50px 1fr 50px;
@@ -934,6 +946,10 @@ a {
             display: flex;
             align-items: center;
             font-weight: 600;
+        }
+        .card-excerpt {
+            color: $grey-text;
+            font-size: 17px;
         }
     }
 }

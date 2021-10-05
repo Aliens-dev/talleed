@@ -12,6 +12,7 @@ class CategoryPostsController extends Controller
     public function index(Category $category)
     {
         $posts = $category->posts()->paginate(10);
-        return view("categories.index",compact(["posts","category"]));
+        $latest = $category->posts()->latests(4)->get();
+        return view("categories.index",compact(["posts","category","latest"]));
     }
 }
