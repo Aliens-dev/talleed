@@ -102,17 +102,38 @@ a {
                             background-color:#06D3F4;
                             border:none;
                             outline:none;
-                            padding-right:0;
-                            padding-left:0;
+                            padding-right:5px;
+                            padding-left:5px;
                             min-width: 100%;
                             display: flex;
-                            justify-content: space-around;
-                            .icon {
-                                img {
-                                    height: 100%;
-                                    max-width: 100%;
+                            justify-content: space-between;
+                            .my-account {
+                                border-radius: 100px;
+                                border:2px solid #FFF;
+                                display:flex;
+                                div {
+                                    width:25px;
+                                    height: 25px;
                                     border-radius: 50%;
+                                    border: 2px solid #FFf;
+                                    overflow:hidden;
+                                    background-color: #FFF;;
+                                    img {
+                                        width:25px;
+                                        height: 25px;
+                                    }
                                 }
+                                .username {
+                                    color:#FFF;
+                                    padding:0 5px;
+                                }
+                            }
+                            .icon {
+                                border:1px solid #FFF;
+                                border-radius: 50%;
+                                height:25px;
+                                width: 25px;
+                                background-color:#FFF;
                             }
                             &:focus {
                                 box-shadow: none;
@@ -340,18 +361,18 @@ a {
         display:grid;
         grid-template-columns: 4fr 3fr;
         grid-gap: 10px;
-        box-shadow: 0 10px 25px 0 rgb(1 45 126 / 4%);
+        box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
         padding:10px 20px;
         margin-bottom: 10px;
         direction: ltr;
         min-height: 250px;
         height:250px;
         background-color: #FCFCFC;
+        position: relative;
         .post-img {
-            height: 215px;
             img {
-                width:100%;
-                height:100%;
+                width:330px;
+                height: 215px;
             }
             .post-date {
                 color: $grey-text;
@@ -880,15 +901,20 @@ a {
             background-color:#FFF;
             border-top-right-radius: 10px;
             box-shadow: 0 10px 25px 0 rgb(1 45 126 / 4%);
+            font-size: 17px;
             .user-options {
                 .image {
-                    filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
+                    filter: invert(32%) sepia(93%) saturate(718%) hue-rotate(201deg) brightness(94%) contrast(94%) !important;
                 }
             }
             .user-profile-picture {
                 img {
                     width: 100%;
                     height: 100%;
+                    border: 2px solid #DDD;
+                    &:hover {
+                        cursor:pointer;
+                    }
                 }
             }
         }
@@ -915,41 +941,19 @@ a {
     }
 }
 
-.my-card {
-    position:relative;
-    .settings {
-        position:absolute;
-        top:10px;
-        left:5px;
-        .dropdown {
-            .button {
-                padding:0;
-                height:auto;
-                border:none;
-                .menu-icon {
-                    width:30px;
-                    height:15px;
-                }
+.settings {
+    position:absolute;
+    top:10px;
+    left:5px;
+    .dropdown {
+        .button {
+            padding:0;
+            height:auto;
+            border:none;
+            .menu-icon {
+                width:30px;
+                height:15px;
             }
-        }
-    }
-    .card-img {
-        display: grid;
-        grid-template-rows: 1fr 25px;
-    }
-    .card-header {
-        display: grid;
-        grid-template-rows: 50px 1fr 50px;
-        height: 100%;
-        .card-link {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-        }
-        .card-excerpt {
-            color: $grey-text;
-            font-size: 17px;
         }
     }
 }
@@ -1073,6 +1077,11 @@ form {
         flex-direction: column;
         justify-content: space-evenly;
     }
+}
+
+.divider-h {
+    height: 1px;
+    background: #EEE;
 }
 
 .tag-btn {
@@ -1221,6 +1230,13 @@ form {
                                 &:focus {
                                     box-shadow: none;
                                     outline:none !important;
+                                }
+                                .icon {
+                                    border:1px solid #FFF;
+                                    border-radius: 50%;
+                                    height:40px;
+                                    width: 40px;
+                                    background-color:#FFF;
                                 }
                             }
                         }

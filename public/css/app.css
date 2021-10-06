@@ -103,16 +103,39 @@ a:hover {
   background-color: #06D3F4;
   border: none;
   outline: none;
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 5px;
+  padding-left: 5px;
   min-width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button .icon img {
-  height: 100%;
-  max-width: 100%;
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button .my-account {
+  border-radius: 100px;
+  border: 2px solid #FFF;
+  display: flex;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button .my-account div {
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
+  border: 2px solid #FFf;
+  overflow: hidden;
+  background-color: #FFF;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button .my-account div img {
+  width: 25px;
+  height: 25px;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button .my-account .username {
+  color: #FFF;
+  padding: 0 5px;
+}
+.top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button .icon {
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  background-color: #FFF;
 }
 .top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button:focus {
   box-shadow: none;
@@ -324,20 +347,18 @@ a:hover {
   display: grid;
   grid-template-columns: 4fr 3fr;
   grid-gap: 10px;
-  box-shadow: 0 10px 25px 0 rgba(1, 45, 126, 0.04);
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   padding: 10px 20px;
   margin-bottom: 10px;
   direction: ltr;
   min-height: 250px;
   height: 250px;
   background-color: #FCFCFC;
-}
-.posts .post .post-img {
-  height: 215px;
+  position: relative;
 }
 .posts .post .post-img img {
-  width: 100%;
-  height: 100%;
+  width: 330px;
+  height: 215px;
 }
 .posts .post .post-img .post-date {
   color: #9A9A9A;
@@ -856,13 +877,18 @@ a:hover {
   background-color: #FFF;
   border-top-right-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(1, 45, 126, 0.04);
+  font-size: 17px;
 }
 .user-profile .container .user-sidebar .user-options .image {
-  filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
+  filter: invert(32%) sepia(93%) saturate(718%) hue-rotate(201deg) brightness(94%) contrast(94%) !important;
 }
 .user-profile .container .user-sidebar .user-profile-picture img {
   width: 100%;
   height: 100%;
+  border: 2px solid #DDD;
+}
+.user-profile .container .user-sidebar .user-profile-picture img:hover {
+  cursor: pointer;
 }
 
 .post-create {
@@ -883,41 +909,19 @@ a:hover {
   filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
 }
 
-.my-card {
-  position: relative;
-}
-.my-card .settings {
+.settings {
   position: absolute;
   top: 10px;
   left: 5px;
 }
-.my-card .settings .dropdown .button {
+.settings .dropdown .button {
   padding: 0;
   height: auto;
   border: none;
 }
-.my-card .settings .dropdown .button .menu-icon {
+.settings .dropdown .button .menu-icon {
   width: 30px;
   height: 15px;
-}
-.my-card .card-img {
-  display: grid;
-  grid-template-rows: 1fr 25px;
-}
-.my-card .card-header {
-  display: grid;
-  grid-template-rows: 50px 1fr 50px;
-  height: 100%;
-}
-.my-card .card-header .card-link {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-}
-.my-card .card-header .card-excerpt {
-  color: #9A9A9A;
-  font-size: 17px;
 }
 
 .dropdown {
@@ -1031,6 +1035,11 @@ form .tags-container input {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.divider-h {
+  height: 1px;
+  background: #EEE;
 }
 
 .tag-btn {
@@ -1176,6 +1185,13 @@ form .tags-container input {
   .top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button:focus {
     box-shadow: none;
     outline: none !important;
+  }
+  .top-navbar .container .nav-items .main-item .dropdown .dropdown-trigger .button .icon {
+    border: 1px solid #FFF;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #FFF;
   }
   .top-navbar .container .nav-items .main-item .dropdown .dropdown-menu form .button {
     font-size: inherit;

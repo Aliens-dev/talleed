@@ -40,19 +40,21 @@
                         </h1>
                     </div>
                     @if(count($posts))
-                        @foreach($posts as $post )
-                            @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
-                                <x-post-card
-                                    :img="\Illuminate\Support\Facades\Storage::url($post->thumbnail)"
-                                    :post="$post"
-                                />
-                            @else
-                                <x-post-card
-                                    img="/assets/img/thumbnail.jpg"
-                                    :post="$post"
-                                />
-                            @endif
-                        @endforeach
+                        <div class="posts">
+                            @foreach($posts as $post )
+                                @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                                    <x-post-card
+                                        :img="\Illuminate\Support\Facades\Storage::url($post->thumbnail)"
+                                        :post="$post"
+                                    />
+                                @else
+                                    <x-post-card
+                                        img="/assets/img/thumbnail.jpg"
+                                        :post="$post"
+                                    />
+                                @endif
+                            @endforeach
+                        </div>
                         {{ $posts->links('layouts.my-pagination') }}
                     @else
                         <div class="card pr-5 pt-2 pb-2 mt-3">

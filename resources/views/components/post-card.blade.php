@@ -21,6 +21,7 @@
 </div>
 -->
 <div class="post">
+    <x-settings-icon :post="$post" />
     <div class="post-info">
         <div class="post-title">
             <a href="{{ route('posts.show', $post->slug) }}" >

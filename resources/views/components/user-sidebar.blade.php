@@ -1,5 +1,5 @@
 <div class="user-sidebar">
-    <div class="user-details mb-6">
+    <div class="user-details mb-3">
         <div class="my-card no-box-shadow is-full is-flex is-align-items-center">
             <div class="user-profile-picture is-two-fifths">
                 <figure class="image is-96x96">
@@ -23,6 +23,7 @@
         </div>
     </div>
     @can('view', request()->route('user'))
+        <div class="divider-h"></div>
         <div class="user-options mt-5">
             <div class="my-card no-box-shadow">
                 <a
@@ -33,7 +34,7 @@
                     <span>
                         <img class="image is-20x20" src="/assets/img/file.svg" alt="blog posts">
                     </span>
-                        <div class="mr-2">
+                        <div class="card-text mr-2">
                             عدد التدوينات
                         </div>
                     </div>
@@ -48,7 +49,7 @@
                     <span>
                         <img class="image is-20x20" src="/assets/img/clock.svg" alt="blog posts">
                     </span>
-                        <div class="mr-2">
+                        <div class="card-text mr-2">
                             التدوينات المعلقة
                         </div>
                     </div>
@@ -63,7 +64,7 @@
                     <span>
                         <img class="image is-20x20" src="/assets/img/notification.svg" alt="blog posts">
                     </span>
-                        <div class="mr-2">
+                        <div class="card-text mr-2">
                             الاشعارات
                         </div>
                     </div>
@@ -78,7 +79,7 @@
                     <span>
                         <img class="image is-20x20" src="/assets/img/notes.svg" alt="blog posts">
                     </span>
-                        <div class="mr-2">
+                        <div class="card-text mr-2">
                             المسودات
                         </div>
                     </div>

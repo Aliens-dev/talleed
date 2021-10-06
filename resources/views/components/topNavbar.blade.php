@@ -9,21 +9,20 @@
                     <div class="dropdown">
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>{{ auth()->user()->fname }}</span>
+                                <span class="my-account">
+                                    <div>
+                                        <img src="/assets/img/user_account_profile.svg" alt="{{ auth()->user()->username }}" />
+                                    </div>
+                                    <span class="username">
+                                        {{ auth()->user()->username }}
+                                    </span>
+                                </span>
                                 <span class="icon is-medium">
-                                    @if(\Illuminate\Support\Facades\Storage::exists(auth()->user()->user_image))
-                                        <img
-                                            src="{{ \Illuminate\Support\Facades\Storage::url(auth()->user()->user_image) }}"
-                                            alt="user"
-                                            width="25" height="25"
-                                        />
-                                    @else
-                                        <img
-                                            src="/uploads/author.PNG"
-                                            alt="user"
-                                            width="25" height="25"
-                                        />
-                                    @endif
+                                    <img
+                                        src="/assets/img/add_plus.svg"
+                                        alt="user"
+                                        width="16" height="16"
+                                    />
                                 </span>
                             </button>
                         </div>
@@ -72,9 +71,9 @@
             @endforeach
             <div class="nav-item nav-more dropdown">
                 <div class="nav-link dropdown-trigger">
-                    <p>
+                    <div>
                         المزيد
-                    </p>
+                    </div>
                     <img src="/assets/img/more.svg" width="25" height="25" alt="edit" />
                 </div>
                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
