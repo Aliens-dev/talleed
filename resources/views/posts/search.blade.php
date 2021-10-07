@@ -1,7 +1,14 @@
 @extends("layouts.app")
 @section('title', "المقالات")
 @section('content')
-    <div class="posts-page" id="test">
+    <div class="posts-page mt-5" id="test">
+        <div class="category-name">
+            <div class="container">
+                <div class="name">
+                    البحث عن "{{ $search }}"
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="posts">
                 @if(count($posts))

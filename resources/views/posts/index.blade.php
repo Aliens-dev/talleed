@@ -2,6 +2,13 @@
 @section('title', "المقالات")
 @section('content')
     <div class="posts-page" id="test">
+        <div class="category-name">
+            <div class="container">
+                <div class="name">
+                    المقالات
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="posts mt-3">
                 @if(count($posts))
