@@ -5,6 +5,13 @@
 @section('content')
     <div class="section-page">
         <div class="page-header">
+            <div class="category-name">
+                <div class="container">
+                    <div class="name">
+                        {{ $category->name }}
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="main-post">
                     <div class="post-img">

@@ -1,7 +1,7 @@
 <nav class="main-navbar">
     <div class="container">
         <a href="{{ route('index') }}" class="nav-brand">
-            <span class="logo">
+            <span class="animate__animated animate__rubberBand logo">
                 <img src="{{ asset('assets/img/logo.svg') }}" alt="taleed logo" />
             </span>
             <span>

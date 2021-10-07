@@ -159,6 +159,9 @@ a {
                     }
                 }
             }
+            .nav-xl-hidden {
+                display:none;
+            }
             .nav-more {
                 min-width:150px;
                 width:150px;
@@ -213,6 +216,9 @@ a {
                     width:40px;
                     height:40px;
                 }
+                &:hover {
+                    animation: rubber;
+                }
             }
         }
         .nav-search {
@@ -264,13 +270,14 @@ a {
                 padding:20px;
                 background-color: #FCFCFC;
                 .post-img {
+                    overflow: hidden;
                     img {
                         width:100%;
-                    }
-                    transition: all .5s ease-in-out;
-                    &:hover {
-                        transform: scale(1.02);
-                        transition: all 2s ease-in-out;
+                        transition: all .5s ease-in-out;
+                        &:hover {
+                            transform: scale(1.02);
+                            transition: all 2s ease-in-out;
+                        }
                     }
                 }
                 .post-title {
@@ -307,13 +314,14 @@ a {
                     background-color: #FCFCFC;
                     .post-img {
                         height: 100%;
+                        overflow: hidden;
                         img {
                             width:100%;
-                        }
-                        transition: all 0.5s ease-in-out;
-                        &:hover {
-                            transform: scale(1.02);
-                            transition: all 2s ease-in-out;
+                            transition: all 0.2s ease-in-out;
+                            &:hover {
+                                transform: scale(1.02);
+                                transition: all 2s ease-in-out;
+                            }
                         }
                     }
                     .post-info {
@@ -415,6 +423,28 @@ a {
         grid-template-columns: 1fr 300px;
         grid-gap:20px;
         align-items: flex-start;
+    }
+}
+
+.category-name {
+    margin: 10px 0 20px;
+    font-size:25px;
+    font-weight: 600;
+    position: relative;
+    .container {
+        .name {
+            position: relative;
+            padding: 0 10px;
+            &::before {
+                position: absolute;
+                content: "";
+                top:0;
+                bottom:0;
+                right: 0;
+                background-color: $light-blue;
+                width:4px;
+            }
+        }
     }
 }
 
@@ -1185,7 +1215,6 @@ form {
                 display:block;
             }
             .nav-items {
-                display:flex;
                 align-items: center;
                 flex-direction: column;
                 display:none;
@@ -1193,6 +1222,9 @@ form {
                     display:flex;
                     align-items: center;
                     justify-content: center;
+                    width:100%;
+                    z-index: 100 !important;
+                    background-color: #FFF;
                     .nav-link {
                         display:block;
                         padding:12px 25px;
@@ -1201,13 +1233,17 @@ form {
                         font-weight:600;
                     }
                 }
+                .nav-xl-hidden {
+                    display:block;
+                }
                 .main-item {
                     background-color:#06D3F4;
                     min-width:100%;
                     .nav-link {
                         padding:12px;
                         color:#FFF !important;
-                        display:block;
+                        display:flex;
+                        justify-content: center;
                         font-size:20px;
                         font-weight:600;
                     }
@@ -1288,6 +1324,9 @@ form {
 @media screen and (min-width: 992px) {
     .container {
         width:960px;
+    }
+    .top-navbar {
+        display: block;
     }
 
 }

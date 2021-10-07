@@ -60,9 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
 const switchButton = document.querySelector('.switch-button')
 const topNavItems = document.querySelector('.nav-items');
 switchButton?.addEventListener('click', function() {
-    console.log(topNavItems.style.display)
     if(topNavItems.style.display === 'none' || !topNavItems.style.display) {
-        topNavItems.style.display = 'block'
+        topNavItems.style.display = 'flex'
     }else {
         topNavItems.style.display = 'none'
     }
