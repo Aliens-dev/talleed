@@ -6,6 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
+        "ext-gd": " *",
+        "ext-pdo_sqlite": "*",
+        "doctrine/dbal": "^3.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -14,9 +17,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
-        "ext-pdo_sqlite": "*",
-        "doctrine/dbal": "^3.1",
-        "ext-gd":" *"
+        "psr/log": "1.1.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

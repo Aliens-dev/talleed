@@ -16,10 +16,15 @@ $myGrey: #383837;
 .is-100 {
     width:100%;
 }
-
+.overlay-background {
+    background-color: rgba(10, 10, 10, 0.55);
+}
 .modal {
+    .modal-background {
+        background-color: rgba(10, 10, 10, 0.55);
+    }
     .modal-content {
-        box-shadow: 1px 1px 1px #ccc, -1px 0 0.1em #ddd;
+        border-radius: 10px;
         background-color:#FFF;
         flex-direction:column;
         .modal-image {
@@ -33,8 +38,9 @@ $myGrey: #383837;
         .modal-message {
             text-align:center;
             color:$myBlue;
-            font-size:18px;
+            font-size:25px;
             margin:10px 0 20px;
+            font-weight: 600;
         }
     }
 }

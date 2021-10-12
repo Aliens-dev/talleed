@@ -29,8 +29,8 @@
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="title">العنوان</x-table-header>
                 <th>الكاتب</th>
                 <th>المجال</th>
-                <th>عدد الزوار</th>
-                <th>تاريخ النشر</th>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="visitors">عدد الزوار</x-table-header>
+                <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at" >تاريخ النشر</x-table-header>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="status">الحالة</x-table-header>
                 <th>تعديل</th>
             </thead>

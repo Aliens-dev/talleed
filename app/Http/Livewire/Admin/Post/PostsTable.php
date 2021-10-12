@@ -37,8 +37,13 @@ class PostsTable extends Component
 
     public function render()
     {
+        $post = Post::query();
+        if($this->orderField === 'visitors') {
+            $post->withCount('visitors')->orderBy('visitors_count', $this->orderDirection);
+        }
+
         return view('admin.livewire.posts.posts-table', [
-            'posts' => Post::
+            'posts' => $post->
                 where('title', 'LIKE' ,"%{$this->search}%")
                 ->orWhereHas('user', function($query) {
                     return $query->where('fname','LIKE', "%{$this->search}%")

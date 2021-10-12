@@ -6,11 +6,19 @@
             <div class="container">
                 <div class="main-post">
                     <div class="post-img">
-                        @if(\Illuminate\Support\Facades\Storage::exists($latest[0]->thumbnail))
-                            <img src="{{ \Illuminate\Support\Facades\Storage::url($latest[0]->thumbnail) }}" alt="{{ $latest[0]->title }}" />
-                        @else
-                            <img src="/assets/img/thumbnail.jpg" alt="{{ $latest[0]->title }}" />
-                        @endif
+                        <div class="img">
+                            @if(\Illuminate\Support\Facades\Storage::exists($latest[0]->thumbnail))
+                                <img src="{{ \Illuminate\Support\Facades\Storage::url($latest[0]->thumbnail) }}" alt="{{ $latest[0]->title }}" />
+                            @else
+                                <img src="/assets/img/thumbnail.jpg" alt="{{ $latest[0]->title }}" />
+                            @endif
+                            <div class="watermark-top">
+                                <div class="inner"></div>
+                            </div>
+                            <div class="watermark-bottom">
+                                <div class="inner"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="post-title">
                         <a href="{{ route('posts.show', $latest[0]->slug) }}" >
@@ -26,11 +34,19 @@
                     @foreach($latest as $post)
                         <div class="post">
                             <div class="post-img">
-                                @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
-                                    <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
-                                @else
-                                    <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
-                                @endif
+                                <div class="img">
+                                    @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                                        <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                                    @else
+                                        <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
+                                    @endif
+                                    <div class="watermark-top">
+                                        <div class="inner"></div>
+                                    </div>
+                                    <div class="watermark-bottom">
+                                        <div class="inner"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="post-info">
                                 <div class="post-title">
@@ -70,11 +86,19 @@
                                 </a>
                             </div>
                             <div class="post-img is-flex is-flex-direction-column">
-                                @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
-                                    <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
-                                @else
-                                    <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
-                                @endif
+                                <div class="img">
+                                    @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                                        <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                                    @else
+                                        <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
+                                    @endif
+                                    <div class="watermark-top">
+                                        <div class="inner"></div>
+                                    </div>
+                                    <div class="watermark-bottom">
+                                        <div class="inner"></div>
+                                    </div>
+                                </div>
                                 <div class="post-date">
                                     {{ date_format($post->created_at,'d/m/Y') }}
                                 </div>

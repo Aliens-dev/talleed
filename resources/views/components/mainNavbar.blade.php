@@ -15,18 +15,23 @@
                 </a>
             </div>
             <div class="nav-item">
-                <a href="{{ route('contact') }}" class="nav-link">
-                    تواصل معنا
+                <a href="" class="nav-link">
+                    تغطيات متنوعة
                 </a>
             </div>
             <div class="nav-item">
-                <a href="{{ route('about') }}" class="nav-link">
-                    اعرف عنا
+                <a href="" class="nav-link">
+                    اسلوب حياة
                 </a>
             </div>
             <div class="nav-item">
-                <a href="{{ route('confidentiality') }}" class="nav-link">
-                    سياسة الخصوصية
+                <a href="" class="nav-link">
+                    مدونات
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="" class="nav-link">
+                    فلسفة العلوم
                 </a>
             </div>
         </div>

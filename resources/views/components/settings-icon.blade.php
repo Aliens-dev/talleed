@@ -3,7 +3,9 @@
         <div class="dropdown">
             <div class="dropdown-trigger">
                 <button class="button" aria-haspopup="true" aria-controls="dropdown">
-                    <img class="menu-icon" src="/assets/img/menu.svg" alt="more" />
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </button>
             </div>
             <div class="dropdown-menu" id="dropdown" role="menu">
@@ -26,7 +28,7 @@
                     id = e.target.getAttribute('data-id')
                     axios.delete(`/posts/${id}`)
                     .then(()=> {
-                        location.reload()
+                        location.href = '/'
                     })
                 });
             })

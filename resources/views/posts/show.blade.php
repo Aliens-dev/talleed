@@ -16,6 +16,12 @@
                     @else
                         <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
                     @endif
+                    <div class="watermark-top">
+                        <div class="inner"></div>
+                    </div>
+                    <div class="watermark-bottom">
+                        <div class="inner"></div>
+                    </div>
                 </div>
                 <div class="post-author">
                     <div class="author-card">

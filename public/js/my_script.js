@@ -26,7 +26,7 @@ bulmaModal.forEach(modal => {
     if(modal.classList.contains('timer')){
         setTimeout(() => {
             modal.classList.remove('is-active')
-        }, 3000)
+        }, 5000)
     }
 })
 
@@ -66,6 +66,36 @@ switchButton?.addEventListener('click', function() {
         topNavItems.style.display = 'none'
     }
 });
+
+/**
+ *
+ * Mobile Navbar Toggle
+ */
+const mNavbar =  document.querySelector('.m-navbar');
+const threeBars = document.querySelector('.three-bars');
+const crossBars = document.querySelector('.cross-bars');
+const m_menu = document.querySelector('.m-menu');
+const overlay = mNavbar?.querySelector('.overlay');
+
+overlay?.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if(e.target !== m_menu) {
+        m_menu.style.right = '-100%';
+        overlay.style.display = 'none'
+    }
+})
+
+threeBars?.addEventListener('click', function(e) {
+    e.stopPropagation()
+    m_menu.style.right = '0';
+    overlay.style.display = 'block'
+});
+
+crossBars?.addEventListener('click', function(e) {
+    e.stopPropagation()
+    m_menu.style.right = '-100%';
+    overlay.style.display = 'none'
+})
 
 /*
 *  Tabs
@@ -114,4 +144,10 @@ userImage?.addEventListener('change',function() {
     userIcon.setAttribute('src', imageUrl);
     userIcon.style.filter = 'none';
 })
+
+
+/**
+ *  Collapse
+ */
+
 

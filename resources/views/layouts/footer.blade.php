@@ -28,35 +28,47 @@
             </div>
             <div class="footer-col">
                 <div class="footer-col-title">
-                    صفحاتنا
+                    باقتنا
                 </div>
                 <div class="footer-rows">
-                    <a href="#" class="footer-row">
-                        مثقفون DZ
+                    <a href="https://www.facebook.com/medicodz/" class="footer-row">
+                        Médico
                     </a>
-                    <a href="#" class="footer-row">
-                        ميديكو
+                    <a href="https://www.facebook.com/easypeasydz/" class="footer-row">
+                        Easy Peasy
                     </a>
-                    <a href="#" class="footer-row">
+                    <a href="https://www.facebook.com/TADeveloper/" class="footer-row">
+                        The Algerian developer
+                    </a>
+                    <a href="https://www.facebook.com/TAVoiceover/" class="footer-row">
+                        The Algerian voiceover
+                    </a>
+                    <a href="https://www.facebook.com/Turkbirlisan/" class="footer-row">
+                        Turk bir lisan
+                    </a>
+                    <a href="https://www.facebook.com/Inshbook/" class="footer-row">
                         انصحني بكتاب
                     </a>
-                    <a href="" class="footer-row">
-                        المعلقين الجزائريين
+                    <a href="https://www.facebook.com/thesagaofhistory/" class="footer-row">
+                        ملحمة التاريخ
+                    </a>
+                    <a href="https://www.facebook.com/FranDja-234182505189059/" class="footer-row">
+                        FranDja
                     </a>
                 </div>
             </div>
             <div class="footer-col">
                 <div class="footer-col-title">
-                    من نحن
+                    عن تليد
                 </div>
                 <div class="footer-rows">
-                    <a href="" class="footer-row">
+                    <a href="{{ route('about') }}" class="footer-row">
                         من نحن
                     </a>
-                    <a href="" class="footer-row">
+                    <a href="confidentiality" class="footer-row">
                         سياسة الخصوصية
                     </a>
-                    <a href="" class="footer-row">
+                    <a href="https://www.facebook.com/groups/120818041867052" class="footer-row">
                         فريق الادارة
                     </a>
                 </div>
@@ -66,14 +78,14 @@
                     تواصل معنا
                 </div>
                 <div class="footer-rows">
-                    <a class="footer-row">
+                    <a href="https://www.facebook.com/groups/120818041867052" class="footer-row">
                         تواصل معنا
                     </a>
-                    <a class="footer-row">
+                    <a href="{{ route('contact') }}" class="footer-row">
                         اعلن معنا
                     </a>
-                    <a class="footer-row">
-                        وظائف شاغرة
+                    <a href="{{ route('contact') }}" class="footer-row">
+                        مناصب شاغرة
                     </a>
                 </div>
             </div>

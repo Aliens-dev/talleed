@@ -10346,8 +10346,15 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   width: 100%;
 }
 
+.overlay-background {
+  background-color: rgba(10, 10, 10, 0.55);
+}
+
+.modal .modal-background {
+  background-color: rgba(10, 10, 10, 0.55);
+}
 .modal .modal-content {
-  box-shadow: 1px 1px 1px #ccc, -1px 0 0.1em #ddd;
+  border-radius: 10px;
   background-color: #FFF;
   flex-direction: column;
 }
@@ -10362,8 +10369,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .modal .modal-content .modal-message {
   text-align: center;
   color: #4C31BC;
-  font-size: 18px;
+  font-size: 25px;
   margin: 10px 0 20px;
+  font-weight: 600;
 }
 
 .my-card {

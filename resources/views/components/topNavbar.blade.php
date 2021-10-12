@@ -54,7 +54,7 @@
                     <a href="{{ route('register') }}" class="nav-link">
                         <img class="animate__animated animate__bounce" src="/assets/img/editpen.svg" width="25" height="25" alt="edit" />
                         <p class="mr-2">
-                            كن مدونا
+                            كن مدوناً
                         </p>
                     </a>
                 </div>
@@ -65,7 +65,7 @@
                 </a>
             </div>
             <?php
-                $categories = \App\Models\Category::take(6)->get();
+                $categories = \App\Models\Category::take(8)->get();
             ?>
             @foreach($categories as $category)
                 <div class="nav-item">
@@ -74,6 +74,7 @@
                     </a>
                 </div>
             @endforeach
+                <div class="is-flex is-flex-grow-1"></div>
             <div class="nav-item nav-more dropdown">
                 <div class="nav-link dropdown-trigger">
                     <div>
@@ -93,5 +94,41 @@
                 </div>
             </div>
         </div>
+    </div>
+</nav>
+
+
+<nav class="m-navbar">
+    <div class="overlay"></div>
+    <div class="m-nav">
+        <div class="three-bars">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="logo">
+            <img src="/assets/img/logo.svg" width="40" height="40" />
+        </div>
+    </div>
+    <div class="m-menu">
+        <div class="cross-bars">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="m-item">
+            <a href="{{ route('index') }}" class="m-link">
+                الرئيسية
+            </a>
+        </div>
+        <?php
+            $categories = \App\Models\Category::take(5)->get();
+        ?>
+        @foreach($categories as $category)
+            <div class="m-item">
+                <a href="{{ route('category.posts.index', $category->slug) }}" class="m-link">
+                    {{ $category->name }}
+                </a>
+            </div>
+        @endforeach
     </div>
 </nav>

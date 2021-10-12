@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
 
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <nav class="pagination m-0 is-centered" role="navigation" aria-label="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
             <a class="pagination-previous" disabled aria-disabled="true" aria-label="@lang('pagination.previous')">
