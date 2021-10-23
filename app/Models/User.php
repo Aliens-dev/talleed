@@ -55,6 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Role::class, 'role_id');
     }
 
+    public function isVerified()
+    {
+        return $this->user_status == 'activated';
+    }
+
     public function rollKeys()
     {
         $this->api_token = Str::random(80);

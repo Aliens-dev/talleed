@@ -147,7 +147,65 @@ userImage?.addEventListener('change',function() {
 
 
 /**
- *  Collapse
+ *  search form
+ */
+
+const navSearch = document.querySelector('.nav-search');
+const searchModal = document.querySelector('.search-modal')
+navSearch?.addEventListener('click', function() {
+    searchModal.classList.add('is-active');
+});
+
+
+/**
+ *
+ * Collapse
  */
 
 
+const dataToggle = document.querySelectorAll('[data-toggle="collapse"]')
+
+
+dataToggle.forEach((element)=> {
+    element.addEventListener('click', function(e) {
+        const collapse = element.nextElementSibling.children[0]
+        collapse.classList.toggle('collapse');
+    })
+})
+
+/*
+    Toggle Style
+*/
+
+
+const toggleStyle = document.getElementById('toggle-style')
+
+let selectedMode = localStorage.getItem('styleMode');
+document.addEventListener('DOMContentLoaded', function (e) {
+    const type = localStorage.getItem('styleMode') || ''
+    console.log(type)
+    if(type === 'dark') {
+        toggleStyle.value = 'dark';
+        styleToggle(toggleStyle)
+    }else {
+        toggleStyle.value = 'light';
+        styleToggle(toggleStyle)
+    }
+})
+toggleStyle?.addEventListener('change', function(e) {
+    styleToggle(e.target)
+});
+
+function styleToggle(elem) {
+    const darkCss = document.querySelector('.dark-css')
+    const lightCss = document.querySelector('.light-css')
+    if(elem.value === 'dark') {
+        lightCss.media = 'none'
+        darkCss.media = ''
+        localStorage.setItem('styleMode', 'dark')
+    }else {
+        darkCss.media = 'none'
+        lightCss.media = ''
+        localStorage.setItem('styleMode', 'light')
+    }
+}

@@ -53,6 +53,9 @@ class AuthenticatedSessionController extends Controller
         if(! $user->hasVerifiedEmail()) {
             return redirect()->route("verification.notice")->withErrors(['email'=>'Email not verified please confirm your email!']);
         }
+        if( $user->role->name !== 'admin' && ! $user->isVerified()) {
+            return back()->with(['success'=>'ايميلك مفعل, سيتم تفعيل حسابك من قبل الادارة قريبا']);
+        }
         // attempt login
         if (! Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey($request));

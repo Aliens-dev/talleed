@@ -41,6 +41,7 @@ class RegisteredUserController extends Controller
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
             'username' => 'required|unique:users',
+            'speciality' => 'required',
             'email' => 'required|string|email|max:255|unique:users',
             'about_me' => 'required|string|max:255|min:20',
             'user_image' => 'required|image|mimes:jpg,png',
@@ -62,6 +63,7 @@ class RegisteredUserController extends Controller
             'fname' => $request->fname,
             'lname' => $request->lname,
             'username' => $request->username,
+            'speciality' => $request->speciality,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'about_me' => $request->about_me,
@@ -70,12 +72,11 @@ class RegisteredUserController extends Controller
             'field_id' => $request->field_id,
             'role_id' => $role->id,
         ]);
-
-        event(new Registered($user));
+        //event(new Registered($user));
+        event(new \App\Events\UserRegistered($user));
         $admins = User::where('role_id', Role::where('name', 'admin')->first()->id)->get();
         Notification::send($admins, new UserRegistered($user));
         //Auth::login($user);
-
         return back()->with(['success' => 'تم التسجيل بنجاح افقد ايميلك لتفعيل الحساب']);
     }
 }

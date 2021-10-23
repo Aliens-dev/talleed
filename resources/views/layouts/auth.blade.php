@@ -6,8 +6,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield("title")</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-        <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bulma.css?ver=1.2') }}">
+        <link rel="stylesheet" class="dark-css" media="none" href="{{ asset('css/dark.css?ver=1.2') }}">
+        <link rel="stylesheet" class="light-css" media="" href="{{ asset('css/app.css?ver=1.2') }}">
     </head>
     <body>
 
@@ -16,9 +17,9 @@
             @yield("content")
         </div>
     </div>
-
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ asset('js/my_script.js') }}"></script>
+    @include("layouts.footer")
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/my_script.js?ver=1.2') }}"></script>
     @yield('js')
     </body>
 </html>

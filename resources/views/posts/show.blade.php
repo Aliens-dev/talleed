@@ -26,7 +26,7 @@
                 <div class="post-author">
                     <div class="author-card">
                         <a href="{{ route('users.profile', $post->user->id) }}" class="author-img">
-                            @if(\Illuminate\Support\Facades\Storage::exists($post->user->image))
+                            @if(\Illuminate\Support\Facades\Storage::exists($post->user->user_image))
                                 <img src="{{ \Illuminate\Support\Facades\Storage::url($post->user->user_image) }}"
                                      alt="{{ $post->user->fullname }}"
                                 />
@@ -40,19 +40,16 @@
                                 {{ $post->user->fullname }}
                             </a>
                             <div class="subtitle is-6 is-success">
-                                باحث تاريخي
+                                {{  $post->user->speciality }}
                             </div>
                         </div>
                     </div>
                     <div class="social-share">
-                        <a href="">
-                            <img src="/assets/img/facebook.svg" alt="facebook">
+                        <a href="{{ $post->user->social_media_account }}">
+                            <img src="/assets/img/fb_profile.svg" alt="facebook">
                         </a>
                         <a href="">
-                            <img src="/assets/img/instagram.svg" alt="instagram">
-                        </a>
-                        <a href="">
-                            <img src="/assets/img/twitter.svg" alt="twitter">
+                            <img src="/assets/img/instagram_profile.svg" alt="instagram">
                         </a>
                     </div>
                 </div>
@@ -65,7 +62,7 @@
                     @if(count($post->tags))
                         <x-slot name="tags">
                             <div class="post-tags">
-                                <div class="subtitle is-6 is-bold">
+                                <div class="subtitle is-5 pt-2 pb-2 is-bold">
                                     الكلمات المفتاحية
                                 </div>
                                 <div class="btns is-flex">
@@ -80,6 +77,56 @@
                     @endif
                 </x-sidebar>
             </div>
+        </div>
+    </div>
+    <x-my-divider :line="true">
+        مواضيع قد تعجبك
+    </x-my-divider>
+    <div class="latest-section">
+        <?php
+            $cat = $post->category->id;
+            $posts = \App\Models\Post::where('category_id', $cat)->published()->orderBy('created_at','DESC')->take(5)->get()
+        ?>
+        <div class="container">
+            <div class="posts">
+                @foreach($posts as $post)
+                    <div class="post">
+                        <x-settings-icon :post="$post" />
+                        <div class="post-info">
+                            <div class="post-title">
+                                <a href="{{ route('posts.show', $post->slug) }}" >
+                                    {{ $post->title }}
+                                </a>
+                            </div>
+                            <div class="post-excerpt">
+                                {{ $post->excerpt }}
+                            </div>
+                            <a href="{{ route('posts.show', $post->slug) }}" class="more-button">
+                                اقرأ المزيد
+                            </a>
+                        </div>
+                        <div class="post-img is-flex is-flex-direction-column">
+                            <div class="img">
+                                @if(\Illuminate\Support\Facades\Storage::exists($post->thumbnail))
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" />
+                                @else
+                                    <img src="/assets/img/thumbnail.jpg" alt="{{ $post->title }}" />
+                                @endif
+                                <div class="watermark-top">
+                                    <div class="inner"></div>
+                                </div>
+                                <div class="watermark-bottom">
+                                    <div class="inner"></div>
+                                </div>
+                            </div>
+                            <div class="post-date">
+                                {{ date_format($post->created_at,'d/m/Y') }}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="banner"></div>
         </div>
     </div>
 @endsection

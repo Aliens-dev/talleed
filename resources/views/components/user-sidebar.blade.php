@@ -18,7 +18,7 @@
                 <h5 class="title is-5">
                     {{ $user->fullname }}
                 </h5>
-                <p class="subtitle is-6">باحث تاريخي</p>
+                <p class="subtitle is-6">{{ $user->speciality }}</p>
             </div>
         </div>
     </div>

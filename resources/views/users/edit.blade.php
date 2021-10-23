@@ -77,6 +77,20 @@
                             @enderror
                         </div>
                         <div class="input-container">
+                            <label for="speciality">التخصص</label>
+                            <input
+                                type="text" name="speciality" id="speciality" value="{{ $user->speciality }}"
+                            />
+                            @error('speciality')
+                            <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                <span class="delete"></span>
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-container">
                             <label for="username">اسم المستخدم</label>
                             <input
                                 type="text" name="username" id="username" value="{{ $user->username }}"

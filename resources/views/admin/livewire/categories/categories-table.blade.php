@@ -71,6 +71,11 @@
                         <td>{{ $category->created_at->locale('ar')->diffForHumans() }}</td>
                         <td>
                             <button class="button is-success" wire:click="setEditId('{{ $category->id }}')">تعديل</button>
+                            <a
+                                href="{{ route('category.posts.index', $category->slug) }}"
+                               class="button is-primary" wire:click="setEditId('{{ $category->id }}')">
+                                مشاهدة
+                            </a>
                         </td>
                     </tr>
                     @if($editId == $category->id)

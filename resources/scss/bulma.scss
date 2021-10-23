@@ -20,8 +20,10 @@ $myGrey: #383837;
     background-color: rgba(10, 10, 10, 0.55);
 }
 .modal {
+    z-index: 999;
     .modal-background {
-        background-color: rgba(10, 10, 10, 0.55);
+        background-color: #4C31BC;
+        opacity: 0.8;
     }
     .modal-content {
         border-radius: 10px;
@@ -45,10 +47,21 @@ $myGrey: #383837;
     }
 }
 
+.pagination {
+    justify-content: center;
+    .pagination-list {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+}
+
 .my-card {
     @extend .card;
     box-shadow: none;
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
+    &>div {
+        margin:10px 0;
+    }
     .card-header {
         box-shadow: none;
         border-radius: 0;

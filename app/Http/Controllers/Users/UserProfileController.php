@@ -27,8 +27,8 @@ class UserProfileController extends Controller
 
     public function pending(User $user)
     {
-        $inspect = Gate::inspect('view', $user);
-        if($inspect->denied()) {
+        $inspect = Gate::check('view', $user);
+        if(! $inspect) {
             return redirect()->route('users.profile', $user->id);
         }
         $posts = $user->posts()->where('status', 'pending')->paginate(10);
@@ -56,8 +56,9 @@ class UserProfileController extends Controller
 
     public function edit(User $user)
     {
-        $inspect = Gate::inspect('update', $user);
-        if($inspect->denied()) {
+        $inspect = Gate::check('update', $user);
+
+        if(! $inspect) {
             return redirect()->route('index');
         }
         return view('users.edit', compact('user'));
@@ -69,8 +70,9 @@ class UserProfileController extends Controller
             'fname' => 'required',
             'lname' => 'required',
             'username' => 'required|unique:users,username,'.$user->id,
+            'speciality' => 'required',
             'about_me' => 'required|string|max:255|min:20',
-            'user_image' => 'required|image|mimes:jpg,png',
+            'user_image' => 'required|sometimes|image|mimes:jpg,png',
             'field_id' => 'required|exists:categories,id',
             'social_media_account' => 'required|string|url',
             'email' => 'required|email|unique:users,email,'.$user->id,
@@ -92,6 +94,7 @@ class UserProfileController extends Controller
         $user->lname = $request->lname;
         $user->username = $request->username;
         $user->field_id = $request->field_id;
+        $user->speciality = $request->speciality;
         $user->social_media_account = $request->social_media_account;
         $user->email = $request->email;
         $user->save();

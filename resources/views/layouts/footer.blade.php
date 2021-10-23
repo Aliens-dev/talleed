@@ -65,10 +65,10 @@
                     <a href="{{ route('about') }}" class="footer-row">
                         من نحن
                     </a>
-                    <a href="confidentiality" class="footer-row">
+                    <a href="{{ route('confidentiality') }}" class="footer-row">
                         سياسة الخصوصية
                     </a>
-                    <a href="https://www.facebook.com/groups/120818041867052" class="footer-row">
+                    <a href="#" class="footer-row">
                         فريق الادارة
                     </a>
                 </div>
@@ -78,7 +78,7 @@
                     تواصل معنا
                 </div>
                 <div class="footer-rows">
-                    <a href="https://www.facebook.com/groups/120818041867052" class="footer-row">
+                    <a href="{{ route('contact') }}" class="footer-row">
                         تواصل معنا
                     </a>
                     <a href="{{ route('contact') }}" class="footer-row">
@@ -87,6 +87,10 @@
                     <a href="{{ route('contact') }}" class="footer-row">
                         مناصب شاغرة
                     </a>
+                    <select id="toggle-style">
+                        <option value="dark">Dark Mode</option>
+                        <option value="light">Light Mode</option>
+                    </select>
                 </div>
             </div>
         </div>

@@ -27,6 +27,7 @@
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="lname">اللقب</x-table-header>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="username">اسم المستخدم</x-table-header>
                 <th>الصورة</th>
+                <th>حالة الحساب</th>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="email">الايميل</x-table-header>
                 <th>الدور</th>
                 <x-table-header :orderBy="$orderField" :direction="$orderDirection" name="created_at">تاريخ التسجيل</x-table-header>
@@ -52,11 +53,18 @@
                             <img src="/uploads/author.PNG" width="45" height="45" alt="{{$user->fname}}" />
                         @endif
                     </td>
+                    <td>
+                        @if($user->user_status === 'pending')
+                            معلق
+                        @else
+                            مفعل
+                        @endif
+                    </td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role->name }}</td>
                     <td>{{ $user->created_at->locale('ar')->diffForHumans() }}</td>
                     <td>
-                        <button class="button is-success" wire:click="setEditId('{{ $user->id }}')">تعديل</button>
+                        <a href="{{ route('users.edit', $user->id) }}" class="button is-success">تعديل</a>
                         <a href="{{ route('admin.users.show', $user->id) }}"
                            class="button is-info"
                            wire:click="setEditId('{{ $user->id }}')"

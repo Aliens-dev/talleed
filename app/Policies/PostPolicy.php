@@ -18,9 +18,11 @@ class PostPolicy
      * @param Post $post
      * @return mixed
      */
-    public function show(User $user, Post $post)
+    public function show(?User $user, Post $post)
     {
-        return true;
+        return $post->status !== 'published' ?
+            optional($user)->id === (int)$post->author_id ||  optional($user)->role_id === (int) Role::where('name','admin')->first()->id
+            : true;
     }
 
     /**
@@ -32,7 +34,8 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return (int)$user->id === (int)$post->author_id || (int)$user->role_id == (int)Role::where('name','admin')->first()->id;
+        return $post->status !== 'published' &&
+            (int)$user->id === (int)$post->author_id || (int)$user->role_id == (int)Role::where('name','admin')->first()->id;
     }
 
     /**
@@ -44,6 +47,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->id == $post->author_id || (int)$user->role_id == (int)Role::where('name','admin')->first()->id;
+        return $post->status !== 'published' &&
+            (int)$user->id === (int)$post->author_id || (int)$user->role_id == (int)Role::where('name','admin')->first()->id;
     }
 }

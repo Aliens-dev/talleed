@@ -39,12 +39,15 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        /*
-        $authorize = Gate::inspect("show", $post);
-        if($authorize->denied()) {
-            return redirect()->route('index');
+
+        //$this->authorize("show", $post);
+
+        $inspect = Gate::check('show', $post);
+
+        if(! $inspect) {
+            return redirect()->route('index')->with('error', 'You are not authorized');
         }
-        */
+
         $visitor_ip = $_SERVER["REMOTE_ADDR"];
         Visitor::create([
             'visitor_ip' => $visitor_ip,
@@ -127,11 +130,14 @@ class PostsController extends Controller
 
     /**
      * @param Post $post
-     * @return View
+     * @return View| RedirectResponse
      */
     public function edit(Post $post)
     {
-        Gate::authorize('update',$post);
+        $inspect = Gate::check('update', $post);
+        if(! $inspect) {
+            return redirect()->route('index')->with('error', 'You are not authorized');
+        }
 
         return view('posts.edit', compact('post'));
     }
@@ -144,7 +150,10 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         // Check authorization
-        Gate::authorize('update', $post);
+        $inspect = Gate::check('update', $post);
+        if(! $inspect) {
+            return redirect()->route('index')->with('error', 'You are not authorized');
+        }
 
         $rules = [
             "title" => "required|min:5|max:100|unique:posts,title,". $post->id,
@@ -214,6 +223,10 @@ class PostsController extends Controller
      */
     public function destroy(Request $request, Post $post)
     {
+        $inspect = Gate::check('show', $post);
+        if(! $inspect) {
+            return redirect()->route('index')->with('error', 'You are not authorized');
+        }
         $post->delete();
         if($request->ajax()) {
             return response()->json(['success' => true], 200);

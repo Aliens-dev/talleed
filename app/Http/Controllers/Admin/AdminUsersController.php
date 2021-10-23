@@ -19,4 +19,15 @@ class AdminUsersController extends Controller
     {
         return view('admin.users.show', compact('user'));
     }
+
+    public function status(Request $request, User $user)
+    {
+        $rules = [
+            'action' => "required|in:pending,activated"
+        ];
+        $this->validate($request,$rules);
+        $user->user_status = $request->action;
+        $user->update();
+        return back()->with('success', " تم تعديل الحساب");
+    }
 }

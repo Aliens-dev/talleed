@@ -10350,8 +10350,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: rgba(10, 10, 10, 0.55);
 }
 
+.modal {
+  z-index: 999;
+}
 .modal .modal-background {
-  background-color: rgba(10, 10, 10, 0.55);
+  background-color: #4C31BC;
+  opacity: 0.8;
 }
 .modal .modal-content {
   border-radius: 10px;
@@ -10374,9 +10378,20 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   font-weight: 600;
 }
 
+.pagination {
+  justify-content: center;
+}
+.pagination .pagination-list {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
 .my-card {
   box-shadow: none;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+.my-card > div {
+  margin: 10px 0;
 }
 .my-card .card-header {
   box-shadow: none;

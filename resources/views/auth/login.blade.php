@@ -1,6 +1,25 @@
 @extends("layouts.auth")
 
+@section('title', 'الدخول الى حسابي')
+
 @section('content')
+    @if(session()->has('success'))
+        <div class="modal is-active">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <x-my-divider :line="false">
+                    <a href="{{route('index')}}">العودة الى الرئيسية</a>
+                </x-my-divider>
+                <div class="modal-image">
+                    <img src="/assets/img/logo.svg" alt="taleed Logo" />
+                </div>
+                <div class="modal-message">
+                    {{ session()->get('success') }}
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+    @endif
     <div class="login-page">
         <x-my-divider :hasLine="true">
             <a href="{{route('index')}}">العودة الى الرئيسية</a>

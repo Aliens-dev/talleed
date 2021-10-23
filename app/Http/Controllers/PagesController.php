@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ContactMessageSent;
 use App\Models\Contact;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -10,8 +11,8 @@ class PagesController extends Controller
 {
 
     public function index() {
-        $latest = Post::latests(4)->get();
-        $topRead = Post::topRead(5)->get();
+        $latest = Post::published()->latests(4)->get();
+        $topRead = Post::published()->topRead(5)->get();
         return view("index", compact(["latest","topRead"]));
     }
 
@@ -42,6 +43,8 @@ class PagesController extends Controller
         $contact->type = $request->type;
         $contact->message = $request->message;
         $contact->save();
+
+        event(new ContactMessageSent($contact));
 
         return back()->with('success', 'تم استلام رسالتك, سيتم الرد عليك في اقرب وقت');
     }

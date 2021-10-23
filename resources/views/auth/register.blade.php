@@ -5,7 +5,7 @@
 @section('content')
 
     @if(session()->has('success'))
-        <div class="modal is-active timer">
+        <div class="modal is-active">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <x-my-divider :line="false">
@@ -75,6 +75,20 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="input-container">
+                            <label for="speciality">تخصصك</label>
+                            <input id="speciality" name="speciality" value="{{ old('speciality') }}" 
+                                placeholder="باحث, عالم ..."
+                            >
+                            @error('speciality')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
                         <div class="input-container">
                             <label for="username">اسم المستخدم</label>
                             <input
@@ -172,7 +186,7 @@
                     <div class="wrapper"></div>
                     <div class="image-container">
                         <div class="user-image" >
-                            <img id="user_icon" src="/assets/img/user-icon.svg" alt="user_image" />
+                            <img id="user_icon" src="/assets/img/user-icon.png" alt="user_image" />
                         </div>
                         <input class="is-hidden" type="file" name="user_image" id="user_image" />
                         <label for="user_image">قم باختيار صورتك الشخصية</label>

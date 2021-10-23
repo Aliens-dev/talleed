@@ -14,18 +14,6 @@
                 &lsaquo;
             </a>
         @endif
-        {{-- Next Page Link --}}
-        @if ($paginator->hasMorePages())
-            <a href="{{ $paginator->nextPageUrl() }}" class="pagination-next" rel="next" aria-label="@lang('pagination.next')">
-                &rsaquo;
-            </a>
-        @else
-            <a class="pagination-next" disabled aria-disabled="true" aria-label="@lang('pagination.next')">
-                <span aria-hidden="true">
-                    &rsaquo;
-                </span>
-            </a>
-        @endif
         <ul class="pagination-list">
             {{-- Pagination Elements --}}
             @foreach ($elements as $element)
@@ -55,5 +43,17 @@
                     @endif
             @endforeach
         </ul>
+        {{-- Next Page Link --}}
+        @if ($paginator->hasMorePages())
+            <a href="{{ $paginator->nextPageUrl() }}" class="pagination-next" rel="next" aria-label="@lang('pagination.next')">
+                &rsaquo;
+            </a>
+        @else
+            <a class="pagination-next" disabled aria-disabled="true" aria-label="@lang('pagination.next')">
+                <span aria-hidden="true">
+                    &rsaquo;
+                </span>
+            </a>
+        @endif
     </nav>
 @endif

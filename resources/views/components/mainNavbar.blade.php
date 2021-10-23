@@ -9,6 +9,21 @@
             </span>
         </a>
         <div class="nav-items">
+            <?php
+                $mainMenu = \App\Models\Menu::where('name','main-menu')->first();
+            ?>
+            @if(! is_null($mainMenu))
+                @foreach($mainMenu->items()->orderBy("order","ASC")->get() as $item)
+                    <div class="nav-item">
+
+                        <a href="{{ $item->url }}" class="nav-link">
+                            {{ $item->title }}
+                        </a>
+                    </div>
+                @endforeach
+            @endif
+                <?php
+                /*
             <div class="nav-item">
                 <a href="{{ route('posts.index') }}" class="nav-link">
                     مقالات
@@ -21,7 +36,7 @@
             </div>
             <div class="nav-item">
                 <a href="" class="nav-link">
-                    اسلوب حياة
+                    بحث علمي
                 </a>
             </div>
             <div class="nav-item">
@@ -34,14 +49,16 @@
                     فلسفة العلوم
                 </a>
             </div>
+                */
+                ?>
         </div>
         <div class="nav-search">
-            <form class="search-form" action="{{ route('search') }}" method="GET">
+            <div class="search-form">
                 <label>
                     <img src="{{ asset('assets/img/search.svg') }}" alt="search" />
                 </label>
                 <input type="text" name="search" value="{{ old('search') }}" placeholder="ابحث في الموقع" />
-            </form>
+            </div>
         </div>
     </div>
 </nav>

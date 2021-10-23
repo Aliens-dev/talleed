@@ -26,7 +26,7 @@ class EmailVerificationNotificationController extends Controller
         if ($user->hasVerifiedEmail()) {
             return redirect()->route("users.profile", ['user' => auth()->id()]);
         }
-
+        // update to new template !
         $user->sendEmailVerificationNotification();
 
         return back()->with('status', 'verification-link-sent');

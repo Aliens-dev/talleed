@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPostsController;
 use App\Http\Controllers\Admin\AdminTagsController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Category\CategoryPostsController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PagesController;
@@ -71,6 +73,7 @@ Route::post('panel_admin/login', [AdminAuthController::class,'login'])->name('ad
 Route::group(['prefix' => 'panel_admin', 'middleware' => ['auth','admin.auth']], function() {
     Route::get('/', [AdminDashboardController::class,"index"])->name('admin.dashboard');
     Route::get('/users', [AdminUsersController::class,"index"])->name('admin.users.index');
+    Route::post('/users/{user}/status', [AdminUsersController::class,"status"])->name('admin.users.status');
     Route::get('/users/{user}', [AdminUsersController::class,"show"])->name('admin.users.show');
     Route::get('/posts', [AdminPostsController::class,"index"])->name('admin.posts.index');
     Route::get('/categories', [AdminCategoriesController::class,"index"])->name('admin.categories.index');
@@ -78,6 +81,13 @@ Route::group(['prefix' => 'panel_admin', 'middleware' => ['auth','admin.auth']],
     Route::get('/messages', [AdminTagsController::class,"index"])->name('admin.messages.index');
     Route::get('/account', [AdminAccountController::class,"index"])->name('admin.account.index');
     Route::patch('/account', [AdminAccountController::class,"update"])->name('admin.account.update');
+
+    Route::get('/contact', [ContactController::class,"index"])->name('admin.contact.index');
+    Route::get('/contact/{id}', [ContactController::class,"show"])->name('admin.contact.show');
+
+    Route::get('/menus', [MenuController::class,"index"])->name('admin.menu.index');
+    Route::get('/menus/{id}', [MenuController::class,"show"])->name('admin.menu.show');
+
 });
 
 

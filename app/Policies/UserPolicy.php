@@ -30,7 +30,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        return (int)$user->id === (int)$model->id  || $user->role_id == Role::where('name','admin')->first()->id;
+        return (int)$user->id === (int)$model->id  || (int)$user->role_id == (int)Role::where('name','admin')->first()->id;
     }
 
     /**
@@ -53,7 +53,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        return (int)$user->id === (int)$model->id;
+        return (int)$user->id === (int)$model->id || (int)$user->role_id == (int)Role::where('name','admin')->first()->id;
     }
 
     /**
@@ -65,7 +65,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
+        return (int)$user->id === (int)$model->id || (int)$user->role_id == (int)Role::where('name','admin')->first()->id;
     }
 
     /**

@@ -55,30 +55,27 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col">
-                    <div class="input-container">
-                        <label for="type">نوع الرسالة</label>
-                        <div class="control">
-                            <label class="radio">
-                                <input type="radio" value="إستفسار عام" name="type">
+                <div class="col is-flex is-flex-direction-column">
+                    <label for="type">نوع الرسالة</label>
+                    <div class="select">
+                        <select id="type" class="input-container" name="type">
+                            <option value="إستفسار عام">
                                 إستفسار عام
-                            </label>
-                            <label class="radio">
-                                <input type="radio" value="إستفسار حول المحتوى" name="type">
+                            </option>
+                            <option value="إستفسار حول المحتوى">
                                 إستفسار حول المحتوى
-                            </label>
-                            <label class="radio">
-                                <input type="radio" value="إتفاق إعلانات على موقع تليد" name="type">
+                            </option>
+                            <option value="إتفاق إعلانات على موقع تليد">
                                 إتفاق إعلانات على موقع تليد
-                            </label>
-                        </div>
-                        @error('type')
-                        <div class="notification is-flex is-danger mt-1 mb-1 p-2">
-                            <span class="delete"></span>
-                            {{ $message }}
-                        </div>
-                        @enderror
+                            </option>
+                        </select>
                     </div>
+                    @error('type')
+                    <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                        <span class="delete"></span>
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="col">
                     <div class="input-container">
@@ -98,8 +95,34 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-side">
+            <div class="form-side">
                 <div class="wrapper"></div>
+                <div></div>
+                <div class="auth-brand">
+                    <div class="auth-col-social">
+                        <a href="">
+                            <img src="/assets/img/twitter.svg" style="width:35px;height: 35px" alt="twitter taleed" />
+                        </a>
+                        <a href="">
+                            <img src="/assets/img/youtube.svg" style="width:35px;height: 35px"  alt="youtube taleed" />
+                        </a>
+                        <a href="">
+                            <img src="/assets/img/instagram.svg" style="width:30px;height: 35px"  alt="instagram taleed" />
+                        </a>
+                        <a href="">
+                            <img src="/assets/img/facebook.svg" style="width:30px;height: 35px"  alt="facebook taleed" />
+                        </a>
+                        <a href="">
+                            <img src="/assets/img/telegram.svg" style="width:35px;height: 35px"  alt="telegram taleed" />
+                        </a>
+                    </div>
+                    <div class="auth-logo">
+                        <img src="{{ asset('./assets/img/logo.svg') }}" alt="taleed" />
+                    </div>
+                    <div class="auth-rights">
+                        جميع الحقوق محفوظة @ 2021 موقع تليد
+                    </div>
+                </div>
             </div>
         </form>
     </div>

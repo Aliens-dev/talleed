@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\ContactMessageSent;
+use App\Events\UserRegistered;
+use App\Listeners\ContactMessageSentListener;
+use App\Listeners\UserRegisteredListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +22,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        UserRegistered::class => [
+            UserRegisteredListener::class
+        ],
+        ContactMessageSent::class=> [
+            ContactMessageSentListener::class
+        ]
     ];
 
     /**

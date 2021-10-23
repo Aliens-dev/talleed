@@ -53,14 +53,13 @@ class CategoriesTable extends Component
         $this->reset('newCategory','addFormVisible');
     }
 
-
     public function render()
     {
         return view('admin.livewire.categories.categories-table', [
             'categories' => Category::
                 where('name', 'LIKE' ,"%{$this->search}%")
                 ->orderBy($this->orderField, $this->orderDirection)
-                ->paginate(5)
+                ->paginate(10)
         ]);
     }
 }
