@@ -1618,6 +1618,47 @@ form {
                     background-color:#FFF;
                 }
             }
+            .toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                max-width: 140px;
+                span {
+                    margin: 0 0.5rem;
+                }
+                input[type="checkbox"] {
+                    height: 0;
+                    width: 0;
+                    visibility: hidden;
+                    &:checked + label {
+                        background: teal;
+                    }
+                    &:checked + label:after {
+                        left: calc(100% - 2px);
+                        transform: translateX(-100%);
+                    }
+                }
+                label {
+                    cursor: pointer;
+                    width: 75px;
+                    height: 34px;
+                    background: rgba(0, 0, 0, 0.27);
+                    display: block;
+                    border-radius: 40px;
+                    position: relative;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 2px;
+                        left: 2px;
+                        width: 30px;
+                        height: 30px;
+                        background: #fff;
+                        border-radius: 40px;
+                        transition: 0.3s;
+                    }
+                }
+            }
             .logo {
                 width:35px;
                 height: 35px;
@@ -1709,6 +1750,64 @@ form {
                             display: block;
                             height: auto;
                         }
+                    }
+                }
+            }
+        }
+    }
+    .t-navbar {
+        height: 50px;
+        display: block;
+        background-color: $blue;
+        z-index:999;
+        padding:0 5px;
+        .t-nav{
+            z-index: 100;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 0 5px;
+            height: 100%;
+            .logo {
+                width:30px;
+                height: 30px;
+                font-size:25px;
+                font-weight: 600;
+                color:#FFF;
+                a {
+                    text-decoration: none;
+                    color:#FFF;
+                    &:hover{
+                        text-decoration: none;
+                        color:#FFF;
+                    }
+                }
+            }
+            .t-search {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                border-radius: 100px;
+                padding:0 5px;
+                label {
+                    width:30px;
+                    height: 30px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        filter: invert(99%) sepia(1%) saturate(366%) hue-rotate(14deg) brightness(119%) contrast(100%);
+                    }
+                }
+                input {
+                    display:none;
+                    height: 35px;
+                    border-radius: 100px;
+                    border: 1px solid #FFF;
+                    width:200px;
+                    padding:0 3px;
+                    &:focus {
+                        outline: none;
                     }
                 }
             }

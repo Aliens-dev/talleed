@@ -1580,6 +1580,47 @@ form .tags-container input {
     height: 3px;
     background-color: #FFF;
   }
+  .m-navbar .m-nav .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 140px;
+  }
+  .m-navbar .m-nav .toggle span {
+    margin: 0 0.5rem;
+  }
+  .m-navbar .m-nav .toggle input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  .m-navbar .m-nav .toggle input[type=checkbox]:checked + label {
+    background: teal;
+  }
+  .m-navbar .m-nav .toggle input[type=checkbox]:checked + label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
+  .m-navbar .m-nav .toggle label {
+    cursor: pointer;
+    width: 75px;
+    height: 34px;
+    background: rgba(0, 0, 0, 0.27);
+    display: block;
+    border-radius: 40px;
+    position: relative;
+  }
+  .m-navbar .m-nav .toggle label:after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 40px;
+    transition: 0.3s;
+  }
   .m-navbar .m-nav .logo {
     width: 35px;
     height: 35px;
@@ -1670,6 +1711,65 @@ form .tags-container input {
     font-weight: 600;
     display: block;
     height: auto;
+  }
+
+  .t-navbar {
+    height: 50px;
+    display: block;
+    background-color: #4C31BC;
+    z-index: 999;
+    padding: 0 5px;
+  }
+  .t-navbar .t-nav {
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    height: 100%;
+  }
+  .t-navbar .t-nav .logo {
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFF;
+  }
+  .t-navbar .t-nav .logo a {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .t-navbar .t-nav .logo a:hover {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .t-navbar .t-nav .t-search {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 100px;
+    padding: 0 5px;
+  }
+  .t-navbar .t-nav .t-search label {
+    width: 30px;
+    height: 30px;
+  }
+  .t-navbar .t-nav .t-search label img {
+    width: 100%;
+    height: 100%;
+    filter: invert(99%) sepia(1%) saturate(366%) hue-rotate(14deg) brightness(119%) contrast(100%);
+  }
+  .t-navbar .t-nav .t-search input {
+    display: none;
+    height: 35px;
+    border-radius: 100px;
+    border: 1px solid #FFF;
+    width: 200px;
+    padding: 0 3px;
+  }
+  .t-navbar .t-nav .t-search input:focus {
+    outline: none;
   }
 
   .latest-section .container {

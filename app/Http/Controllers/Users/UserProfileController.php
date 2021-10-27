@@ -94,6 +94,7 @@ class UserProfileController extends Controller
         $user->lname = $request->lname;
         $user->username = $request->username;
         $user->field_id = $request->field_id;
+        $user->about_me = $request->about_me;
         $user->speciality = $request->speciality;
         $user->social_media_account = $request->social_media_account;
         $user->email = $request->email;

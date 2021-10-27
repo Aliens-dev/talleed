@@ -125,13 +125,19 @@
 <nav class="m-navbar">
     <div class="overlay"></div>
     <div class="m-nav">
+        <div class="logo">
+            <img src="/assets/img/logo-invert.svg" width="40" height="40" />
+        </div>
+        <div class="toggle">
+            <span>🌙</span>
+            <input type="checkbox" id="toggle-switch" />
+            <label for="toggle-switch"><span class="screen-reader-text"></span></label>
+            <span>☀</span>
+        </div>
         <div class="three-bars">
             <div></div>
             <div></div>
             <div></div>
-        </div>
-        <div class="logo">
-            <img src="/assets/img/logo.svg" width="40" height="40" />
         </div>
     </div>
     <div class="m-menu">
@@ -195,6 +201,22 @@
         @endforeach
         <form class="search-form mb-1 mt-1" action="{{ route('search') }}" method="GET">
             <label>
+                <img src="{{ asset('assets/img/search.svg') }}" alt="search" />
+            </label>
+            <input type="text" name="search" value="{{ old('search') }}" placeholder="ابحث في الموقع" />
+        </form>
+    </div>
+</nav>
+
+<nav class="t-navbar">
+    <div class="t-nav">
+        <div class="logo">
+            <a href="{{route('index')}}">
+                تليـــد
+            </a>
+        </div>
+        <form action="{{ route('search') }}" class="t-search" id="t-search">
+            <label id="t-search-label">
                 <img src="{{ asset('assets/img/search.svg') }}" alt="search" />
             </label>
             <input type="text" name="search" value="{{ old('search') }}" placeholder="ابحث في الموقع" />

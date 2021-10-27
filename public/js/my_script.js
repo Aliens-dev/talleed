@@ -179,12 +179,27 @@ dataToggle.forEach((element)=> {
 
 
 const toggleStyle = document.getElementById('toggle-style')
-
+const toggleSwitch = document.getElementById('toggle-switch');
 let selectedMode = localStorage.getItem('styleMode');
+
 document.addEventListener('DOMContentLoaded', function (e) {
     const type = localStorage.getItem('styleMode') || ''
-    console.log(type)
     if(type === 'dark') {
+        toggleStyle.value = 'dark';
+        styleToggle(toggleStyle)
+        toggleSwitch.checked = true;
+    }else {
+        toggleStyle.value = 'light';
+        styleToggle(toggleStyle)
+        toggleSwitch.checked = false;
+    }
+})
+toggleStyle?.addEventListener('change', function(e) {
+    styleToggle(e.target)
+});
+
+toggleSwitch.addEventListener('change', function() {
+    if(toggleSwitch.checked) {
         toggleStyle.value = 'dark';
         styleToggle(toggleStyle)
     }else {
@@ -192,9 +207,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         styleToggle(toggleStyle)
     }
 })
-toggleStyle?.addEventListener('change', function(e) {
-    styleToggle(e.target)
-});
+
 
 function styleToggle(elem) {
     const darkCss = document.querySelector('.dark-css')
@@ -209,3 +222,25 @@ function styleToggle(elem) {
         localStorage.setItem('styleMode', 'light')
     }
 }
+
+
+/*
+    t-search-label
+ */
+
+const searchLabel = document.getElementById('t-search-label');
+const tSearch = document.getElementById('t-search');
+searchLabel?.addEventListener('click', function(){
+    const searchInput = searchLabel.nextElementSibling;
+    const labelImg = searchLabel.querySelector('img');
+    if(searchInput.style.display !== 'block') {
+        labelImg.style.filter = 'invert(21%) sepia(67%) saturate(2935%) hue-rotate(244deg) brightness(84%) contrast(99%)';
+        searchInput.style.display = 'block';
+        tSearch.style.backgroundColor = '#FFF';
+    }else {
+        labelImg.style.filter = 'invert(99%) sepia(1%) saturate(366%) hue-rotate(14deg) brightness(119%) contrast(100%)';
+        searchInput.style.display = 'none';
+        tSearch.style.backgroundColor = '#4C31BC';
+    }
+});
+

@@ -100,7 +100,6 @@ class PostsController extends Controller
                 ->resize(800,600)
                 //->insert(public_path(). '/assets/img/watermark.png', 'center',10,10)
                 ->save($public_path.$image_url);
-
         }
 
         $post->title = $request->title;
@@ -193,7 +192,6 @@ class PostsController extends Controller
 
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
-        $post->author_id = Auth::id();
         $post->body = $request->body;
         $post->excerpt = $request->excerpt;
         $post->category_id = $request->field;
