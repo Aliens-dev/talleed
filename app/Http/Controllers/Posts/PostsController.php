@@ -39,9 +39,6 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-
-        //$this->authorize("show", $post);
-
         $inspect = Gate::check('show', $post);
 
         if(! $inspect) {

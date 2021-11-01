@@ -4,7 +4,7 @@
             <span class="animate__animated animate__rubberBand logo">
                 <img src="{{ asset('assets/img/logo.svg') }}" alt="taleed logo" />
             </span>
-            <span>
+            <span class="nav-name">
                 تليـــد
             </span>
         </a>

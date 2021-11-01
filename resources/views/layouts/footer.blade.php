@@ -3,19 +3,19 @@
         <div class="footer-cols">
             <div class="footer-brand">
                 <div class="footer-col-social">
-                    <a href="">
+                    <a href="https://twitter.com/Taleed01">
                         <img src="/assets/img/twitter.svg" style="width:35px;height: 35px" alt="twitter taleed" />
                     </a>
                     <a href="">
                         <img src="/assets/img/youtube.svg" style="width:35px;height: 35px"  alt="youtube taleed" />
                     </a>
-                    <a href="">
+                    <a href="https://www.instagram.com/taleed01">
                         <img src="/assets/img/instagram.svg" style="width:30px;height: 35px"  alt="instagram taleed" />
                     </a>
-                    <a href="">
+                    <a href="https://www.facebook.com/taleed01">
                         <img src="/assets/img/facebook.svg" style="width:30px;height: 35px"  alt="facebook taleed" />
                     </a>
-                    <a href="">
+                    <a href="https://t.me/taleed01">
                         <img src="/assets/img/telegram.svg" style="width:35px;height: 35px"  alt="telegram taleed" />
                     </a>
                 </div>
@@ -87,7 +87,7 @@
                     <a href="{{ route('contact') }}" class="footer-row">
                         مناصب شاغرة
                     </a>
-                    <select id="toggle-style">
+                    <select id="toggle-style" class="is-hidden-touch is-hidden-mobile">
                         <option value="dark">Dark Mode</option>
                         <option value="light">Light Mode</option>
                     </select>

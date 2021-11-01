@@ -21,7 +21,7 @@ class PostPolicy
     public function show(?User $user, Post $post)
     {
         return $post->status !== 'published' ?
-            optional($user)->id === (int)$post->author_id ||  optional($user)->role_id === (int) Role::where('name','admin')->first()->id
+            (int)optional($user)->id === (int)$post->author_id ||  (int)optional($user)->role_id === (int) Role::where('name','admin')->first()->id
             : true;
     }
 

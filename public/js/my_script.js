@@ -19,6 +19,7 @@ bulmaModal.forEach(modal => {
     const modalBackground = modal.querySelector(".modal-background")
     const modalClose = modal.querySelector(".modal-close")
     modal.addEventListener('click', (ev) => {
+        ev.preventDefault();
         if(ev.target === modalBackground || ev.target === modalClose) {
             modal.classList.remove('is-active')
         }
@@ -184,27 +185,31 @@ let selectedMode = localStorage.getItem('styleMode');
 
 document.addEventListener('DOMContentLoaded', function (e) {
     const type = localStorage.getItem('styleMode') || ''
-    if(type === 'dark') {
-        toggleStyle.value = 'dark';
-        styleToggle(toggleStyle)
-        toggleSwitch.checked = true;
-    }else {
-        toggleStyle.value = 'light';
-        styleToggle(toggleStyle)
-        toggleSwitch.checked = false;
+    if(toggleSwitch) {
+        if(type === 'dark') {
+            toggleStyle.value = 'dark';
+            styleToggle(toggleStyle)
+            toggleSwitch.checked = true;
+        }else {
+            toggleStyle.value = 'light';
+            styleToggle(toggleStyle)
+            toggleSwitch.checked = false;
+        }
     }
 })
 toggleStyle?.addEventListener('change', function(e) {
     styleToggle(e.target)
 });
 
-toggleSwitch.addEventListener('change', function() {
-    if(toggleSwitch.checked) {
-        toggleStyle.value = 'dark';
-        styleToggle(toggleStyle)
-    }else {
-        toggleStyle.value = 'light';
-        styleToggle(toggleStyle)
+toggleSwitch?.addEventListener('change', function() {
+    if(toggleSwitch == null) {
+        if(toggleSwitch.checked) {
+            toggleStyle.value = 'dark';
+            styleToggle(toggleStyle)
+        }else {
+            toggleStyle.value = 'light';
+            styleToggle(toggleStyle)
+        }
     }
 })
 

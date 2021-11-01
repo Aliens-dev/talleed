@@ -189,22 +189,18 @@
         </div>
         <div class="divider-h"></div>
         <?php
-            $categories = \App\Models\Category::take(5)->get();
+            $mobileMenu = \App\Models\Menu::where('name', 'mobile-menu')->first();
         ?>
-        @foreach($categories as $category)
-            <div class="m-item">
-                <a href="{{ route('category.posts.index', $category->slug) }}" class="m-link">
-                    {{ $category->name }}
-                </a>
-            </div>
-            <div class="divider-h"></div>
-        @endforeach
-        <form class="search-form mb-1 mt-1" action="{{ route('search') }}" method="GET">
-            <label>
-                <img src="{{ asset('assets/img/search.svg') }}" alt="search" />
-            </label>
-            <input type="text" name="search" value="{{ old('search') }}" placeholder="ابحث في الموقع" />
-        </form>
+        @if(!is_null($mobileMenu))
+            @foreach($mobileMenu->items as $item)
+                <div class="m-item">
+                    <a href="{{ $item->url }}" class="m-link">
+                        {{ $item->title }}
+                    </a>
+                </div>
+                <div class="divider-h"></div>
+            @endforeach
+        @endif
     </div>
 </nav>
 

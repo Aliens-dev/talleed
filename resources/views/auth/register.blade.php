@@ -77,7 +77,7 @@
                         </div>
                         <div class="input-container">
                             <label for="speciality">تخصصك</label>
-                            <input id="speciality" name="speciality" value="{{ old('speciality') }}" 
+                            <input id="speciality" name="speciality" value="{{ old('speciality') }}"
                                 placeholder="باحث, عالم ..."
                             >
                             @error('speciality')
@@ -172,6 +172,61 @@
                         </div>
                     </div>
                     <div class="col">
+                        <div class="input-container">
+                            <div class="is-flex is-align-items-center">
+                                <input
+                                    type="checkbox" name="policy" id="policy"
+                                />
+                                <label for="policy" class="pr-2 mb-2">
+                                    قرات و اوافق على <a href="#" id="policy-rules">الشروط</a>
+                                </label>
+                            </div>
+                            <div class="modal" id="policy-modal">
+                                <div class="modal-background"></div>
+                                <div class="modal-content" style="width:800px">
+                                    <div class="modal-image">
+                                        <img src="/assets/img/logo.svg" alt="taleed Logo" />
+                                    </div>
+                                    <div class="modal-message">
+                                        <div class="modal-message-policy">
+                                            <div>
+                                                <span>1-</span>
+                                                <div>للإدارة كل الحق في قبول تسجيلكم أو رفضه حسب المعلومات التي قمتم بإرسالها ومدى صحتها.</div>
+                                            </div>
+                                            <div>
+                                                <span>2-</span>
+                                                <div>يجب أن تكون المعلومات المُدرجة حقيقية إنطلاقاً من الإسم الكامل، الصورة وكذلك نبذة عن المدون وحساب التواصل الإجتماعي الخاص به.</div>
+                                            </div>
+                                            <div>
+                                                <span>3-</span>
+                                                <div>بعد قبولكم من طرف الإدارة سيكون بإمكانكم التدوين في مجالات إختصاصكم وإهتمامكم بشرط أن يكون المقال مرفق بمصادر (مواقع موثوقة، كتب، سند شرعي في حالة كان المقال دينيا) تثبت صحة مضمونه.</div>
+                                            </div>
+                                            <div>
+                                                <span>4-</span>
+                                                <div>الصور المضافة مع المقال يجب أن تكون ذات جودة جيدة وإلا سيتم إستبدالها من طرف المدققين.</div>
+                                            </div>
+                                            <div>
+                                                <span>5-</span>
+                                                <div>نظراً لأهمية SEO، فيمكن أن تطرأ تغييرات على بعض الكلمات في عنوان المقال الذي تود نشره أو في المقتطف أو في  المقال بحد ذاته.</div>
+                                            </div>
+                                            <div>
+                                                <span>6-</span>
+                                                <div>أي مقال مخالف للقوانين المذكورة أعلاه لا يمر.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="modal-close is-large" aria-label="close"></button>
+                            </div>
+                            @error('policy')
+                                <div class="notification is-flex is-danger mt-1 mb-1 p-2">
+                                    <span class="delete"></span>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
                         <div class="input-container control">
                             <button class="button">التسجيل</button>
                         </div>
@@ -228,3 +283,13 @@
     </div>
 @endsection
 
+@section('js')
+    <script>
+        const policy = document.getElementById('policy-rules');
+        const policyModal = document.getElementById('policy-modal');
+        policy.addEventListener('click', function(e) {
+            e.preventDefault();
+            policyModal.classList.add('is-active');
+        })
+    </script>
+@endsection

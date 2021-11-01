@@ -43,6 +43,25 @@ $myGrey: #383837;
             font-size:25px;
             margin:10px 0 20px;
             font-weight: 600;
+            .modal-message-policy {
+                padding:10px 20px;
+                font-size:16px;
+                &>div {
+                    display:flex;
+                    justify-content: flex-start;
+                    text-align: right;
+                    padding:10px 0;
+                    &>span {
+                        width:10px;
+                        display: block;
+                        margin-left: 10px;
+                        min-width: 10px;
+                    }
+                    &>div:last-of-type {
+                        display: block;
+                    }
+                }
+            }
         }
     }
 }

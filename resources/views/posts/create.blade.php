@@ -115,7 +115,7 @@
                 <div class="col">
                     <div class="input-container">
                         <label for="body" class="mb-2">المقال</label>
-                        <textarea name="body" id="body" value="{{ old('body') }}"></textarea>
+                        <textarea name="body" id="body">{{ old('body') }}</textarea>
                         @error('body')
                             <div class="notification is-flex is-danger mt-1 mb-1 p-2">
                                 <span class="delete"></span>
@@ -188,7 +188,9 @@
         tinymce.init({
             selector: '#body',
             height:350,
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak media',
+            directionality : 'rtl',
+            language:'ar',
             menu: {
                 file: { title: 'File', items: 'newdocument restoredraft | preview | print ' },
                 edit: { title: 'Edit', items: 'undo redo | cut copy paste | selectall | searchreplace' },

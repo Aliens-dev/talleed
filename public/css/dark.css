@@ -198,8 +198,8 @@ label {
   display: none;
 }
 .top-navbar .container .nav-items .nav-more {
-  min-width: 150px;
-  width: 150px;
+  min-width: 220px;
+  width: 220px;
 }
 .top-navbar .container .nav-items .nav-more .nav-link {
   color: #06D3F4;
@@ -207,13 +207,14 @@ label {
   font-size: 20px !important;
   display: flex !important;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 .top-navbar .container .nav-items .nav-more .nav-link img {
   margin-top: 5px;
+  margin-right: 20px;
 }
 
-.m-navbar {
+.m-navbar, .t-navbar {
   display: none;
 }
 
@@ -282,7 +283,6 @@ label {
 .main-navbar .container .nav-brand .logo {
   display: flex;
   align-items: center;
-  margin-left: 20px;
 }
 .main-navbar .container .nav-brand .logo img {
   width: 40px;
@@ -291,6 +291,11 @@ label {
 .main-navbar .container .nav-brand .logo:hover {
   -webkit-animation: rubber;
           animation: rubber;
+}
+.main-navbar .container .nav-brand .nav-name {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
 }
 .main-navbar .container .nav-search {
   background-color: #FFF;
@@ -407,7 +412,7 @@ label {
   transition: all 2s ease-in-out;
 }
 .section-page .page-header .container .main-post .post-title {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 600;
   margin-bottom: 15px;
 }
@@ -517,11 +522,10 @@ label {
 }
 .posts .post .post-info {
   display: grid;
-  grid-template-rows: 50px 1fr 50px;
   padding: 0px 0 10px;
 }
 .posts .post .post-info .post-title {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 600;
 }
 .posts .post .post-info .post-title a {
@@ -1370,6 +1374,14 @@ form .tags-container input {
   cursor: pointer;
 }
 
+.confidentiality {
+  background: #FFF;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin: 50px auto;
+}
+
 /*
     Media Queries
 */
@@ -1605,7 +1617,7 @@ form .tags-container input {
     cursor: pointer;
     width: 75px;
     height: 34px;
-    background: rgba(0, 0, 0, 0.27);
+    background: #06D3F4 !important;
     display: block;
     border-radius: 40px;
     position: relative;
@@ -1839,6 +1851,7 @@ form .tags-container input {
   }
   .posts .post .post-info .post-title {
     font-size: 20px;
+    color: #06D3F4;
   }
   .posts .post .post-info .post-excerpt {
     font-size: 17px;

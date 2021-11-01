@@ -10377,6 +10377,25 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   margin: 10px 0 20px;
   font-weight: 600;
 }
+.modal .modal-content .modal-message .modal-message-policy {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+.modal .modal-content .modal-message .modal-message-policy > div {
+  display: flex;
+  justify-content: flex-start;
+  text-align: right;
+  padding: 10px 0;
+}
+.modal .modal-content .modal-message .modal-message-policy > div > span {
+  width: 10px;
+  display: block;
+  margin-left: 10px;
+  min-width: 10px;
+}
+.modal .modal-content .modal-message .modal-message-policy > div > div:last-of-type {
+  display: block;
+}
 
 .pagination {
   justify-content: center;

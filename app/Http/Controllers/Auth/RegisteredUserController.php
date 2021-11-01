@@ -48,6 +48,7 @@ class RegisteredUserController extends Controller
             'field_id' => 'required|exists:categories,id',
             'social_media_account' => 'required|string|url',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'policy' => 'accepted'
         ];
 
         $request->validate($rules);

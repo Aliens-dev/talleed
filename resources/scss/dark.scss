@@ -201,26 +201,28 @@ label {
                 display:none;
             }
             .nav-more {
-                min-width:150px;
-                width:150px;
+                min-width:220px;
+                width:220px;
                 .nav-link {
                     color:#06D3F4;
                     width: 100%;
                     font-size: 20px !important;
                     display:flex !important;
                     align-items: center;
-                    justify-content: space-around;
+                    justify-content: center;
                     img {
                         margin-top: 5px;
+                        margin-right: 20px;
                     }
                 }
             }
         }
     }
 }
-.m-navbar {
+.m-navbar, .t-navbar {
     display:none;
 }
+
 .search-form {
     display:flex;
     align-items: center;
@@ -282,7 +284,6 @@ label {
             .logo {
                 display: flex;
                 align-items: center;
-                margin-left:20px;
                 img {
                     width:40px;
                     height:40px;
@@ -290,6 +291,11 @@ label {
                 &:hover {
                     animation: rubber;
                 }
+            }
+            .nav-name {
+                display: flex;
+                flex-grow: 1;
+                justify-content: center;
             }
         }
         .nav-search {
@@ -379,7 +385,6 @@ label {
     }
 }
 
-
 .section-page {
     .page-header {
         margin:40px 0;
@@ -408,7 +413,7 @@ label {
                     }
                 }
                 .post-title {
-                    font-size: 25px;
+                    font-size: 22px;
                     font-weight: 600;
                     margin-bottom: 15px;
                     a {
@@ -526,10 +531,9 @@ label {
         }
         .post-info {
             display: grid;
-            grid-template-rows: 50px 1fr 50px;
             padding: 0px 0 10px;
             .post-title {
-                font-size: 25px;
+                font-size: 22px;
                 font-weight: 600;
                 a {
                     color:$light-blue;
@@ -1409,6 +1413,15 @@ form {
 
 }
 
+.confidentiality {
+    background: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 50px auto;
+}
+
+
 /*
     Media Queries
 */
@@ -1642,7 +1655,7 @@ form {
                     cursor: pointer;
                     width: 75px;
                     height: 34px;
-                    background: rgba(0, 0, 0, 0.27);
+                    background: $light-blue !important;
                     display: block;
                     border-radius: 40px;
                     position: relative;
@@ -1886,6 +1899,7 @@ form {
                 grid-row:2;
                 .post-title {
                     font-size: 20px;
+                    color:$light-blue;
                 }
                 .post-excerpt {
                     font-size:17px;

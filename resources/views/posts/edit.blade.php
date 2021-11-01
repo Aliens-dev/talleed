@@ -179,7 +179,9 @@
         tinymce.init({
             selector: '#body',
             height:350,
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak media',
+            directionality : 'rtl',
+            language:'ar',
             menu: {
                 file: { title: 'File', items: 'newdocument restoredraft | preview | print ' },
                 edit: { title: 'Edit', items: 'undo redo | cut copy paste | selectall | searchreplace' },

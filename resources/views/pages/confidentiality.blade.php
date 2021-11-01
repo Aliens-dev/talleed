@@ -3,7 +3,7 @@
 @section("title", "سياسة الخصوصية")
 
 @section("content")
-    <div class="container pt-2 mt-2">
+    <div class="container confidentiality pt-2 mt-2">
         <div class="mb-2">
             <h3 class="title is-3"> سياسة الخصوصية :</h3>
             <p>هذا الموقع تملكه وتديره مبادرة تليد الثقافية ، يرجى الإطلاع بشكل دقيق على الأحكام والشروط أدناه .</p>
