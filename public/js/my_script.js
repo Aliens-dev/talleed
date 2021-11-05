@@ -202,7 +202,7 @@ toggleStyle?.addEventListener('change', function(e) {
 });
 
 toggleSwitch?.addEventListener('change', function() {
-    if(toggleSwitch == null) {
+    if(toggleSwitch !== null) {
         if(toggleSwitch.checked) {
             toggleStyle.value = 'dark';
             styleToggle(toggleStyle)

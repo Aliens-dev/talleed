@@ -11,13 +11,6 @@
   font-family: URWGeometricArabic;
   src: url("/assets/fonts/URWGeometricArabic.ttf");
 }
-/*
-$grey: #383837;
-$grey-text : #9A9A9A;
-$blue: #1F1F1F;
-$light-blue: #06D3F4;
-$background-color: #121212;
-*/
 * {
   margin: 0;
   padding: 0;
@@ -28,17 +21,7 @@ $background-color: #121212;
 }
 
 body {
-  background-color: #F9F9F9;
   position: relative;
-  top: 60px;
-}
-
-.blue {
-  background: #4C31BC;
-}
-
-.light-blue {
-  background-color: #06D3F4;
 }
 
 a {
@@ -57,20 +40,12 @@ label {
 }
 
 .top-navbar {
-  background-color: #FFF;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 99;
   box-shadow: 0 10px 25px 0 rgba(1, 45, 126, 0.04);
-  /*
-  &>div:first-of-type {
-      background-color: $light-blue;
-      display: flex;
-      flex-grow: 1;
-  }
-  */
 }
 .top-navbar .container .switch-button {
   display: none;
@@ -90,7 +65,6 @@ label {
 }
 .top-navbar .container .nav-items .nav-item .nav-link {
   padding: 12px 25px;
-  color: #383837;
   font-size: 20px;
   font-weight: 600;
   display: flex !important;
@@ -99,7 +73,7 @@ label {
   letter-spacing: 1px;
 }
 .top-navbar .container .nav-items .nav-item .nav-link:hover {
-  color: rgba(56, 56, 55, 0.6);
+  opacity: 0.8;
   transition: all 0.3s ease-in-out;
 }
 .top-navbar .container .nav-items .main-item {
@@ -182,7 +156,6 @@ label {
   display: flex;
   justify-content: flex-start;
   background: none;
-  color: #383837 !important;
   outline: none;
   border: none;
   height: auto;
@@ -213,35 +186,7 @@ label {
   display: none;
 }
 
-.search-form {
-  display: flex;
-  align-items: center;
-}
-.search-form label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25px;
-  margin: 0 5px;
-}
-.search-form label img {
-  width: 20px;
-  padding: 2px;
-  filter: invert(72%) sepia(21%) saturate(6956%) hue-rotate(143deg) brightness(103%) contrast(95%);
-}
-.search-form input {
-  border: none;
-  font-size: 15px;
-  padding: 3px 5px;
-  height: 35px;
-  color: #06D3F4;
-}
-.search-form input:focus {
-  outline: none;
-}
-
 .main-navbar {
-  background-color: #4C31BC;
   position: relative;
 }
 .main-navbar .container {
@@ -269,6 +214,8 @@ label {
 .main-navbar .container .nav-brand {
   display: flex;
   align-items: center;
+  justify-content: center;
+  grid-gap: 20px;
   color: #FFF;
   font-size: 25px;
   font-weight: 600;
@@ -289,14 +236,12 @@ label {
 }
 .main-navbar .container .nav-brand .nav-name {
   display: flex;
-  flex-grow: 1;
   justify-content: center;
 }
 .main-navbar .container .nav-search {
   background-color: #FFF;
   border-radius: 50px;
   overflow: hidden;
-  color: #06D3F4;
 }
 .main-navbar .container .nav-search .search-form {
   display: flex;
@@ -319,7 +264,6 @@ label {
   font-size: 15px;
   padding: 3px 5px;
   height: 35px;
-  color: #06D3F4;
 }
 .main-navbar .container .nav-search .search-form input:focus {
   outline: none;
@@ -390,7 +334,6 @@ label {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #FCFCFC;
 }
 .section-page .page-header .container .main-post .post-img {
   overflow: hidden;
@@ -412,16 +355,14 @@ label {
   margin-bottom: 15px;
 }
 .section-page .page-header .container .main-post .post-title a {
-  color: #383837;
   transition: all 0.3s ease-in-out;
 }
 .section-page .page-header .container .main-post .post-title a:hover {
-  color: rgba(56, 56, 55, 0.8);
+  opacity: 0.8;
   transition: all 0.3s ease-in-out;
 }
 .section-page .page-header .container .main-post .post-excerpt {
   font-size: 17px !important;
-  color: #9A9A9A;
 }
 .section-page .page-header .container .sub-posts {
   width: 100%;
@@ -437,7 +378,6 @@ label {
   direction: ltr;
   align-items: center;
   grid-gap: 5px;
-  background-color: #FCFCFC;
 }
 .section-page .page-header .container .sub-posts .post .post-img {
   height: 100%;
@@ -468,16 +408,14 @@ label {
   margin-bottom: 10px;
 }
 .section-page .page-header .container .sub-posts .post .post-info .post-title a {
-  color: #383837;
   transition: all 0.3s ease-in-out;
 }
 .section-page .page-header .container .sub-posts .post .post-info .post-title a:hover {
-  color: rgba(56, 56, 55, 0.8);
+  opacity: 0.8;
   transition: all 0.3s ease-in-out;
 }
 .section-page .page-header .container .sub-posts .post .post-info .post-excerpt {
   font-size: 17px !important;
-  color: #9A9A9A;
 }
 
 .latest-section .container {
@@ -500,7 +438,6 @@ label {
   direction: ltr;
   min-height: 250px;
   height: 250px;
-  background-color: #FCFCFC;
   position: relative;
 }
 .posts .post .post-img .img {
@@ -513,7 +450,7 @@ label {
   height: 215px;
 }
 .posts .post .post-img .post-date {
-  color: #9A9A9A;
+  color: inherit;
 }
 .posts .post .post-info {
   display: grid;
@@ -525,18 +462,16 @@ label {
   font-weight: 600;
 }
 .posts .post .post-info .post-title a {
-  color: #383837;
   transition: all 0.3s ease-in-out;
 }
 .posts .post .post-info .post-title a:hover {
-  color: rgba(56, 56, 55, 0.8);
+  opacity: 0.8;
   transition: all 0.3s ease-in-out;
 }
 .posts .post .post-info .post-excerpt {
   font-size: 17px;
   line-height: 25px;
   margin: 5px 0;
-  color: #9A9A9A;
 }
 .posts .post .post-info .more-button {
   font-size: 17px;
@@ -549,8 +484,6 @@ label {
   content: "";
   top: 5%;
   right: 5%;
-  border-top: 5px solid #4C31BC;
-  border-right: 5px solid #4C31BC;
   width: 20px;
   height: 20px;
 }
@@ -560,7 +493,6 @@ label {
   width: 6px !important;
   height: 6px !important;
   margin: 5px;
-  background-color: #06D3F4;
 }
 
 .watermark-bottom {
@@ -568,8 +500,6 @@ label {
   content: "";
   bottom: 5%;
   left: 5%;
-  border-bottom: 5px solid #4C31BC;
-  border-left: 5px solid #4C31BC;
   width: 20px;
   height: 20px;
 }
@@ -579,7 +509,6 @@ label {
   width: 6px !important;
   height: 6px !important;
   margin: 5px;
-  background-color: #06D3F4;
 }
 
 .posts-page .container {
@@ -627,7 +556,6 @@ label {
   flex-direction: column;
   padding: 5px 20px;
   font-size: 1.2em;
-  background-color: #FEFEFE;
   margin: 5px 0;
 }
 .sidebar .items .item a {
@@ -635,7 +563,7 @@ label {
   flex-grow: 1;
 }
 .sidebar .items .item:hover {
-  background-color: #FAFAFA;
+  opacity: 0.8;
   cursor: pointer;
 }
 .sidebar .items .post {
@@ -666,12 +594,15 @@ label {
   transition: all 0.3s ease-in-out;
 }
 .sidebar .items .post .post-info .post-title a:hover {
-  color: rgba(56, 56, 55, 0.8);
+  opacity: 0.8 !important;
   transition: all 0.3s ease-in-out;
 }
 .sidebar .items .post .post-info .post-subinfo {
   display: flex;
   font-size: 14px;
+}
+.sidebar .items .post .post-info .post-subinfo a {
+  color: inherit;
 }
 .sidebar .items .post .post-info .post-subinfo .post-date {
   margin-right: 10px;
@@ -680,11 +611,10 @@ label {
   display: block;
 }
 .sidebar .side-item {
-  background-color: #FFF;
   box-shadow: 0 10px 25px 0 rgba(1, 45, 126, 0.04);
   border-radius: 5px;
   margin-bottom: 5px;
-  border: 1px solid #EEE;
+  border: 1px solid #333;
 }
 .sidebar .post-tags {
   padding: 5px;
@@ -706,7 +636,6 @@ label {
 .more-bar .bar {
   width: 100%;
   height: 4px;
-  background-color: #4C31BC;
 }
 .more-bar .bar-text {
   position: absolute;
@@ -715,9 +644,7 @@ label {
   align-items: center;
   background-color: #FFF;
   padding: 0px 40px;
-  border: 4px solid #4C31BC;
   border-radius: 100px;
-  color: #4C31BC;
   font-size: 20px;
 }
 .more-bar .bar-text span {
@@ -738,7 +665,6 @@ label {
 }
 
 .footer {
-  background-color: #4C31BC;
   padding: 50px 0;
   margin: 20px 0 0;
 }
@@ -796,7 +722,6 @@ label {
 
 .login-form, .contact-form {
   margin: 60px 80px;
-  background-color: #FFF;
   display: grid;
   grid-template-columns: 3fr 2fr;
   direction: ltr;
@@ -909,9 +834,12 @@ label {
   flex-direction: column;
   flex-grow: 1;
 }
+.col .input-container label {
+  color: #FFF;
+}
 .col .input-container input {
   outline: none;
-  border: 1px solid #CCC;
+  border: 1px solid #333;
   padding: 4px 6px;
 }
 .col .input-container input:focus {
@@ -936,8 +864,6 @@ label {
 }
 
 .register-form {
-  margin: 60px 80px 150px;
-  background-color: #FFF;
   display: grid;
   grid-template-columns: 3fr 2fr;
   direction: ltr;
@@ -970,7 +896,6 @@ label {
   padding: 20px 0;
 }
 .register-form .form-side .wrapper {
-  background-color: #4C31BC;
   opacity: 0.77;
   position: absolute;
   top: 0;
@@ -1015,7 +940,6 @@ label {
 
 .forgot-form {
   margin: 60px 80px;
-  background-color: #FFF;
   display: grid;
   grid-template-columns: 3fr 2fr;
   direction: ltr;
@@ -1102,7 +1026,6 @@ label {
 }
 .user-profile .container .user-sidebar {
   padding: 5px;
-  background-color: #FFF;
   border-top-right-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(1, 45, 126, 0.04);
   font-size: 17px;
@@ -1110,16 +1033,22 @@ label {
 .user-profile .container .user-sidebar .user-options {
   color: #000;
 }
+.user-profile .container .user-sidebar .user-options .my-card .card-title:hover {
+  opacity: 0.8;
+}
 .user-profile .container .user-sidebar .user-options .image {
   filter: invert(32%) sepia(93%) saturate(718%) hue-rotate(201deg) brightness(94%) contrast(94%) !important;
 }
 .user-profile .container .user-sidebar .user-profile-picture img {
   width: 100%;
   height: 100%;
-  border: 2px solid #DDD;
+  border: 2px solid #333;
 }
 .user-profile .container .user-sidebar .user-profile-picture img:hover {
   cursor: pointer;
+}
+.user-profile .container .user-content .my-card .title {
+  color: #FFF;
 }
 
 .post-create {
@@ -1132,14 +1061,12 @@ label {
   align-items: flex-start;
 }
 .post-create .container .post-sidebar {
-  background-color: #FFF;
   border-top-right-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(1, 45, 126, 0.04);
 }
 .post-create .container .post-sidebar .user-options .image {
   filter: invert(19%) sepia(6%) saturate(143%) hue-rotate(22deg) brightness(93%) contrast(87%);
 }
-
 .settings {
   position: absolute;
   top: 10px;
@@ -1156,7 +1083,6 @@ label {
   margin: 0 2px;
   width: 4px;
   height: 4px;
-  background-color: #000;
   border-radius: 50%;
 }
 .settings .dropdown .button .menu-icon {
@@ -1195,7 +1121,6 @@ label {
   display: flex;
   justify-content: center;
   background: none;
-  color: #383837 !important;
   outline: none;
   border: none;
   height: auto;
@@ -1208,7 +1133,6 @@ form .about-author {
 form .tags-container {
   display: flex;
   grid-gap: 5px;
-  border: 1px solid #EEE;
   padding: 2px;
   flex-wrap: wrap;
 }
@@ -1218,9 +1142,6 @@ form .tags-container input {
   width: 100%;
 }
 
-/*
-   Single Post:
- */
 .my-post {
   position: relative;
 }
@@ -1272,7 +1193,6 @@ form .tags-container input {
 .author-card .divider-h {
   width: 6px;
   height: 80px;
-  background-color: #4C31BC;
 }
 .author-card .author-info {
   display: flex;
@@ -1286,7 +1206,6 @@ form .tags-container input {
 }
 
 .tag-btn {
-  border: 1px solid #DDD;
   background-color: #EEE;
   border-radius: 3px;
   padding: 5px;
@@ -1310,7 +1229,6 @@ form .tags-container input {
 }
 
 .confidentiality {
-  background: #FFF;
   padding: 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -1355,7 +1273,6 @@ form .tags-container input {
   }
 
   .footer {
-    background-color: #4C31BC;
     padding: 50px 0;
     margin: 20px 0 0;
   }
@@ -1386,97 +1303,6 @@ form .tags-container input {
     top: 0;
   }
 
-  /*
-  .top-navbar {
-      .container {
-          .switch-button {
-              display:block;
-              padding:5px 10px;
-          }
-          .nav-items {
-              align-items: center;
-              flex-direction: column;
-              display:none;
-              .nav-item {
-                  display:flex;
-                  align-items: center;
-                  justify-content: center;
-                  width:100%;
-                  z-index: 100 !important;
-                  background-color: #FFF;
-                  .nav-link {
-                      display:block;
-                      padding:12px 25px;
-                      color:#383837;
-                      font-size:18px;
-                      font-weight:600;
-                  }
-              }
-              .nav-xl-hidden {
-                  display:block;
-              }
-              .main-item {
-                  background-color:#06D3F4;
-                  min-width:100%;
-                  .nav-link {
-                      padding:12px;
-                      color:#FFF !important;
-                      display:flex;
-                      justify-content: center;
-                      font-size:20px;
-                      font-weight:600;
-                  }
-                  .dropdown {
-                      background-color:#06D3F4;
-                      width:100%;
-                      .dropdown-trigger {
-                          padding-left: 0;
-                          padding-right: 0;
-                          width:100%;
-                          .button {
-                              background-color:#06D3F4;
-                              border:none;
-                              outline:none;
-                              padding-right:0;
-                              padding-left:0;
-                              min-width: 100%;
-                              display: flex;
-                              justify-content: space-around;
-                              &:focus {
-                                  box-shadow: none;
-                                  outline:none !important;
-                              }
-                              .icon {
-                                  border:1px solid #FFF;
-                                  border-radius: 50%;
-                                  height:40px;
-                                  width: 40px;
-                                  background-color:#FFF;
-                              }
-                          }
-                      }
-                      .dropdown-menu {
-                          form {
-                              .button {
-                                  font-size: inherit;
-                                  padding:0;
-                                  display:flex;
-                                  justify-content: center;
-                                  background:none;
-                                  color:$grey !important;
-                                  outline:none;
-                                  border:none;
-                                  height:auto;
-                                  font-family: "URWGeometricArabic";
-                              }
-                          }
-                      }
-                  }
-              }
-          }
-      }
-  }
-  */
   .top-navbar {
     display: none !important;
   }
@@ -1485,10 +1311,13 @@ form .tags-container input {
     display: none;
   }
 
+  #app {
+    top: 0;
+  }
+
   .m-navbar {
     height: 50px;
     display: block;
-    background-color: #FFF;
     z-index: 999;
     padding: 0 5px;
   }
@@ -1521,7 +1350,6 @@ form .tags-container input {
     width: 40px;
     margin: 5px 0;
     height: 3px;
-    background-color: #4C31BC;
   }
   .m-navbar .m-nav .toggle {
     display: flex;
@@ -1548,7 +1376,7 @@ form .tags-container input {
     cursor: pointer;
     width: 75px;
     height: 34px;
-    background: #06D3F4;
+    background: #06D3F4 !important;
     display: block;
     border-radius: 40px;
     position: relative;
@@ -1575,7 +1403,6 @@ form .tags-container input {
     top: 0;
     bottom: 0;
     right: -100%;
-    background-color: #FFF;
     z-index: 999;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 10px 25px 0 rgba(1, 45, 126, 0.04);
@@ -1588,7 +1415,6 @@ form .tags-container input {
   .m-navbar .m-menu .cross-bars > div {
     width: 40px;
     height: 3px;
-    background-color: #4C31BC;
     position: relative;
   }
   .m-navbar .m-menu .cross-bars > div:first-of-type {
@@ -1605,7 +1431,6 @@ form .tags-container input {
   }
   .m-navbar .m-menu .m-item .m-link {
     font-size: 18px;
-    color: #1E1E23;
     font-weight: bold;
     display: block;
   }
@@ -1614,6 +1439,9 @@ form .tags-container input {
   }
   .m-navbar .m-menu .m-item:hover {
     background-color: #EFEFEF;
+  }
+  .m-navbar .m-menu .search-form {
+    background-color: #FFF;
   }
   .m-navbar .m-menu .main-item {
     background-color: #06D3F4;
@@ -1656,7 +1484,6 @@ form .tags-container input {
   .t-navbar {
     height: 50px;
     display: block;
-    background-color: #4C31BC;
     z-index: 999;
     padding: 0 5px;
   }
@@ -1767,9 +1594,6 @@ form .tags-container input {
   .posts .post .post-img .img img {
     width: auto;
     height: auto;
-  }
-  .posts .post .post-img .post-date {
-    color: #9A9A9A;
   }
   .posts .post .post-info {
     display: grid;

@@ -19120,6 +19120,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/scss/light.scss":
+/*!***********************************!*\
+  !*** ./resources/scss/light.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/scss/bulma.scss":
 /*!***********************************!*\
   !*** ./resources/scss/bulma.scss ***!
@@ -19451,9 +19464,10 @@ process.umask = function() { return 0; };
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/admin": 0,
-/******/ 			"css/dark": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/bulma": 0
+/******/ 			"css/bulma": 0,
+/******/ 			"css/light": 0,
+/******/ 			"css/dark": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -19501,11 +19515,12 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/dark","css/app","css/bulma"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/dark","css/app","css/bulma"], () => (__webpack_require__("./resources/scss/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/dark","css/app","css/bulma"], () => (__webpack_require__("./resources/scss/dark.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/dark","css/app","css/bulma"], () => (__webpack_require__("./resources/scss/bulma.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/admin","css/dark","css/app","css/bulma"], () => (__webpack_require__("./resources/scss/admin.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/app","css/bulma","css/light","css/dark"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/app","css/bulma","css/light","css/dark"], () => (__webpack_require__("./resources/scss/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/app","css/bulma","css/light","css/dark"], () => (__webpack_require__("./resources/scss/dark.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/app","css/bulma","css/light","css/dark"], () => (__webpack_require__("./resources/scss/light.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/app","css/bulma","css/light","css/dark"], () => (__webpack_require__("./resources/scss/bulma.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/admin","css/app","css/bulma","css/light","css/dark"], () => (__webpack_require__("./resources/scss/admin.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

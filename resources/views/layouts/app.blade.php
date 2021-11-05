@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title> تليد | @yield("title") </title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="stylesheet" href="{{ asset('css/bulma.css?ver=1.12') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css?ver='). \Illuminate\Support\Str::random(5) }}">
         <link rel="stylesheet" class="dark-css" media="none" href="{{ asset('css/dark.css?ver='). \Illuminate\Support\Str::random(5) }}">
-        <link rel="stylesheet" class="light-css" media="" href="{{ asset('css/app.css?ver='). \Illuminate\Support\Str::random(5) }}">
+        <link rel="stylesheet" class="light-css" href="{{ asset('css/light.css?ver='). \Illuminate\Support\Str::random(5) }}">
     </head>
     <body>
         <div id="app">
@@ -32,8 +32,7 @@
             </div>
         </div>
         @include("layouts.footer")
-        <script src="{{ asset('js/app.js?ver=1.12') }}"></script>
-        <script src="{{ asset('js/my_script.js?ver=1.12') }}" defer></script>
+        <script src="{{ asset('js/my_script.js?ver=') . \Illuminate\Support\Str::random(5) }} }}" defer></script>
         @yield('js')
     </body>
 </html>
