@@ -10367,9 +10367,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   margin: 10px auto 20px;
   text-align: center;
 }
-.modal .modal-content .modal-image img {
-  filter: invert(13%) sepia(100%) saturate(4602%) hue-rotate(254deg) brightness(79%) contrast(84%);
-}
 .modal .modal-content .modal-message {
   text-align: center;
   color: #4C31BC;

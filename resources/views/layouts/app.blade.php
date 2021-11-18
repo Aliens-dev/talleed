@@ -6,10 +6,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title> تليد | @yield("title") </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <link rel="stylesheet" href="{{ asset('css/bulma.css?ver=1.12') }}">
-        <link rel="stylesheet" href="{{ asset('css/app.css?ver='). \Illuminate\Support\Str::random(5) }}">
-        <link rel="stylesheet" class="dark-css" media="none" href="{{ asset('css/dark.css?ver='). \Illuminate\Support\Str::random(5) }}">
-        <link rel="stylesheet" class="light-css" href="{{ asset('css/light.css?ver='). \Illuminate\Support\Str::random(5) }}">
+        @php
+            $rnd = \Illuminate\Support\Str::random(5);
+        @endphp
+        <link rel="stylesheet" href="{{ asset('css/bulma.css?ver=') .$rnd }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css?ver=') .$rnd  }}">
+        <link rel="stylesheet" class="dark-css" media="none" href="{{ asset('css/dark.css?ver=') .$rnd }}">
+        <link rel="stylesheet" class="light-css" href="{{ asset('css/light.css?ver=') .$rnd }}">
     </head>
     <body>
         <div id="app">
@@ -32,7 +35,7 @@
             </div>
         </div>
         @include("layouts.footer")
-        <script src="{{ asset('js/my_script.js?ver=') . \Illuminate\Support\Str::random(5) }} }}" defer></script>
+        <script src="{{ asset('js/my_script.js?ver=') .$rnd }}" defer></script>
         @yield('js')
     </body>
 </html>

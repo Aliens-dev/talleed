@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="93.352" height="100.024" viewBox="0 0 93.352 100.024">
     <g id="Groupe_6" data-name="Groupe 6" transform="translate(1103.34 -3156)">
         <g id="Groupe_4" data-name="Groupe 4" transform="translate(-1103.34 3156)">
-            <path id="Tracé_24" data-name="Tracé 24" d="M434.012,460.39a46.676,46.676,0,1,1-93.352,0H354a33.338,33.338,0,1,0,66.675,0Z" transform="translate(-340.66 -407.043)" fill="#06D3F4"/>
-            <rect id="Rectangle_9" data-name="Rectangle 9" width="13.336" height="13.336" transform="translate(66.677 26.673)" fill="#06D3F4"/>
-            <rect id="Rectangle_10" data-name="Rectangle 10" width="13.338" height="13.336" transform="translate(13.334 26.673)" fill="#06D3F4"/>
-            <path id="Tracé_25" data-name="Tracé 25" d="M434.027,163.97v13.343H394.016v40.011H380.673V177.313H340.68V163.97Z" transform="translate(-340.676 -163.97)" fill="#06D3F4"/>
+            <path id="Tracé_24" data-name="Tracé 24" d="M434.012,460.39a46.676,46.676,0,1,1-93.352,0H354a33.338,33.338,0,1,0,66.675,0Z" transform="translate(-340.66 -407.043)" fill="#4C31BC"/>
+            <rect id="Rectangle_9" data-name="Rectangle 9" width="13.336" height="13.336" transform="translate(66.677 26.673)" fill="#4C31BC"/>
+            <rect id="Rectangle_10" data-name="Rectangle 10" width="13.338" height="13.336" transform="translate(13.334 26.673)" fill="#4C31BC"/>
+            <path id="Tracé_25" data-name="Tracé 25" d="M434.027,163.97v13.343H394.016v40.011H380.673V177.313H340.68V163.97Z" transform="translate(-340.676 -163.97)" fill="#4C31BC"/>
         </g>
     </g>
 </svg>

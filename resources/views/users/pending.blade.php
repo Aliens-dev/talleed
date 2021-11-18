@@ -9,7 +9,7 @@
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="modal-image">
-                    <img src="/assets/img/logo.svg" alt="taleed Logo" />
+                    <img src="/assets/img/logo-invert.svg" alt="taleed Logo" />
                 </div>
                 <div class="modal-message">
                     {{ session()->get('profile_activated') }}

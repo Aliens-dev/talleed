@@ -12,7 +12,7 @@
                     <a href="{{route('index')}}">العودة الى الرئيسية</a>
                 </x-my-divider>
                 <div class="modal-image">
-                    <img src="/assets/img/logo.svg" alt="taleed Logo" />
+                    <img src="/assets/img/logo-invert.svg" alt="taleed Logo" />
                 </div>
                 <div class="modal-message">
                     تم التسجيل بنجاح, من فضلك تفقد ايميلك لتفعيل الحساب
@@ -185,7 +185,7 @@
                                 <div class="modal-background"></div>
                                 <div class="modal-content" style="width:800px">
                                     <div class="modal-image">
-                                        <img src="/assets/img/logo.svg" alt="taleed Logo" />
+                                        <img src="/assets/img/logo-invert.svg" alt="taleed Logo" />
                                     </div>
                                     <div class="modal-message">
                                         <div class="modal-message-policy">

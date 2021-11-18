@@ -181,21 +181,28 @@ dataToggle.forEach((element)=> {
 
 const toggleStyle = document.getElementById('toggle-style')
 const toggleSwitch = document.getElementById('toggle-switch');
-let selectedMode = localStorage.getItem('styleMode');
+const mainNavLogos = document.querySelectorAll('.main-nav-logo')
 
+let selectedMode = localStorage.getItem('styleMode');
 document.addEventListener('DOMContentLoaded', function (e) {
     const type = localStorage.getItem('styleMode') || ''
-    if(toggleSwitch) {
-        if(type === 'dark') {
-            toggleStyle.value = 'dark';
-            styleToggle(toggleStyle)
+    if(type === 'dark') {
+        toggleStyle.value = 'dark';
+        styleToggle(toggleStyle)
+        mainNavLogos.forEach(nav => {
+            console.log(nav.getAttribute('src'))
+        })
+        if(toggleSwitch) {
             toggleSwitch.checked = true;
-        }else {
-            toggleStyle.value = 'light';
-            styleToggle(toggleStyle)
+        }
+    }else {
+        toggleStyle.value = 'light';
+        styleToggle(toggleStyle)
+        if(toggleSwitch) {
             toggleSwitch.checked = false;
         }
     }
+
 })
 toggleStyle?.addEventListener('change', function(e) {
     styleToggle(e.target)

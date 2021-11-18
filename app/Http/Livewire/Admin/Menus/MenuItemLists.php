@@ -49,7 +49,7 @@ class MenuItemLists extends Component
     public function addItem()
     {
         $rules = [
-            'newItem.title' => 'required|string|unique:menu_items,title',
+            'newItem.title' => 'required|string',
             'newItem.url' => 'required|string',
         ];
 
