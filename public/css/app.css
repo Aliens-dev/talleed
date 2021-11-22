@@ -1162,6 +1162,9 @@ form .tags-container input {
   align-items: flex-start;
   justify-content: space-between;
 }
+.disqus_thread {
+  display: none !important;
+}
 .my-post .container .post-author .social-share {
   display: flex;
   padding: 15px 0;
