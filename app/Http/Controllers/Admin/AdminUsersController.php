@@ -27,11 +27,11 @@ class AdminUsersController extends Controller
         $rules = [
             'action' => "required|in:pending,activated"
         ];
-        $this->validate($request,$rules);
-        if(! $user->hasVerifiedEmail()) {
+        $this->validate($request, $rules);
+        if ($user->hasVerifiedEmail()) {
             $user->markEmailAsVerified();
             event(new UserVerifiedEvent($user));
-        }else {
+        } else {
             $user->email_verified_at = null;
             event(new UserDisabledEvent($user));
         }
