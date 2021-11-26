@@ -16,7 +16,7 @@ class ContactController extends Controller
 
     public function show(Request $request, $contactId)
     {
-        $contact = Contact::findOrFail($contactId)->first();
+        $contact = Contact::findOrFail($contactId);
         return view('admin.contact.show',compact('contact'));
     }
 
