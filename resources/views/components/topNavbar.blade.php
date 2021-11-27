@@ -105,7 +105,7 @@
                     <img src="/assets/img/more.svg" width="25" height="25" alt="edit" />
                 </div>
                 @if(! is_null($topMenu))
-                    @php $items = $topMenu->items()->offset(8)->limit(4)->get() @endphp
+                    @php $items = $topMenu->items()->offset(8)->limit(10)->get() @endphp
                     <div class="dropdown-menu" id="dropdown-menu" role="menu">
                         <div class="dropdown-content">
                             @foreach($items as $item)
