@@ -31,7 +31,7 @@ class ContactMessage extends Mailable
     public function build()
     {
         return $this->subject($this->contact->subject)
-            ->from($this->contact->email, '')
+            ->from('no-reply@talleed.com', 'Contact')
             ->view('emails.contact');
     }
 }
