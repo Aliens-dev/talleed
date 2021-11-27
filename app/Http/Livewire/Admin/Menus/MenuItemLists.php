@@ -57,7 +57,7 @@ class MenuItemLists extends Component
 
         $menuItem = new MenuItem();
         $menuItem->title = $this->newItem['title'];
-        $menuItem->order = $this->menu->items()->count() > 0 ? $this->menu->items()->orderBy('order','DESC')->first()->order + 1 : 0;
+        $menuItem->order = $this->menu->items()->count() != 0 ? $this->menu->items()->orderBy('order', 'DESC')->first()->order + 1 : 0;
         $menuItem->menu_id = $this->menu->id;
         $menuItem->url = $this->newItem['url'];
         $menuItem->save();
