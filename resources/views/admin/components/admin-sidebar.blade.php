@@ -52,6 +52,12 @@
                 </div>
                 <div class="text">القوائم</div>
             </a>
+            <a  href="{{ route('admin.team.index') }}" class="sidebar-item ripple">
+                <div class="icon">
+                    <img src="/assets/img/menus.svg" width="20" height="20" alt="">
+                </div>
+                <div class="text">فرق الموقع</div>
+            </a>
             <a  href="{{ route('admin.account.index') }}" class="sidebar-item ripple">
                 <div class="icon">
                     <img src="/assets/img/user.svg" width="20" height="20" alt="">

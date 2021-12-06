@@ -171,6 +171,14 @@ dataToggle.forEach((element)=> {
     element.addEventListener('click', function(e) {
         const collapse = element.nextElementSibling.children[0]
         collapse.classList.toggle('collapse');
+        const arrow = document.querySelector('.arrow')
+        if(arrow !== null) {
+            if (collapse.classList.contains('collapse')) {
+                arrow.setAttribute('src','/assets/img/chevron-c-down.svg');
+            }else {
+                arrow.setAttribute('src','/assets/img/chevron-c-up.svg');
+            }
+        }
     })
 })
 
@@ -256,3 +264,7 @@ searchLabel?.addEventListener('click', function(){
     }
 });
 
+
+/*
+*  Teams Collapse
+* */

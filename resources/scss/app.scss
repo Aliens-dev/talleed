@@ -1254,6 +1254,54 @@ form {
     margin: 50px auto;
 }
 
+
+.our-team .container .card-items {
+    max-width: 750px;
+}
+.our-team .container .card-items .card-item {
+    margin-bottom: 25px;
+}
+.our-team .container .card-items .card-item .card-item-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: rtl;
+    text-align: right;
+    height: 60px;
+    background-color: #fff;
+    padding: 0 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.our-team .container .card-items .card-item .card-item-header img {
+    width: 30px;
+    height: 30px;
+    filter: invert(69%) sepia(67%) saturate(2556%) hue-rotate(148deg) brightness(99%) contrast(105%);
+}
+
+.our-team .container .card-items .card-item .card-item-body {
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+    display: flex;
+    background: #fff;
+    margin-top: 5px;
+}
+.our-team .container .card-items .card-item .card-item-body > div {
+    flex: 1;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+.our-team .container .card-items .card-item .card-item-body .author-card {
+    padding: 20px 5px;
+}
+.d-none {
+    display: none;
+}
+
+
 /*
     Media Queries
 */

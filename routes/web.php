@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminTagsController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Category\CategoryPostsController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PagesController;
@@ -28,6 +29,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [PagesController::class,'index'])->name('index');
 Route::get('/contact', [PagesController::class,'contact'])->name('contact');
+Route::get('/team', [PagesController::class,'team'])->name('team');
 Route::post('/contact', [PagesController::class,'contactPost'])->name('contact.post');
 Route::get('/about', [PagesController::class,'about'])->name('about');
 Route::get('/confidentiality', [PagesController::class,'confidentiality'])->name('confidentiality');
@@ -88,6 +90,8 @@ Route::group(['prefix' => 'panel_admin', 'middleware' => ['auth','admin.auth']],
     Route::get('/menus', [MenuController::class,"index"])->name('admin.menu.index');
     Route::get('/menus/{id}', [MenuController::class,"show"])->name('admin.menu.show');
 
+    Route::get('/teams', [TeamController::class,"index"])->name('admin.team.index');
+    Route::get('/teams/{id}', [TeamController::class,"show"])->name('admin.team.show');
 });
 
 

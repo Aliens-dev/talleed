@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\ContactMessageSent;
 use App\Models\Contact;
 use App\Models\Post;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -24,6 +25,12 @@ class PagesController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    public function team()
+    {
+        $teams = Team::all();
+        return view('pages.team', compact('teams'));
     }
 
     public function contactPost(Request $request)

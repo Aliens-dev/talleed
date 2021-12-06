@@ -68,7 +68,7 @@
                     <a href="{{ route('confidentiality') }}" class="footer-row">
                         سياسة الخصوصية
                     </a>
-                    <a href="#" class="footer-row">
+                    <a href="{{ route('team') }}" class="footer-row">
                         فريق الادارة
                     </a>
                 </div>
